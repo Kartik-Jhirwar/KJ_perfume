@@ -1,71 +1,13 @@
-@import url("https://iqra-ui.netlify.app/stylesheets/main.css");
 body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-html {
-  font-size: 62.5%;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-input[type="checkbox"] {
-  cursor: pointer;
-}
-
-/* colors*/
-:root {
-  --primary-color: #750634;
-  --secondary-color: #f50c6d;
-  --secondary-light-pink: #f75699;
-  --secondary-color-dark: #752949;
-  --primary-color-light: #c20a56;
-  --light-rose: #f43f5e;
-  --light-green: #7ef246;
-  --dark-green: #40a60f;
-  --red-color: red;
-  --black-color: black;
-}
-
-/* font size */
-:root {
-  --nav-icon-sm: 1.7rem;
-  --margin-padding-sm: 0.3rem;
-}
-.link-btn:hover {
-  color: var(--light-rose);
-  font-weight: 700;
-  border: 4px solid var(--light-rose);
-  background: transparent;
-}
-.btn-wishlist {
-  cursor: pointer;
-}
-/* hover effects */
-.btn:hover {
-  background-color: var(--light-rose);
-  border: 1px solid var(--light-rose);
-  color: var(--white-color);
-  font-weight: bold;
 }
