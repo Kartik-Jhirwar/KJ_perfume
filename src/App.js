@@ -1,10 +1,14 @@
 import "./App.css";
-import logo from "./logo.png";
+import Nav from "./components/nav/Nav";
+// import {Routes,Route} from "react-router";
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <Nav/>
     </div>
   );
 }
