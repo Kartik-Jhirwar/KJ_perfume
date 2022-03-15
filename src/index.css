@@ -1,24 +1,20 @@
 @import url("https://iqra-ui.netlify.app/stylesheets/main.css");
+@import url("/node_modules/mockman-js/dist/style.css");
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-html {
-  font-size: 62.5%;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
+}
+
+/*  reset css */
+html {
+  font-size: 62.5%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 a {
