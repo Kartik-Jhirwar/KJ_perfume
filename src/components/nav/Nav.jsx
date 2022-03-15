@@ -44,7 +44,7 @@ function Nav() {
           <li className="nav-item">
             <Link to="">
               <span className="nav-icon">
-                <FaUserAlt/>               
+                <FaUserAlt title="Log In"/>               
               </span>
             </Link>
           </li>
@@ -52,7 +52,7 @@ function Nav() {
           <li className="nav-item">
             <Link to="">
               <span className="nav-icon">   
-                      <FaRegHeart/>               
+                      <FaRegHeart title="WishList"/>               
               </span>
             </Link>
           </li>
@@ -60,7 +60,7 @@ function Nav() {
           <li className="nav-item">
             <Link to="">
               <span className="nav-icon">                             
-               <FaShoppingBag/>
+               <FaShoppingBag title="Cart"/>
               </span>
             </Link>
           </li>
