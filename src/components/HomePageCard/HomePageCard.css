@@ -1,0 +1,18 @@
+.card-for-ecommerce {
+  width: 27rem;
+  height: auto;
+}
+
+.card-image {
+  height: 27rem;
+  width: 27rem;
+  background: transparent;
+}
+
+.card-title-pink {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: var(--secondary-light-pink);
+  display: flex;
+  justify-content: center;
+}

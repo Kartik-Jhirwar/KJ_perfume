@@ -1,13 +1,11 @@
 import React from 'react';
 import "../nav/nav.css";
-import Mehaklogo from "../../assets/Mehak.png";
 import { Link } from "react-router-dom";
 import SearchBar from '../Searchbar/searchbar';
-import { FiHeart } from "react-icons/fi";
 import { FaRegHeart,FaShoppingBag,FaUserAlt } from "react-icons/fa";
 
 
-function Nav() {
+const Nav = ()=> {
   return (   
     
       <nav className="navbar">
@@ -30,7 +28,7 @@ function Nav() {
       
       <div className="logo-container">
         <div className="logo">
-          <img className="logo-image" src={Mehaklogo} />
+          <img className="logo-image" src="./assets/Mehak.png" />
         </div>
 
         <div className="logo-text">
