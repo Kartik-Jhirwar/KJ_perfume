@@ -1,5 +1,6 @@
 import React from 'react'
 import "../HomePageCard/HomePageCard.css";
+import { Link } from 'react-router-dom';
 
 
  export const HomePageCard = ({Item}) => {
@@ -10,11 +11,11 @@ import "../HomePageCard/HomePageCard.css";
                 </div>
 
                 <div className="card-body">
-                  <a href="/HtmlFiles/productlist.html">
+                  <Link to="">
                     <span className="card-title card-title-pink">
                       {Item.subtitle}
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>            
   )
