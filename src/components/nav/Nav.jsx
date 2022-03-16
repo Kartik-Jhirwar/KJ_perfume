@@ -16,7 +16,7 @@ const Nav = ()=> {
           </li>
 
           <li className="nav-item">
-            <Link to="/">Shop</Link>
+            <Link to="/Productpage">Shop</Link>
           </li>          
 
           <li className="nav-item">
