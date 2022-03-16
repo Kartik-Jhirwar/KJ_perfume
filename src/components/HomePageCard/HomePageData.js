@@ -1,4 +1,4 @@
-const EpicDealItem = [
+const epicDealItem = [
  
   {
     image: "./assets/laurissi.jpg",
@@ -15,7 +15,7 @@ const EpicDealItem = [
  
 ];
 
-const TopBrandItem = [
+const topBrandItem = [
   {
     image: "./assets/CHANEL.jpg",
     subtitle: "Shalimar Eau De Toilette Spray"
@@ -32,4 +32,4 @@ const TopBrandItem = [
 
 
 
-export {EpicDealItem, TopBrandItem };
+export {epicDealItem, topBrandItem };

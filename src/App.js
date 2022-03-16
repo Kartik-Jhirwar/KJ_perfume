@@ -7,13 +7,15 @@ import Home from "./pages/Home/Home";
 
 function App() {
   return (
-    <div className="grid-container">
+    <div className="App">
+      <div className="grid-container">
 
       <Nav/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/mockman" element={<MockMan/>}/>
       </Routes>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {EpicDealItem, TopBrandItem } from "../../components/HomePageCard/HomePageData";
+import {epicDealItem, topBrandItem } from "../../components/HomePageCard/HomePageData";
 import { HomePageCard } from '../../components/HomePageCard/HomePageCard';
 import "../Home/HomePage.css";
 import { Link } from "react-router-dom";
@@ -24,9 +24,9 @@ const Home = () => {
       <h2 className="heading">EPIC DEALS ON BIG BRANDS</h2>
       <div className="feature-brand-container">
         <div className="discount-images-container">
-          {EpicDealItem.map((item) => {
+          {epicDealItem.map((item) => {
             return (            
-            <HomePageCard Item={item}/>
+            <HomePageCard userItem={item}/>
             );
           })}
         </div>
@@ -34,9 +34,9 @@ const Home = () => {
       <h2 className="heading">TOP PRODUCTS FOR YOU</h2>
       <div className="feature-brand-container">
         <div className="discount-images-container">
-          {TopBrandItem.map((item) => {
+          {topBrandItem.map((item) => {
             return (              
-              <HomePageCard Item={item}/>
+              <HomePageCard userItem={item}/>
             );
           })}
         </div>
