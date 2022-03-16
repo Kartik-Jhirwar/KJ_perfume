@@ -3,6 +3,8 @@ import {epicDealItem, topBrandItem } from "../../components/HomePageCard/HomePag
 import { HomePageCard } from '../../components/HomePageCard/HomePageCard';
 import "../Home/HomePage.css";
 import { Link } from "react-router-dom";
+import { Footer } from '../../components/Footer/Footer';
+
 
 const Home = () => {
   return (
@@ -41,6 +43,7 @@ const Home = () => {
           })}
         </div>
       </div>
+      <Footer/>
       </section>
   )
 }

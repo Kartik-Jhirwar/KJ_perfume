@@ -9,14 +9,13 @@ function App() {
   return (
     <div className="App">
       <div className="grid-container">
-
       <Nav/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/mockman" element={<MockMan/>}/>
       </Routes>
       </div>
-    </div>
+      </div>
   );
 }
 
