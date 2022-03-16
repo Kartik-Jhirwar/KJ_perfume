@@ -18,7 +18,7 @@ export const products = [
     discountOffer:"40% off",
     isSoldOut:true,
     fastDelivery:false,
-    image:".assets/MEN/Acqua-di-Gio-Essenza-Giorgio-Armani_men.jpg",
+    image:"./assets/MEN/Acqua-di-Gio-Essenza-Giorgio-Armani_men.jpg",
     categoryName: "Men",
   },
   {
@@ -33,7 +33,7 @@ export const products = [
     discountOffer:"20% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:".assets/MEN/Allure-Homme-Sport_chanel-men.jpg",
+    image:"./assets/MEN/Allure-Homme-Sport_chanel-men.jpg",
     categoryName: "Men",
   },
   {
@@ -48,7 +48,7 @@ export const products = [
     discountOffer:"30% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:".assets/MEN/armani-prive-cuir_men.jpg",
+    image:"./assets/MEN/armani-prive-cuir_men.jpg",
     categoryName: "Men",
   },
   {
@@ -63,7 +63,7 @@ export const products = [
     discountOffer:"15% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:".assets/MEN/Armani-Royal-Oud_men.jpg",
+    image:"./assets/MEN/Armani-Royal-Oud_men.jpg",
     categoryName: "Men",
   },
   {
@@ -78,7 +78,7 @@ export const products = [
     discountOffer:"50% off",
     isSoldOut:false,
     fastDelivery:false,
-    image:".assets/MEN/armanisundigioia_men.jpg",
+    image:"./assets/MEN/armanisundigioia_men.jpg",
     categoryName: "Men",
   },
   {
@@ -93,7 +93,7 @@ export const products = [
     discountOffer:"20% off",
     isSoldOut:true,
     fastDelivery:false,
-    image:".assets/MEN/chanel-paris-men.jpg",
+    image:"./assets/MEN/chanel-paris-men.jpg",
     categoryName: "Men",
   },
   {
@@ -108,7 +108,7 @@ export const products = [
     discountOffer:"30% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:".assets/MEN/chanel-platinum-egoiste_men.jpg",
+    image:"./assets/MEN/chanel-platinum-egoiste_men.jpg",
     categoryName: "Men",
   },
   {
@@ -123,7 +123,7 @@ export const products = [
     discountOffer:"60% off",
     isSoldOut:true,
     fastDelivery:false,
-    image:".assets/MEN/Gucci-IntenseOud-UseMe_men.png",
+    image:"./assets/MEN/Gucci-IntenseOud-UseMe_men.png",
     categoryName: "Men",
   },
   {
@@ -138,7 +138,7 @@ export const products = [
     discountOffer:"40% off",
     isSoldOut:false,
     fastDelivery:false,
-    image:".assets/MEN/gucci-oud_men.jpg",
+    image:"./assets/MEN/gucci-oud_men.jpg",
     categoryName: "Men",
   },
   {
@@ -153,7 +153,7 @@ export const products = [
     discountOffer:"10% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:".assets/MEN/zara-nuit-men.jpg",
+    image:"./assets/MEN/zara-nuit-men.jpg",
     categoryName: "Men",
   },
   {
@@ -168,7 +168,7 @@ export const products = [
     discountOffer:"30% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:".assets/WOMEN/Armani-Si_women.jpg",
+    image:"./assets/WOMEN/Armani-Si_women.jpg",
     categoryName: "Women",
   },
   {
@@ -183,7 +183,7 @@ export const products = [
     discountOffer:"20% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:".assets/WOMEN/ArmaniSIFioriforWomen.jpg",
+    image:"./assets/WOMEN/ArmaniSIFioriforWomen.jpg",
     categoryName: "Women",
   },
   {
@@ -198,7 +198,7 @@ export const products = [
     discountOffer:"40% off",
     isSoldOut:false,
     fastDelivery:false,
-    image:".assets/WOMEN/MODERN-MUSE-ESTEE-LAUDER-women.jpg",
+    image:"./assets/WOMEN/MODERN-MUSE-ESTEE-LAUDER-women.jpg",
     categoryName: "Women",
   },
   {
@@ -213,7 +213,7 @@ export const products = [
     discountOffer:"40% off",
     isSoldOut:true,
     fastDelivery:true,
-    image:".assets/WOMEN/Estee-Lauder-Pleasures-For-Women_.jpg",
+    image:"./assets/WOMEN/Estee-Lauder-Pleasures-For-Women_.jpg",
     categoryName: "Women",
   },
   {
@@ -228,7 +228,7 @@ export const products = [
     discountOffer:"70% off",
     isSoldOut:true,
     fastDelivery:true,
-    image:".assets/WOMEN/zara-fruity-women.jpg",
+    image:"./assets/WOMEN/zara-fruity-women.jpg",
     categoryName: "Women",
   },
   {
@@ -243,7 +243,7 @@ export const products = [
     discountOffer:"10% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:".assets/WOMEN/zara-oriental-women.jpg",
+    image:"./assets/WOMEN/zara-oriental-women.jpg",
     categoryName: "Women",
   },
   {
@@ -258,7 +258,7 @@ export const products = [
     discountOffer:"50% off",
     isSoldOut:false,
     fastDelivery:false,
-    image:".assets/WOMEN/zara-red-vanila-women.jpg",
+    image:"./assets/WOMEN/zara-red-vanila-women.jpg",
     categoryName: "Women",
   },
 ];

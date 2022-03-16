@@ -20,7 +20,7 @@ import "../categories/categories.css";
     <div className="category-options">
         {categories.map((category)=>{
             return(
-            < div className="category-container" key={category}>
+            < div className="category-container" key={category.id}>
             <Link to={`/Productpage?category=${category._id}`}
             key={category._id}>
                 {category.categoryName}
