@@ -1,7 +1,7 @@
 import React from 'react'
 import "../Searchbar/searchbar.css";
 
-function SearchBar() {
+const SearchBar = () => {
   return (
     <div className="serchbox-container">
               <input

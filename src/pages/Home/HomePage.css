@@ -1,0 +1,90 @@
+.main-images-container {
+  grid-column: 1/-1;
+  min-height: 90vh;
+  min-width: 100%;
+  flex-grow: 2;
+}
+
+.image-with-badges {
+  height: 100vh;
+  min-width: 100%;
+  position: relative;
+}
+
+.home-page-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.home-product-badge {
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  top: 4rem;
+  left: 5rem;
+  padding: 1rem;
+  color: var(--dark-sky);
+}
+
+.product-with-arrow {
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: -webkit-linear-gradient(#eee, var(--primary-color-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.product-with-arrow:hover {
+  background: -webkit-linear-gradient(rgb(22, 22, 22), rgb(172, 172, 18));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heading {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 2.5rem;
+}
+
+.feature-brand-container {
+  max-width: 90vw;
+  margin: 1rem auto;
+  min-height: 60vh;
+}
+
+.discount-images-container {
+  min-width: 50vw;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
+.quote {
+  line-height: 3rem;
+  word-wrap: break-word;
+  max-width: 50rem;
+  color: var(--primary-color-light);
+  text-shadow: 1px 1px var(--light-stone);
+}
+.card-for-ecommerce {
+  width: 27rem;
+  height: auto;
+}
+
+.card-image {
+  height: 27rem;
+  width: 27rem;
+  background: transparent;
+}
+
+.card-title-pink {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: var(--secondary-light-pink);
+  display: flex;
+  justify-content: center;
+}
