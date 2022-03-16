@@ -21,7 +21,7 @@ import "../categories/categories.css";
         {categories.map((category)=>{
             return(
             < div className="category-container" key={category.id}>
-            <Link to={`/Productpage?category=${category._id}`}
+            <Link to={`/Productpage?category=${category.categoryName}`}
             key={category._id}>
                 {category.categoryName}
             </Link>
