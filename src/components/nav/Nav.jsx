@@ -12,7 +12,7 @@ const Nav = ()=> {
       <nav className="navbar">
       <div className="nav-content-container">
         <ul className="nav-items">
-          <li className="nav-item">
+          <li className="nav-item nav-item-active">
             <Link to="/">Home</Link>
           </li>
 
