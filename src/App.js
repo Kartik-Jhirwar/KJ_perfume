@@ -9,11 +9,11 @@ import { ProductPage } from "./pages/ProductPage/ProductPage";
 function App() {
   return (
     // <div className="App">
-      <div className="grid-container">
-      <Nav/>
+        <div className="grid-container">  
+       <Nav/> 
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/Productpage" element={<ProductPage/>}/>
+        <Route path="/productpage" element={<ProductPage/>}/>
         <Route path="/mockman" element={<MockMan/>}/>
       </Routes>
       </div>

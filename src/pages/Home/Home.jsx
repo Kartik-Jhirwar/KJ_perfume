@@ -4,11 +4,12 @@ import { HomePageCard } from '../../components/HomePageCard/HomePageCard';
 import "../Home/HomePage.css";
 import { Link } from "react-router-dom";
 import { Footer } from '../../components/Footer/Footer';
+import { Categories } from '../../components/categories/Categories';
 
 
 const Home = () => {
   return (
-    <section className="main-images-container">
+    <section className="main-images-container">      
       <div className="image-with-badges">
         <img className="home-page-image" src="./assets/cover-image.jpg"/>
         <div className="home-product-badge border-round">
@@ -23,6 +24,7 @@ const Home = () => {
           </Link>
         </div>
       </div>
+     
       <h2 className="heading">EPIC DEALS ON BIG BRANDS</h2>
       <div className="feature-brand-container">
         <div className="discount-images-container">

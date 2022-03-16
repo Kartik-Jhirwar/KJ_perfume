@@ -3,6 +3,7 @@ import "../nav/nav.css";
 import { Link } from "react-router-dom";
 import SearchBar from '../Searchbar/searchbar';
 import { FaRegHeart,FaShoppingBag,FaUserAlt } from "react-icons/fa";
+import { Categories } from '../categories/Categories';
 
 
 const Nav = ()=> {
@@ -16,9 +17,12 @@ const Nav = ()=> {
           </li>
 
           <li className="nav-item">
-            <Link to="/Productpage">Shop</Link>
-          </li>          
-
+            <Link to="/productpage">Shop</Link>
+          </li>         
+      
+          <li className="nav-item">
+              <Categories/>
+          </li> 
           <li className="nav-item">
             <SearchBar/>
           </li>

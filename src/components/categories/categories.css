@@ -1,0 +1,15 @@
+.category-options {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  font-size: 2rem;
+  color: black;
+  gap: 3rem;
+}
+.category-container {
+  font-size: 2.2rem;
+  color: var(--secondary-color);
+  display: flex;
+}
