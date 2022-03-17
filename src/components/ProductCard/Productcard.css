@@ -5,7 +5,7 @@
 .card-with-shadow {
   border: none;
   cursor: pointer;
-  max-height: 37rem;
+  max-height: 39rem;
 }
 
 .card-body {
@@ -46,6 +46,11 @@
 
 .rating-badge.estee-badge {
   left: 11.3rem;
+}
+.fastdelivery-container {
+  font-size: 1.2rem;
+  margin-left: 4px;
+  margin-top: 2px;
 }
 
 .btn-wishlist {
