@@ -4,6 +4,7 @@ import MockMan from "mockman-js";
 import {Routes,Route} from "react-router";
 import Home from "./pages/Home/Home";
 import { ProductPage } from "./pages/ProductPage/ProductPage";
+import { SingleProductDetail } from "./pages/singleProductDetail/singleproductDetail";
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
        <Nav/> 
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/productpage" element={<ProductPage/>}/>
+        <Route path="/productpage" element={<ProductPage/>}/>       
         <Route path="/mockman" element={<MockMan/>}/>
       </Routes>
       </div>
