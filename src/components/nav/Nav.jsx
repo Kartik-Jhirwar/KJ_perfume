@@ -7,6 +7,7 @@ import { Categories } from '../categories/Categories';
 
 
 const Nav = ()=> {
+  
   return (   
     
       <nav className="navbar">

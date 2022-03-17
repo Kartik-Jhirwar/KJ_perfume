@@ -4,12 +4,12 @@ import { Productcard } from '../ProductCard/Productcard';
 import "../ProductList/ProductList.css";
 
  export const ProductList = () => {
-     const {productList,setProductList}=useProduct();
+     const {productList,setProductList,showProductList}=useProduct();
   return (
     <div className="product-content-container">
       <div className="grid-3-column-layout">
-          {productList.map((product)=>{
-              return <Productcard userProduct={product}/>
+          {showProductList.map((product)=>{
+              return <Productcard userProduct={product} key={product.id}/>
           })}
           </div>
           </div>

@@ -2,21 +2,40 @@ import React from 'react'
 import { IoReload } from "react-icons/io5";
 import { FaRegStar } from "react-icons/fa";
 import "../Filterbar/FilterBar.css";
+import { useProduct } from '../../context/product-context';
+
 
  export const FilterBar = () => {
+   const {state,dispatch}=useProduct();
+   const {sortByPrice,pricerange,showAllProduct,fastDelivery,sortByQuantity,sortByRatings,sortByBrand}=state;
+
+   function BrandClickHandler (event) {
+    let checkedBrand =event.target.checked;
+    const  brandName = event.target.value;    
+    if(checkedBrand)
+    {
+        return {type:"SET_BRAND_NAME", payload:brandName}
+    }
+    else{
+        return {type:"REMOVE_BRAND_NAME", payload:brandName}
+    }
+}
+  
   return (
     <form className="sidebar-container sidebar-content">
       <ul className="sidebar-items">
          {/* <!-- ----------sort--------------------------- --> */} 
         <span className="filter-icon">
-          <IoReload type='reset'/>
+          <IoReload type="reset" onClick={()=>dispatch({type:"CLEAR_ALL_FILTERS"})}/>
         </span>
         <h4 className="sidebar-content-item">Sort</h4>
         <li className="sidebar-list">
           <input
             type="radio"
             value="price low to high"
-            name="sort-btn"            
+            name="sort-btn" 
+            checked={sortByPrice === "LOW_TO_HIGH"}
+            onChange={()=>dispatch({type:"SORT_LOW_TO_HIGH"})}           
           />
           Price Low to High
         </li>
@@ -24,7 +43,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="radio"
             value="price high to low"
-            name="sort-btn"            
+            name="sort-btn" 
+            checked={sortByPrice === "HIGH_TO_LOW"}
+            onChange={()=>dispatch({type:"SORT_HIGH_TO_LOW"})}            
           />
           Price High to Low
         </li>
@@ -37,6 +58,15 @@ import "../Filterbar/FilterBar.css";
               max={15000}
               min={50}
               steps={1000}
+              value={pricerange}
+               checked={pricerange}
+               onChange={(e) =>
+                dispatch({
+                  type: "FILTER_BY_PRICE_RANGE",
+                  payload: e.target.value
+                })
+              }
+             
             />
           </li>
         </div>
@@ -67,7 +97,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="checkbox"
             value="In-stock"
-            name="available-btn"            
+            name="available-btn" 
+            checked={showAllProduct}
+            onChange={()=>dispatch({type:"SORT_BY_STOCK"})}           
           />
           Include Out-of-Stock
         </li>
@@ -75,7 +107,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="checkbox"
             value="out-ot-stock"
-            name="available-btn"            
+            name="available-btn"  
+            checked={fastDelivery}
+            onChange={()=>dispatch({type:"SORT_BY_FAST_DELIVERY"})}          
           />
           Fast Delivery
         </li>
@@ -86,7 +120,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="checkbox"
             value="Armani"
-            name="available-btn"            
+            name="available-btn"  
+            checked={sortByBrand.includes("Armani")}
+           onChange={()=>dispatch(BrandClickHandler(event))}      
           />
           Armani
         </li>
@@ -94,7 +130,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="checkbox"
             value="Chanel"
-            name="available-btn"            
+            name="available-btn" 
+            checked={sortByBrand.includes("Chanel")} 
+             onChange={(event)=>dispatch(BrandClickHandler(event))}           
           />
           Chanel
         </li>
@@ -102,7 +140,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="checkbox"
             value="Gucci"
-            name="available-btn"           
+            name="available-btn"
+            checked={sortByBrand.includes("Gucci")} 
+             onChange={(event)=>dispatch(BrandClickHandler(event))}            
           />
           Gucci
         </li>
@@ -110,7 +150,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="checkbox"
             value="Zara"
-            name="available-btn"           
+            name="available-btn" 
+            checked={sortByBrand.includes("Zara")} 
+             onChange={(event)=>dispatch(BrandClickHandler(event))}           
           />
           Zara
         </li>
@@ -118,7 +160,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="checkbox"
             value="Estee Lauder"
-            name="available-btn"            
+            name="available-btn"  
+            checked={sortByBrand.includes("Estee Lauder")} 
+             onChange={(event)=>dispatch(BrandClickHandler(event))}           
           />
           Estee Lauder
         </li>
@@ -130,7 +174,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="radio"
             value="150 ml"
-            name="quantity-btn"            
+            name="quantity-btn"
+            checked={sortByQuantity==="SORT_BY_150"}
+            onChange={()=>dispatch({type:"SORT_BY_150_QUANTITY"})}            
           />
           150 ml
         </li>
@@ -138,7 +184,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="radio"
             value="100 ml"
-            name="quantity-btn"            
+            name="quantity-btn"  
+            checked={sortByQuantity==="SORT_BY_100"}
+            onChange={()=>dispatch({type:"SORT_BY_100_QUANTITY"})}            
           />
           100 ml
         </li>
@@ -146,7 +194,8 @@ import "../Filterbar/FilterBar.css";
           <input
             type="radio"
             value="clear"
-            name="quantity-btn"           
+            name="quantity-btn"                       
+            onChange={()=>dispatch({type:"CLEAR_QUANTITY_FILTER"})}         
           />
           Clear Quantity Filter
         </li>
@@ -156,7 +205,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="radio"
             value="4Starts"
-            name="rating"            
+            name="rating" 
+            checked={sortByRatings==="FOUR_AND_ABOVE"}
+            onChange={()=>dispatch({type:"SORT_BY_RATING_4"})}           
           />
           4 <FaRegStar/> & above
         </li>
@@ -164,7 +215,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="radio"
             value="3Starts"
-            name="rating"            
+            name="rating"    
+            checked={sortByRatings==="THREE_AND_ABOVE"}
+            onChange={()=>dispatch({type:"SORT_BY_RATING_3"})}         
           />
           3 <FaRegStar/> & above
         </li>
@@ -172,7 +225,9 @@ import "../Filterbar/FilterBar.css";
           <input
             type="radio"
             value="2starts"
-            name="rating"            
+            name="rating"   
+            checked={sortByRatings==="TWO_AND_ABOVE"}
+            onChange={()=>dispatch({type:"SORT_BY_RATING_2"})}          
           />
           2 <FaRegStar/> & above
         </li>
@@ -180,7 +235,8 @@ import "../Filterbar/FilterBar.css";
           <input
             type="radio"
             value="1starts"
-            name="rating"            
+            name="rating"              
+            onChange={()=>dispatch({type:"CLEAR_RATING"})}          
           />
           Clear Rating Filter
         </li>

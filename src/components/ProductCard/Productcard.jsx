@@ -5,7 +5,7 @@ import "../ProductCard/Productcard.css";
 
 
 export const Productcard = ({userProduct}) => {
-  const {image,isSoldOut,productName,brand,sellingPrice,originalPrice,discountOffer,isRatingGood,rating }=userProduct;
+  const {image,isSoldOut,productName,brand,sellingPrice,originalPrice,discountOffer,isRatingGood,rating}=userProduct;
   return (
     <div className="card-for-ecommerce pd-1 card-with-shadow">
                 <div className="card-image-holder">
@@ -35,8 +35,8 @@ export const Productcard = ({userProduct}) => {
                         {rating}
                         <FaStar />
                       </div>
-                    </div>
-                  </span>
+                    </div>      
+                  </span>                 
                   <div className="btns-in-flex"> 
                   <span>             
                       <Link to="/cart">

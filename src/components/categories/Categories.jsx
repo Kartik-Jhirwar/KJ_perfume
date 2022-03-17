@@ -2,8 +2,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import React, { useState,useEffect } from 'react';
 import "../categories/categories.css";
+import { useProduct } from '../../context/product-context';
 
  export const Categories = () => {
+     const {state,dispatch}=useProduct();
      const [categories,setCategories]=useState([]);
      useEffect(()=>{
          (async()=>{
@@ -21,7 +23,7 @@ import "../categories/categories.css";
         {categories.map((category)=>{
             return(
             < div className="category-container" key={category.id}>
-            <Link to={`/Productpage?category=${category.categoryName}`}
+            <Link to={`/productpage?category=${category.categoryName}`} onClick={category.categoryName==="Men"?()=>dispatch({type:"SORT_BY_MEN_CATEGORY"}):()=>dispatch({type:"SORT_BY_WOMEN_CATEGORY"})}
             key={category._id}>
                 {category.categoryName}
             </Link>
