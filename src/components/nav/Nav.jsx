@@ -45,7 +45,7 @@ const Nav = ()=> {
       <div className="nav-social-media-icons-container">
         <ul className="nav-items">
           <li className="nav-item">
-            <Link to="">
+            <Link to="/login">
               <span className="nav-icon">
                 <FaUserAlt title="Log In"/>               
               </span>
