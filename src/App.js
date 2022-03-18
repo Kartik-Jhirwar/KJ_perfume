@@ -7,6 +7,7 @@ import { ProductPage } from "./pages/ProductPage/ProductPage";
 import { SingleProductDetail } from "./pages/singleProductDetail/singleproductDetail";
 
 
+
 function App() {
   return (
     // <div className="App">
@@ -14,7 +15,7 @@ function App() {
        <Nav/> 
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/productpage" element={<ProductPage/>}/>       
+        <Route path="/productpage" element={<ProductPage/>}/>        
         <Route path="/mockman" element={<MockMan/>}/>
       </Routes>
       </div>
