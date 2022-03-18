@@ -59,3 +59,18 @@
 .badge.badge-cart {
   right: 2rem;
 }
+
+/* @media only screen and (min-width: 250px) and (max-width: 600px) {
+  .logo-container {
+    display: none;
+  }
+  .serchbox-container {
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    right: 0;
+    margin-left: 35rem;
+    margin-top: 1.2rem;
+    min-width: 100%;
+  }
+} */

@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import { ProductPage } from "./pages/ProductPage/ProductPage";
 
 
+
 function App() {
   return (
     // <div className="App">
@@ -14,6 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/productpage" element={<ProductPage/>}/>
+        <Route path="/productpage" element={<ProductPage/>}/>           
+
         <Route path="/mockman" element={<MockMan/>}/>
       </Routes>
       </div>
