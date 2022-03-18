@@ -6,6 +6,7 @@ import "../LogIN/LogInPage.css";
 
  export const LogInPage = () => {
   return (
+      
     <div className="LogIn-content-container border-round">
         <div className="login-page-container border-round flex-center">
           <h2 className="heading heading-shadow">LOG IN</h2>
@@ -72,6 +73,7 @@ import "../LogIN/LogInPage.css";
           </div>
         </div>
       </div>
+      
   )
 }
 

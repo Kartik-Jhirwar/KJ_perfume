@@ -2,7 +2,7 @@ import React from 'react'
 import { useProduct } from '../../context/product-context';
 import "../Searchbar/searchbar.css";
 
-const SearchBar = () => {
+ export const SearchBar = () => {
   const {state,dispatch}=useProduct();
    return (
     <div className="serchbox-container">
@@ -17,4 +17,4 @@ const SearchBar = () => {
   )
 }
 
-export default SearchBar
+

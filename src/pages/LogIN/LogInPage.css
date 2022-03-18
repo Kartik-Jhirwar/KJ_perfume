@@ -3,7 +3,7 @@
   width: 600px;
   box-shadow: 2px 2px 4px var(--dark-stone);
   margin-top: 12rem;
-  margin-left: 30rem;
+  margin-left: 37rem;
 }
 
 .login-page-container {
@@ -111,7 +111,9 @@ button {
     height: 100%;
     width: 100%;
   }
-
+  .serchbox-container {
+    display: none;
+  }
   .login-page-container {
     min-width: 90vw;
     padding: 2rem;

@@ -1,13 +1,13 @@
 import React from 'react';
 import "../nav/nav.css";
 import { Link } from "react-router-dom";
-import SearchBar from '../Searchbar/searchbar';
+import {SearchBar} from '../Searchbar/searchbar';
 import { FaRegHeart,FaShoppingBag,FaUserAlt } from "react-icons/fa";
 import { Categories } from '../categories/Categories';
 import { useProduct } from '../../context/product-context';
 
 
-const Nav = ()=> {
+ export const Nav = ()=> {
   const {state,dispatch}=useProduct();
   
   return (   
@@ -87,5 +87,5 @@ const Nav = ()=> {
   )
 }
 
-export default Nav
+
 

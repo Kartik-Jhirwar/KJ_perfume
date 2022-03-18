@@ -1,6 +1,5 @@
 import React from 'react'
-import { FilterBar } from '../../components/Filterbar/FilterBar'
-import { ProductList } from '../../components/ProductList/ProductList'
+import {FilterBar,ProductList} from "../../components/index";
 
  export const ProductPage = () => {
   return (
