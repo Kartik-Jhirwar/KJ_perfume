@@ -1,10 +1,9 @@
 import React from 'react';
 import {epicDealItem, topBrandItem } from "../../components/HomePageCard/HomePageData";
-import { HomePageCard } from '../../components/HomePageCard/HomePageCard';
 import "../Home/HomePage.css";
 import { Link } from "react-router-dom";
-import { Footer } from '../../components/Footer/Footer';
-import { Categories } from '../../components/categories/Categories';
+import {Footer,HomePageCard} from "../../components/index";
+
 
 
 const Home = () => {

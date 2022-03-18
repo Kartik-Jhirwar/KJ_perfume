@@ -1,12 +1,14 @@
 import React from 'react';
 import "../nav/nav.css";
 import { Link } from "react-router-dom";
-import SearchBar from '../Searchbar/searchbar';
+import {SearchBar} from '../Searchbar/searchbar';
 import { FaRegHeart,FaShoppingBag,FaUserAlt } from "react-icons/fa";
 import { Categories } from '../categories/Categories';
+import { useProduct } from '../../context/product-context';
 
 
-const Nav = ()=> {
+ export const Nav = ()=> {
+  const {state,dispatch}=useProduct();
   
   return (   
     
@@ -18,7 +20,7 @@ const Nav = ()=> {
           </li>
 
           <li className="nav-item">
-            <Link to="/productpage">Shop</Link>
+            <Link to="/productpage" onClick={()=>dispatch({type:"SORT_CLEAR_CATEGORY"})}>Shop</Link>
           </li>         
       
           <li className="nav-item">
@@ -45,7 +47,7 @@ const Nav = ()=> {
       <div className="nav-social-media-icons-container">
         <ul className="nav-items">
           <li className="nav-item">
-            <Link to="">
+            <Link to="/login">
               <span className="nav-icon">
                 <FaUserAlt title="Log In"/>               
               </span>
@@ -85,5 +87,5 @@ const Nav = ()=> {
   )
 }
 
-export default Nav
+
 
