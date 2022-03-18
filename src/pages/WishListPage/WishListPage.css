@@ -16,6 +16,9 @@
   top: 5.7rem;
   right: 4rem;
 }
+.rupees-sign-wishlist {
+  font-size: 1.5rem;
+}
 
 .fw-300 {
   font-weight: 300;
@@ -24,7 +27,7 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
 }
 .fw-bold {
   font-weight: bold;
