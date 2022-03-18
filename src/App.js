@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import { ProductPage } from "./pages/ProductPage/ProductPage";
 import { LogInPage } from "./pages/LogIN/LogInPage";
 import { CartPage } from "./pages/Cart/CartPage";
+import { WishListPage } from "./pages/WishListPage/WishListPage";
 
 
 
@@ -17,7 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/productpage" element={<ProductPage/>}/>    
-          <Route path="/login" element={<LogInPage/>}/>   
+          <Route path="/login" element={<LogInPage/>}/>  
+          <Route path="/wishlist" element={<WishListPage/>} /> 
           <Route path="/cart" element={<CartPage/>}/>
           <Route path="/mockman" element={<MockMan/>}/>
         </Routes>
