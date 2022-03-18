@@ -6,9 +6,9 @@ import "../LogIN/LogInPage.css";
 
  export const LogInPage = () => {
   return (
-      
-    <div className="LogIn-content-container border-round">
-        <div className="login-page-container border-round flex-center">
+     <div className="grid-container">
+    <div className="LogIn-content-container border-round ">
+        <div className="login-page-container flex-center ">
           <h2 className="heading heading-shadow">LOG IN</h2>
           <div className="input-and-buttons-container">
             <input
@@ -73,7 +73,7 @@ import "../LogIN/LogInPage.css";
           </div>
         </div>
       </div>
-      
+     </div>  
   )
 }
 
