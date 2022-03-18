@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import SearchBar from '../Searchbar/searchbar';
 import { FaRegHeart,FaShoppingBag,FaUserAlt } from "react-icons/fa";
 import { Categories } from '../categories/Categories';
+import { useProduct } from '../../context/product-context';
 
 
 const Nav = ()=> {
+  const {state,dispatch}=useProduct();
   
   return (   
     
@@ -18,7 +20,7 @@ const Nav = ()=> {
           </li>
 
           <li className="nav-item">
-            <Link to="/productpage">Shop</Link>
+            <Link to="/productpage" onClick={()=>dispatch({type:"SORT_CLEAR_CATEGORY"})}>Shop</Link>
           </li>         
       
           <li className="nav-item">

@@ -63,6 +63,9 @@
            case "SORT_BY_WOMEN_CATEGORY":
                      return {...state,sortByCategory:"SORT_BY_WOMEN"}
 
+           case "SORT_CLEAR_CATEGORY":
+                return {...state,sortByCategory:null}
+
           default:
             return  state;
       }
