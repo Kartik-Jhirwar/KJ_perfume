@@ -6,3 +6,5 @@ export {Nav} from "./nav/Nav";
 export {Productcard} from "./ProductCard/Productcard"
 export {ProductList} from "./ProductList/ProductList";
 export {SearchBar} from "./Searchbar/searchbar";
+export {HorizontalCard} from "./HorizontalCard/HorizontalCard";
+export {TextOnlyCardWithPrice} from "./TextOnlyCard/TextOnlyCardWithPrice"

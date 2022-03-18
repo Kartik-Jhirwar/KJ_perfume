@@ -1,0 +1,102 @@
+.cart-order-container {
+  min-width: 80vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: auto;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.card-body {
+  min-width: 20rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.fc-pink {
+  border: 2px solid var(--secondary-color);
+  color: var(--light-rose);
+}
+
+.price-cut {
+  color: var(--light-stone);
+  font-size: 1.5rem;
+  text-decoration: line-through;
+}
+
+.price-details,
+.card-qty-flex,
+.item-price-detail {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  margin-bottom: -0.8rem;
+}
+
+.button-container .button-lg {
+  min-width: 16.6rem;
+}
+
+.card-qty-flex {
+  justify-content: flex-start;
+}
+
+.discount-tag {
+  color: var(--light-rose);
+  font-size: 1.3rem;
+}
+
+.qty {
+  height: 2rem;
+  width: 4rem;
+  border: 1px solid var(--light-stone);
+  text-align: center;
+  padding: var(--margin-padding-sm);
+  border-radius: 0.3rem;
+  margin: var(--margin-padding-sm);
+}
+.item-price-detail .discount {
+  margin-left: auto;
+}
+
+hr {
+  max-width: 70vw;
+  margin: 0 auto;
+}
+
+.text-only-card {
+  padding: 2rem;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.item-price-detail {
+  margin-bottom: -2rem;
+}
+
+.link-btn.btn-proceed {
+  display: flex;
+  justify-content: center;
+  min-width: 15rem;
+}
+
+@media only screen and (min-width: 350px) and (max-width: 600px) {
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  .horizontal-card .card-image {
+    min-width: 70vw;
+  }
+}
