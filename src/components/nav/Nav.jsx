@@ -63,7 +63,7 @@ import { useProduct } from '../../context/product-context';
           </li>
 
           <li className="nav-item">
-            <Link to="">
+            <Link to="/cart">
               <span className="nav-icon">                             
                <FaShoppingBag title="Cart"/>
               </span>
