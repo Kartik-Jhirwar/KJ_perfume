@@ -1,16 +1,17 @@
-import React from 'react';
-import {epicDealItem, topBrandItem } from "../../components/HomePageCard/HomePageData";
+import React from "react";
+import {
+  epicDealItem,
+  topBrandItem,
+} from "../../components/HomePageCard/HomePageData";
 import "../Home/HomePage.css";
 import { Link } from "react-router-dom";
-import {Footer,HomePageCard} from "../../components/index";
+import { Footer, HomePageCard } from "../../components/index";
 
-
-
- export const Home = () => {
+export const Home = () => {
   return (
-    <section className="main-images-container">      
+    <section className="main-images-container">
       <div className="image-with-badges">
-        <img className="home-page-image" src="./assets/cover-image.jpg"/>
+        <img className="home-page-image" src="./assets/cover-image.jpg" />
         <div className="home-product-badge border-round">
           <p className="quote">
             <em>
@@ -18,19 +19,17 @@ import {Footer,HomePageCard} from "../../components/index";
               Mehak
             </em>
           </p>
-          <Link to="">
+          <Link to="/productpage">
             <span className="product-with-arrow"> Buy Now </span>
           </Link>
         </div>
       </div>
-     
+
       <h2 className="heading">EPIC DEALS ON BIG BRANDS</h2>
       <div className="feature-brand-container">
         <div className="discount-images-container">
           {epicDealItem.map((item) => {
-            return (            
-            <HomePageCard userItem={item}/>
-            );
+            return <HomePageCard userItem={item} />;
           })}
         </div>
       </div>
@@ -38,16 +37,11 @@ import {Footer,HomePageCard} from "../../components/index";
       <div className="feature-brand-container">
         <div className="discount-images-container">
           {topBrandItem.map((item) => {
-            return (              
-              <HomePageCard userItem={item}/>
-            );
+            return <HomePageCard userItem={item} key={item} />;
           })}
         </div>
       </div>
-      <Footer/>
-      </section>
-  )
-}
-
-
-
+      <Footer />
+    </section>
+  );
+};
