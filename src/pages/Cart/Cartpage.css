@@ -93,6 +93,10 @@ hr {
 .rupees-sign-cart {
   font-size: 1.4rem;
 }
+.heading {
+  text-align: center;
+  margin-left: 6rem;
+}
 @media only screen and (min-width: 350px) and (max-width: 600px) {
   body {
     height: 100%;

@@ -1,5 +1,6 @@
 import React from "react";
 import { BiMinus, BiRupee } from "react-icons/bi";
+import { FaRupeeSign, FaTrashAlt } from "react-icons/fa";
 
 export const TextOnlyCardWithPrice = ({ cartState }) => {
   const { cartItem } = cartState;
@@ -29,7 +30,7 @@ export const TextOnlyCardWithPrice = ({ cartState }) => {
         <div className="item-price-detail">
           <p className="card-detail">Bag Total ({cartItem.length} items)</p>
           <span className="discount">
-            <BiRupee />
+            <FaRupeeSign className="rupees-sign-cart" />
             {totalOriginalPrice}
           </span>
         </div>
@@ -38,7 +39,7 @@ export const TextOnlyCardWithPrice = ({ cartState }) => {
           <p className="card-detail"> Bag Discount</p>
           <span className="discount">
             <BiMinus />
-            <BiRupee />
+            <FaRupeeSign className="rupees-sign-cart" />
             {BagDiscount}
           </span>
         </div>
@@ -46,14 +47,14 @@ export const TextOnlyCardWithPrice = ({ cartState }) => {
         <div className="item-price-detail">
           <p className="card-detail">Sub Total</p>
           <span className="discount">
-            <BiRupee />
+            <FaRupeeSign className="rupees-sign-cart" />
             {totalSellingPrice}
           </span>
         </div>
         <div className="item-price-detail">
           <p className="card-detail">Delivery Charges</p>
           <span className="discount">
-            <BiRupee />
+            <FaRupeeSign className="rupees-sign-cart" />
             {DeliveryCharges}
           </span>
         </div>
@@ -61,14 +62,14 @@ export const TextOnlyCardWithPrice = ({ cartState }) => {
         <div className="item-price-detail">
           <p className="card-detail fw-bold">Grand Total</p>
           <span className="discount fw-bold">
-            <BiRupee />
+            <FaRupeeSign className="rupees-sign-cart" />
             {GrandTotal}
           </span>
         </div>
 
         <div className="saving-quote">
           <p className="card-detail">
-            You will save <BiRupee />
+            You will save <FaRupeeSign className="rupees-sign-cart" />
             {BagDiscount} on this order.
           </p>
           <span>

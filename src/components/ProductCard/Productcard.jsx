@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaStar, FaRegHeart, FaRupeeSign } from "react-icons/fa";
+import { FaStar, FaRegHeart, FaRupeeSign, FaHeart } from "react-icons/fa";
 import "../ProductCard/Productcard.css";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
 
@@ -56,7 +56,6 @@ export const Productcard = ({ product }) => {
           </div>
         </span>
         <div className="btns-in-flex">
-          {console.log(cartItem, "hello")}
           {cartItem.some((item) => item._id === product._id) ? (
             <Link to="/cart">
               <button className="link-btn btn-lg btn-outline border-round cursor-pointer">
@@ -82,11 +81,25 @@ export const Productcard = ({ product }) => {
               </button>
             </span>
           )}
-          <span>
-            <Link to="/wishList">
-              <FaRegHeart className="btn-wishlist" />
-            </Link>
-          </span>
+          {wishListItem.some((item) => item._id === product._id) ? (
+            <span>
+              <Link to="/wishList">
+                <FaHeart className="btn-wishlist" />
+              </Link>
+            </span>
+          ) : (
+            <span>
+              <FaRegHeart
+                className="btn-wishlist"
+                onClick={() =>
+                  wishListDispatch({
+                    type: "ADD_ITEM_TO_WISHLIST",
+                    payload: product,
+                  })
+                }
+              />
+            </span>
+          )}
         </div>
       </div>
     </div>

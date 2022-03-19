@@ -14,6 +14,22 @@ export const HorizontalCard = ({ item }) => {
   } = item;
   const { cartState, cartDispatch, wishListState, wishListDispatch } =
     useCartandWishList();
+  const { wishListItem } = wishListState;
+
+  //  adding item to wishlist and removing that item from cart
+
+  const addToWishListRemoveFromCart = (product) => {
+    const newWishlistItem = wishListItem.find(
+      (item) => item._id === product._id
+    );
+    if (newWishlistItem) {
+      cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: product });
+    } else {
+      cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: product });
+      wishListDispatch({ type: "ADD_ITEM_TO_WISHLIST", payload: product });
+    }
+  };
+
   return (
     <div className="horizontal-card pd-1 border-round">
       <div className="card-image-holder">
@@ -22,7 +38,7 @@ export const HorizontalCard = ({ item }) => {
 
       <div className="card-body">
         <span className="card-title fw-300">{productName}</span>
-        <p className="card-detail card-qty-flex">         
+        <p className="card-detail card-qty-flex">
           Quantity :
           {item.qty === 1 ? (
             <FaTrashAlt
@@ -68,7 +84,12 @@ export const HorizontalCard = ({ item }) => {
             </button>
           </span>
           <span className="button-cart">
-            <button className="link-btn border-round">ADD TO WISHLIST</button>
+            <button
+              className="link-btn border-round"
+              onClick={() => addToWishListRemoveFromCart(item)}
+            >
+              ADD TO WISHLIST
+            </button>
           </span>
         </div>
       </div>
