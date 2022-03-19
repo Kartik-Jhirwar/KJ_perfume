@@ -25,7 +25,11 @@ export const CartPage = () => {
           </div>
 
           <div className="final-price-container">
-            {cartItem.length === 0 ? "" : <TextOnlyCardWithPrice />}
+            {cartItem.length === 0 ? (
+              ""
+            ) : (
+              <TextOnlyCardWithPrice cartState={cartState} />
+            )}
           </div>
         </div>
       )}

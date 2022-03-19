@@ -1,4 +1,5 @@
 export const CartItemReducer=(state,action)=>{
+    console.log(state,"Hello");
     switch (action.type) {
         case "ADD_ITEM_TO_CART":
             return {...state, cartItem:[...state.cartItem,{...action.payload,qty:1}],
@@ -6,8 +7,8 @@ export const CartItemReducer=(state,action)=>{
         }
 
          case "REMOVE_ITEM_FROM_CART":
-            return {...state, cartItem:[...state.cartItem.filter((item)=>item.id!==action.apyload.id)],
-                    cartCount: state.cartCount + action.payload.qty
+            return {...state, cartItem:[...state.cartItem.filter((item)=>item.id !== action.payload.id)],
+                    cartCount: state.cartCount - action.payload.qty
         }
 
         case "INCREMENT_QUANTITY":

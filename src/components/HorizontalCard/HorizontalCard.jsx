@@ -58,7 +58,12 @@ export const HorizontalCard = ({ item }) => {
 
         <div className="button-container">
           <span className="button-cart">
-            <button className="btn button-lg fc-pink border-round">
+            <button
+              className="btn button-lg fontcolor-pink border-round"
+              onClick={() =>
+                cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: item })
+              }
+            >
               REMOVE
             </button>
           </span>

@@ -22,7 +22,7 @@
   align-items: flex-start;
 }
 
-.fc-pink {
+.fontcolor-pink {
   border: 2px solid var(--secondary-color);
   color: var(--light-rose);
 }
