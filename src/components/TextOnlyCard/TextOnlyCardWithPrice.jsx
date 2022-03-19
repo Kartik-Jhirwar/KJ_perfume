@@ -6,12 +6,12 @@ export const TextOnlyCardWithPrice = ({ cartState }) => {
   const DeliveryCharges = 50;
 
   // calculating total original price
-  const totalOriginalPrice = [...cartItem].reduce(
+  const totalOriginalPrice = cartItem.reduce(
     (acc, currentItem) => currentItem.qty * currentItem.originalPrice + acc,
     0
   );
   //  calculating total sellingPrice
-  const totalSellingPrice = [...cartItem].reduce(
+  const totalSellingPrice = cartItem.reduce(
     (acc, currentItem) => currentItem.qty * currentItem.sellingPrice + acc,
     0
   );

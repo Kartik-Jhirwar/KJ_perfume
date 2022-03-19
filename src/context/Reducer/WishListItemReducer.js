@@ -7,7 +7,7 @@ export const WishListItemReducer=(state,action)=>{
             return {...state,  wishListItem:[...state.wishListItem,action.payload],wishListCount :state.wishListCount +1};
 
         case "REMOVE_ITEM_FROM_WISHLIST":
-            return {...state,wishListItem:state.wishListItem.filter((item)=>item.id!==action.payload.id),wishListCount :state.wishListCount -1}    
+            return {...state,wishListItem:state.wishListItem.filter((item)=>item._id!==action.payload._id),wishListCount :state.wishListCount -1}    
             
     
         default:

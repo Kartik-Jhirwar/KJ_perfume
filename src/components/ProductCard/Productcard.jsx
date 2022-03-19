@@ -56,7 +56,8 @@ export const Productcard = ({ product }) => {
           </div>
         </span>
         <div className="btns-in-flex">
-          {cartItem.some((item) => item.id === product.id) ? (
+          {console.log(cartItem, "hello")}
+          {cartItem.some((item) => item._id === product._id) ? (
             <Link to="/cart">
               <button className="link-btn btn-lg btn-outline border-round cursor-pointer">
                 GO TO CART

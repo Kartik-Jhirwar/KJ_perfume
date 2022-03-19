@@ -22,7 +22,7 @@ export const HorizontalCard = ({ item }) => {
 
       <div className="card-body">
         <span className="card-title fw-300">{productName}</span>
-        <p className="card-detail card-qty-flex">
+        <p className="card-detail card-qty-flex">         
           Quantity :
           {item.qty === 1 ? (
             <FaTrashAlt
