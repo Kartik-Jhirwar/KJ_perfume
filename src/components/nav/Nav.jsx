@@ -55,7 +55,7 @@ import { useProduct } from '../../context/product-context';
           </li>
 
           <li className="nav-item">
-            <Link to="">
+            <Link to="/wishlist">
               <span className="nav-icon">   
                       <FaRegHeart title="WishList"/>               
               </span>

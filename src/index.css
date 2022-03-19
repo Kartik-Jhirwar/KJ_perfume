@@ -29,6 +29,10 @@ a {
 input[type="checkbox"] {
   cursor: pointer;
 }
+.btn {
+  min-width: 15rem;
+  max-width: 20rem;
+}
 
 /* colors*/
 :root {

@@ -6,7 +6,7 @@ import {Footer,HomePageCard} from "../../components/index";
 
 
 
-const Home = () => {
+ export const Home = () => {
   return (
     <section className="main-images-container">      
       <div className="image-with-badges">
@@ -49,5 +49,5 @@ const Home = () => {
   )
 }
 
-export default Home
+
 
