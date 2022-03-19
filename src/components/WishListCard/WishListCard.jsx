@@ -33,7 +33,7 @@ import "../ProductCard/Productcard"
 
             <div className="btns-in-flex">
               <span>
-                <button  className="btn fc-pink border-round fw-bold">MOVE TO CART</button>
+                <button  className="btn fontcolor-pink  border-round fw-bold">MOVE TO CART</button>
                 </span>
                 <span className="btn-wishlist"> <FaHeart/> </span>
            </div>

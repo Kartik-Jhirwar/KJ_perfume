@@ -2,11 +2,7 @@ import "./App.css";
 import {Nav} from "./components/nav/Nav";
 import MockMan from "mockman-js";
 import {Routes,Route} from "react-router";
-import Home from "./pages/Home/Home";
-import { ProductPage } from "./pages/ProductPage/ProductPage";
-import { LogInPage } from "./pages/LogIN/LogInPage";
-import { CartPage } from "./pages/Cart/CartPage";
-import { WishListPage } from "./pages/WishListPage/WishListPage";
+import {Home,ProductPage,LogInPage,CartPage,WishListPage} from "../src/pages/indexpages";
 
 
 
