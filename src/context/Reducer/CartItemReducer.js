@@ -1,7 +1,13 @@
+import { addItemTocart } from "../utils/cartUtils"
 export const CartItemReducer=(state,action)=>{
     switch (action.type) {
+        // case "ADD_ITEM_TO_CART":
+        //     return {...state, cartItem:[...state.cartItem,{...action.payload,qty:1}],
+        //             cartCount: state.cartCount + 1
+        // }
+
         case "ADD_ITEM_TO_CART":
-            return {...state, cartItem:[...state.cartItem,{...action.payload,qty:1}],
+            return {...state, cartItem:addItemTocart(action.payload,state.cartItem,state.cartCount),
                     cartCount: state.cartCount + 1
         }
 

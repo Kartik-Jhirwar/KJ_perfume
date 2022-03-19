@@ -19,9 +19,10 @@ export const HorizontalCard = ({ item }) => {
   //  adding item to wishlist and removing that item from cart
 
   const addToWishListRemoveFromCart = (product) => {
-    const newWishlistItem = wishListItem.find(
+    const newWishlistItem = wishListItem.some(
       (item) => item._id === product._id
     );
+
     if (newWishlistItem) {
       cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: product });
     } else {
