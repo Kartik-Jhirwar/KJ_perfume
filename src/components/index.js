@@ -9,3 +9,4 @@ export {SearchBar} from "./Searchbar/searchbar";
 export {HorizontalCard} from "./HorizontalCard/HorizontalCard";
 export {TextOnlyCardWithPrice} from "./TextOnlyCard/TextOnlyCardWithPrice";
 export {WishListCard} from "./WishListCard/WishListCard";
+export {ErrorMessage} from "./ErrorMessage/ErrorMessage"
