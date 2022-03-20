@@ -18,7 +18,7 @@ const productSortByPrice=(state,productList)=>{
 }
 const productSoryByPriceRange=(state,productList)=>{
     console.log(state.pricerange);
-    return state.pricerange === 0? productList :productList.filter((product)=>product.sellingPrice <= state.pricerange)
+    return state.pricerange === 15000? productList :productList.filter((product)=>product.sellingPrice <= state.pricerange)
 }
 const productSortByStock=(state,productList)=>{
     return productList.filter((item)=>state.showAllProduct ? true:!item.isSoldOut)

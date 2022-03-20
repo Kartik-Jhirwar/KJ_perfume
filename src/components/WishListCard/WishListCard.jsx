@@ -1,6 +1,7 @@
 import React from "react";
 import { FaStar, FaRupeeSign, FaHeart } from "react-icons/fa";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
+import { CartItemReducer } from "../../context/Reducer/CartItemReducer";
 import "../../pages/WishListPage/WishListPage.css";
 import "../ProductCard/Productcard";
 
@@ -21,15 +22,16 @@ export const WishListCard = ({ product }) => {
 
   //  adding item to cart
 
-  const addToCart = (product) => {
-    const newCartItem = wishListItem.find((item) => item._id === product._id);
-
-    if (newCartItem) {
-      cartDispatch({ type: "INCREMENT_QUANTITY", payload: product });
-    } else {
-      cartDispatch({ type: "ADD_ITEM_TO_CART", payload: product });
-    }
-  };
+  // const addToCart = (product) => {
+  //   const newCartItem = wishListItem.some((item) => item._id === product._id);
+  //   console.log("newcartItem", newCartItem);
+  //   if (newCartItem) {
+  //     cartDispatch({ type: "INCREMENT_QUANTITY", payload: product });
+  //     cartDispatch({ type: "ADD_ITEM_TO_CART", payload: product });
+  //   } else {
+  //     cartDispatch({ type: "ADD_ITEM_TO_CART", payload: product });
+  //   }
+  // };
 
   return (
     <div className="card-for-ecommerce pd-1 card-with-shadow">
@@ -68,7 +70,9 @@ export const WishListCard = ({ product }) => {
           <span>
             <button
               className="btn fontcolor-pink border-round fw-bold"
-              onClick={() => addToCart(product)}
+              onClick={() =>
+                cartDispatch({ type: "ADD_ITEM_TO_CART", payload: product })
+              }
             >
               MOVE TO CART
             </button>

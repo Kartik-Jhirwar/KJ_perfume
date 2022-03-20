@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   ErrorMessage,
   HorizontalCard,
@@ -15,7 +16,9 @@ export const CartPage = () => {
     <div className="main-content-container">
       <h2 className="heading">My Cart</h2>
       {cartItem.length === 0 ? (
-        <ErrorMessage message={"your cart is empty"} />
+        <Link to="/productpage">
+          <ErrorMessage message={"your cart is empty"} />
+        </Link>
       ) : (
         <div className="cart-order-container">
           <div className="product-container">
