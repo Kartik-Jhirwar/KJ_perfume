@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import { FaStar, FaRegHeart, FaRupeeSign, FaHeart } from "react-icons/fa";
 import "../ProductCard/Productcard.css";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Productcard = ({ product }) => {
   const {
@@ -21,6 +23,11 @@ export const Productcard = ({ product }) => {
 
   const { cartItem, cartCount } = cartState;
   const { wishListItem, wishListCount } = wishListState;
+
+  const showToast = () => {
+    toast.info("inform you when product back in stock");
+  };
+
   return (
     <div className="card-for-ecommerce pd-1 card-with-shadow">
       <div className="card-image-holder">
@@ -67,20 +74,24 @@ export const Productcard = ({ product }) => {
               <button
                 className={
                   isSoldOut
-                    ? "link-btn btn-lg btn-outline border-round cursor-drop"
+                    ? "link-btn btn-lg btn-outline border-round"
                     : "link-btn btn-lg btn-outline border-round cursor-pointer "
                 }
-                onClick={() =>
-                  cartDispatch({
-                    type: "ADD_ITEM_TO_CART",
-                    payload: product,
-                  })
+                onClick={
+                  isSoldOut
+                    ? showToast
+                    : () =>
+                        cartDispatch({
+                          type: "ADD_ITEM_TO_CART",
+                          payload: product,
+                        })
                 }
               >
                 {isSoldOut ? "NOTIFY ME" : "ADD TO CART"}
               </button>
             </span>
           )}
+
           {wishListItem.some((item) => item._id === product._id) ? (
             <span>
               <Link to="/wishList">
@@ -102,6 +113,11 @@ export const Productcard = ({ product }) => {
           )}
         </div>
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={8000}
+        className="toast-text-conatiner"
+      />
     </div>
   );
 };
