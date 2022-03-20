@@ -106,9 +106,3 @@
 .cursor-pointer {
   cursor: pointer;
 }
-.toast-text-conatiner {
-  display: flex;
-  flex-direction: row;
-  width: 700px;
-  text-align: justify;
-}
