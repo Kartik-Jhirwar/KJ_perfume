@@ -18,7 +18,7 @@ function App() {
           <Route path="/wishlist" element={<WishListPage/>} /> 
           <Route path="/cart" element={<CartPage/>}/>
           <Route path="/mockman" element={<MockMan/>}/>
-        </Routes>
+        </Routes>        
       </div>
       
   );

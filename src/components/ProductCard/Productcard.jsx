@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { FaStar, FaRegHeart, FaRupeeSign, FaHeart } from "react-icons/fa";
 import "../ProductCard/Productcard.css";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Productcard = ({ product }) => {
   const {
@@ -21,6 +23,12 @@ export const Productcard = ({ product }) => {
 
   const { cartItem, cartCount } = cartState;
   const { wishListItem, wishListCount } = wishListState;
+
+  const showToast = () => {
+    toast.info("inform you when product back in stock", {
+      className: "Toast-display",
+    });
+  };
   return (
     <div className="card-for-ecommerce pd-1 card-with-shadow">
       <div className="card-image-holder">
@@ -67,14 +75,17 @@ export const Productcard = ({ product }) => {
               <button
                 className={
                   isSoldOut
-                    ? "link-btn btn-lg btn-outline border-round cursor-drop"
-                    : "link-btn btn-lg btn-outline border-round cursor-pointer "
+                    ? "link-btn btn-lg btn-outline border-round "
+                    : "link-btn btn-lg btn-outline border-round  "
                 }
-                onClick={() =>
-                  cartDispatch({
-                    type: "ADD_ITEM_TO_CART",
-                    payload: product,
-                  })
+                onClick={
+                  isSoldOut
+                    ? showToast
+                    : () =>
+                        cartDispatch({
+                          type: "ADD_ITEM_TO_CART",
+                          payload: product,
+                        })
                 }
               >
                 {isSoldOut ? "NOTIFY ME" : "ADD TO CART"}
@@ -102,6 +113,11 @@ export const Productcard = ({ product }) => {
           )}
         </div>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={true}
+      />
     </div>
   );
 };

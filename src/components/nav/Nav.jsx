@@ -29,7 +29,6 @@ export const Nav = () => {
               Shop
             </Link>
           </li>
-
           <li className="nav-item">
             <Categories />
           </li>

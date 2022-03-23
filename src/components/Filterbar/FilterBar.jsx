@@ -21,9 +21,8 @@ export const FilterBar = () => {
     const brandName = event.target.value;
     if (checkedBrand) {
       return { type: "SET_BRAND_NAME", payload: brandName };
-    } else {
-      return { type: "REMOVE_BRAND_NAME", payload: brandName };
     }
+    return { type: "REMOVE_BRAND_NAME", payload: brandName };
   }
 
   return (

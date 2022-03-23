@@ -112,7 +112,10 @@ button {
     width: 100%;
   }
   .serchbox-container {
-    display: none;
+    width: 6rem;
+  }
+  .btn-login {
+    min-width: 14rem;
   }
   .login-page-container {
     min-width: 90vw;
