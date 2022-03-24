@@ -1,6 +1,7 @@
 import React from "react";
 import "../../components/ProductCard/Productcard.css";
 import { FaEyeSlash } from "react-icons/fa";
+import { BsExclamationTriangle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import "../LogIN/LogInPage.css";
 
@@ -18,8 +19,7 @@ export const LogInPage = () => {
               required
             />
             <p className="alert alert-danger alert-with-flex">
-              <i className="fas fa-exclamation-triangle"></i> please enter valid
-              email
+              <BsExclamationTriangle /> please enter valid email
             </p>
             <span className="input-with-icon-container">
               <input
@@ -33,8 +33,7 @@ export const LogInPage = () => {
               </button>
             </span>
             <p className="alert alert-danger alert-with-flex">
-              <i className="fas fa-exclamation-triangle"></i> please enter valid
-              password
+              <BsExclamationTriangle /> please enter valid password
             </p>
             <span className="remember-me-and-link-container text-size-sm">
               <span className="remember-checkbox">
@@ -46,7 +45,7 @@ export const LogInPage = () => {
                 />
                 <span className="text">Remember Me</span>
               </span>
-              <Link to="" className="forgot-pass-link">
+              <Link to="/forgotpassword" className="forgot-pass-link">
                 Forgot your Password?
               </Link>
             </span>
@@ -60,12 +59,11 @@ export const LogInPage = () => {
             </span>
 
             <p className="alert alert-danger alert-with-flex">
-              <i className="fas fa-exclamation-triangle"></i> Email or Password
-              is incorrect
+              <BsExclamationTriangle /> Email or Password is incorrect
             </p>
             <span className="New-user-links">
               <p>New User ?</p>
-              <Link to="" className="signup-link">
+              <Link to="/signup" className="signup-link">
                 Sign up here
               </Link>
             </span>

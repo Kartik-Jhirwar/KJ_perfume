@@ -34,8 +34,9 @@
   margin-top: 2rem;
 }
 
-.heading-shadow {
+.heading.heading-shadow {
   font-size: 2.7rem;
+  margin-left: -2rem;
 }
 
 .input-with-icon-container {
