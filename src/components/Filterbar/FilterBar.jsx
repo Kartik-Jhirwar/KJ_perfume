@@ -76,18 +76,6 @@ export const FilterBar = () => {
             />
           </li>
         </div>
-        {/* <!-- -------------------CATEGORY-------------- --> */}
-        <h4 className="sidebar-content-item">CATEGORY</h4>
-        <div className="sidebar-list">
-          <li>
-            <input type="radio" value="Men" name="category-btn" />
-            Men
-          </li>
-          <li className="sidebar-list">
-            <input type="radio" value="Women" name="category-btn" />
-            Women
-          </li>
-        </div>
 
         {/* <!-- -------------------Availability-------------- --> */}
         <h4 className="sidebar-content-item">Availability</h4>

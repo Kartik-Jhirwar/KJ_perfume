@@ -63,7 +63,7 @@ const productSortByBrand=(state,productList)=>{
 const productSearchByQuery=(state,productList)=>{
     if(state.searchByQuery)
     {
-        return productList.filter((item)=>item.productName.toLowerCase().includes(state.searchByQuery))
+        return productList.filter((item)=>item.productName.toLowerCase().includes(state.searchByQuery.toLowerCase()))
     }
     else return productList;
 }
