@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "../nav/nav.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { SearchBar } from "../Searchbar/searchbar";
 import { FaRegHeart, FaShoppingBag, FaUserAlt } from "react-icons/fa";
 import { Categories } from "../categories/Categories";
@@ -13,21 +13,28 @@ export const Nav = () => {
   const { cartItem, cartCount } = cartState;
   const { wishListItem, wishListCount } = wishListState;
 
+  const getActiveLinkStyle = ({ isActive }) => ({
+    color: isActive ? "#10b981" : "",
+  });
+
   return (
     <nav className="navbar">
       <div className="nav-content-container">
         <ul className="nav-items">
           <li className="nav-item">
-            <Link to="/">Home</Link>
+            <NavLink to="/" style={getActiveLinkStyle}>
+              Home
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <Link
+            <NavLink
               to="/productpage"
               onClick={() => dispatch({ type: "SORT_CLEAR_CATEGORY" })}
+              style={getActiveLinkStyle}
             >
               Shop
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
             <Categories />
@@ -49,27 +56,27 @@ export const Nav = () => {
       <div className="nav-social-media-icons-container">
         <ul className="nav-items">
           <li className="nav-item">
-            <Link to="/login">
+            <NavLink to="/login">
               <span className="nav-icon">
                 <FaUserAlt title="Log In" />
               </span>
-            </Link>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <Link to="/wishlist">
+            <NavLink to="/wishlist">
               <span className="nav-icon">
                 <FaRegHeart title="WishList" />
               </span>
-            </Link>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <Link to="/cart">
+            <NavLink to="/cart">
               <span className="nav-icon">
                 <FaShoppingBag title="Cart" />
               </span>
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
