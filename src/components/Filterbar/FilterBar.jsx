@@ -21,9 +21,8 @@ export const FilterBar = () => {
     const brandName = event.target.value;
     if (checkedBrand) {
       return { type: "SET_BRAND_NAME", payload: brandName };
-    } else {
-      return { type: "REMOVE_BRAND_NAME", payload: brandName };
     }
+    return { type: "REMOVE_BRAND_NAME", payload: brandName };
   }
 
   return (
@@ -75,18 +74,6 @@ export const FilterBar = () => {
                 })
               }
             />
-          </li>
-        </div>
-        {/* <!-- -------------------CATEGORY-------------- --> */}
-        <h4 className="sidebar-content-item">CATEGORY</h4>
-        <div className="sidebar-list">
-          <li>
-            <input type="radio" value="Men" name="category-btn" />
-            Men
-          </li>
-          <li className="sidebar-list">
-            <input type="radio" value="Women" name="category-btn" />
-            Women
           </li>
         </div>
 

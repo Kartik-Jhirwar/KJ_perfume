@@ -20,19 +20,6 @@ export const WishListCard = ({ product }) => {
     discountOffer,
   } = product;
 
-  //  adding item to cart
-
-  // const addToCart = (product) => {
-  //   const newCartItem = wishListItem.some((item) => item._id === product._id);
-  //   console.log("newcartItem", newCartItem);
-  //   if (newCartItem) {
-  //     cartDispatch({ type: "INCREMENT_QUANTITY", payload: product });
-  //     cartDispatch({ type: "ADD_ITEM_TO_CART", payload: product });
-  //   } else {
-  //     cartDispatch({ type: "ADD_ITEM_TO_CART", payload: product });
-  //   }
-  // };
-
   return (
     <div className="card-for-ecommerce pd-1 card-with-shadow">
       <div className="card-image-holder">
