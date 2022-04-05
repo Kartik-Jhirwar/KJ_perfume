@@ -14,7 +14,7 @@ export const PageNotFound = () => {
         <span className="error-status">404 </span>
         <p className="message-for-user">
           Aha!!! You see ! You can be wrong ! or it could be us you should
-          probably
+          probably Go to HomePage
         </p>
       </div>
     </div>
