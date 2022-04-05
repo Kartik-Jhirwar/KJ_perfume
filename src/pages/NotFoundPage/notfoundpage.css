@@ -1,0 +1,24 @@
+.error-image-container {
+  height: 40rem;
+  width: 70rem;
+  object-fit: contain;
+  margin: 60rem 0 0 100rem;
+}
+.errorpage-message {
+  flex-direction: column;
+  font-size: 3rem;
+  margin: 50rem 0 0 20rem;
+}
+.error-status {
+  color: var(--dark-blue);
+  font-size: 10rem;
+  width: 100%;
+  margin: 4rem 0 0 3rem;
+}
+.message-for-user {
+  width: 50rem;
+}
+.link-to-homepage {
+  color: var(--dark-cyan);
+  cursor: pointer;
+}

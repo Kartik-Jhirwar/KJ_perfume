@@ -2,15 +2,19 @@ import "./App.css";
 import {Nav} from "./components/nav/Nav";
 import MockMan from "mockman-js";
 import {Routes,Route} from "react-router";
-import {Home,ProductPage,LogInPage,CartPage,WishListPage,SignUpPage,ForgotpassWord} from "../src/pages/indexpages";
-
+import { useLocation } from "react-router-dom";
+import {Home,ProductPage,LogInPage,CartPage,WishListPage,SignUpPage,ForgotpassWord,PageNotFound} from "../src/pages/indexpages";
+import { useState } from "react";
 
 
 
 function App() {
+
+  const {pathname}=useLocation();
+  const [isNavVisible,setIsNavVisible]=useState(true);
   return (  
        <div className="grid-container">     
-        <Nav/> 
+        {isNavVisible && pathname !== "*"? <Nav/> :null}
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/productpage" element={<ProductPage/>}/>    
@@ -19,6 +23,7 @@ function App() {
           <Route path="/cart" element={<CartPage/>}/>
           <Route path="/signup" element={<SignUpPage/>}/>
           <Route path="/forgotpassword" element={<ForgotpassWord/>}/>
+          <Route path="*" element={<PageNotFound/>}/>
           <Route path="/mockman" element={<MockMan/>}/>
         </Routes>        
       </div>
