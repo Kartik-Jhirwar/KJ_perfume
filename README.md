@@ -25,7 +25,7 @@
   
 * Filter and Sort
 * Search the Product
-* Error Page()
+* [Error Page](https://mehak-store.netlify.app/productpag)
 
 React JS -
 
@@ -35,6 +35,10 @@ React JS -
 
 ## Live Link
 [Mehak-store](https://mehak-store.netlify.app/)
+
+## Video
+
+https://user-images.githubusercontent.com/77275100/162038343-ba6760c2-de9f-4ae1-bdbb-9c745841c7ae.mp4
 
 ## E-Commerce Backend
 
