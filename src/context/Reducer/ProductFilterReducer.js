@@ -44,16 +44,17 @@
                 return{...state,sortByBrand:state.sortByBrand.filter((brand)=>brand !== action.payload)}    
 
            case "CLEAR_ALL_FILTERS":
-                   return {   sortByPrice: null,
+                   return {  
+                              sortByPrice: null,
                               sortByCategory: null,
-                              pricerange: 0,
+                              pricerange: 15000,
                               showAllProduct: true,
                               fastDelivery: false,
                               sortByBrand: [],
                               sortByQuantity: null,
                               sortByRatings: null,
                               searchByQuery: ""
-}
+               }
           case "SEARCH_BY_QUERY":
                return{...state,searchByQuery:action.payload}
 
