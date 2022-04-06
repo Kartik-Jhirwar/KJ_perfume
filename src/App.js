@@ -5,6 +5,7 @@ import {Routes,Route} from "react-router";
 import { useLocation } from "react-router-dom";
 import {Home,ProductPage,LogInPage,CartPage,WishListPage,SignUpPage,ForgotpassWord,PageNotFound} from "../src/pages/indexpages";
 import { useState } from "react";
+import { Toaster } from 'react-hot-toast';
 
 
 
@@ -25,7 +26,11 @@ function App() {
           <Route path="/forgotpassword" element={<ForgotpassWord/>}/>
           <Route path="*" element={<PageNotFound/>}/>
           <Route path="/mockman" element={<MockMan/>}/>
-        </Routes>        
+        </Routes>  
+        <Toaster
+        position="top-center"
+        toastOptions={{ className: "toast-display", duration: 2000 }}
+      />     
       </div>
       
   );

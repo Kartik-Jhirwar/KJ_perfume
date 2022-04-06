@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { FaStar, FaRegHeart, FaRupeeSign, FaHeart } from "react-icons/fa";
 import "../ProductCard/Productcard.css";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast from "react-hot-toast";
 
 export const Productcard = ({ product }) => {
   const {
@@ -25,9 +24,7 @@ export const Productcard = ({ product }) => {
   const { wishListItem, wishListCount } = wishListState;
 
   const showToast = () => {
-    toast.info("inform you when product back in stock", {
-      className: "Toast-display",
-    });
+    toast("inform you when product back in stock", { icon: "✔️" });
   };
   return (
     <div className="card-for-ecommerce pd-1 card-with-shadow">
@@ -81,11 +78,13 @@ export const Productcard = ({ product }) => {
                 onClick={
                   isSoldOut
                     ? showToast
-                    : () =>
+                    : () => {
                         cartDispatch({
                           type: "ADD_ITEM_TO_CART",
                           payload: product,
-                        })
+                        }),
+                          toast("added to cart", { icon: "✔️" });
+                      }
                 }
               >
                 {isSoldOut ? "NOTIFY ME" : "ADD TO CART"}
@@ -102,22 +101,18 @@ export const Productcard = ({ product }) => {
             <span>
               <FaRegHeart
                 className="btn-wishlist"
-                onClick={() =>
+                onClick={() => {
                   wishListDispatch({
                     type: "ADD_ITEM_TO_WISHLIST",
                     payload: product,
-                  })
-                }
+                  }),
+                    toast("added to wishlist", { icon: "✔️" });
+                }}
               />
             </span>
           )}
         </div>
       </div>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={4000}
-        hideProgressBar={true}
-      />
     </div>
   );
 };
