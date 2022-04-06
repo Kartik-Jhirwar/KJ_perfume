@@ -46,7 +46,7 @@
            case "CLEAR_ALL_FILTERS":
                    return {   sortByPrice: null,
                               sortByCategory: null,
-                              pricerange: 0,
+                              pricerange: 15000,
                               showAllProduct: true,
                               fastDelivery: false,
                               sortByBrand: [],
