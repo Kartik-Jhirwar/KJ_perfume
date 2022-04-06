@@ -2,6 +2,7 @@ import React from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { FaRupeeSign, FaTrashAlt } from "react-icons/fa";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
+import toast from "react-hot-toast";
 
 export const HorizontalCard = ({ item }) => {
   const {
@@ -43,9 +44,10 @@ export const HorizontalCard = ({ item }) => {
           Quantity :
           {item.qty === 1 ? (
             <FaTrashAlt
-              onClick={() =>
-                cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: item })
-              }
+              onClick={() => {
+                cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: item }),
+                  toast("Removed from cart", { icon: "❌" });
+              }}
             />
           ) : (
             <BiMinus
@@ -77,9 +79,10 @@ export const HorizontalCard = ({ item }) => {
           <span className="button-cart">
             <button
               className="btn button-lg fontcolor-pink border-round"
-              onClick={() =>
-                cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: item })
-              }
+              onClick={() => {
+                cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: item }),
+                  toast("Removed from cart", { icon: "❌" });
+              }}
             >
               REMOVE
             </button>
@@ -87,7 +90,10 @@ export const HorizontalCard = ({ item }) => {
           <span className="button-cart">
             <button
               className="link-btn border-round"
-              onClick={() => addToWishListRemoveFromCart(item)}
+              onClick={() => {
+                addToWishListRemoveFromCart(item),
+                  toast("Added to wishList", { icon: "✔️" });
+              }}
             >
               ADD TO WISHLIST
             </button>

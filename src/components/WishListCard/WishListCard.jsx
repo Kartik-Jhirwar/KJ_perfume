@@ -4,6 +4,7 @@ import { useCartandWishList } from "../../context/CartAndWishlist-context";
 import { CartItemReducer } from "../../context/Reducer/CartItemReducer";
 import "../../pages/WishListPage/WishListPage.css";
 import "../ProductCard/Productcard";
+import toast from "react-hot-toast";
 
 export const WishListCard = ({ product }) => {
   const { wishListState, wishListDispatch, cartState, cartDispatch } =
@@ -57,21 +58,23 @@ export const WishListCard = ({ product }) => {
           <span>
             <button
               className="btn fontcolor-pink border-round fw-bold"
-              onClick={() =>
-                cartDispatch({ type: "ADD_ITEM_TO_CART", payload: product })
-              }
+              onClick={() => {
+                cartDispatch({ type: "ADD_ITEM_TO_CART", payload: product }),
+                  toast("added to cart", { icon: "✔️" });
+              }}
             >
               MOVE TO CART
             </button>
           </span>
           <span className="btn-wishlist">
             <FaHeart
-              onClick={() =>
+              onClick={() => {
                 wishListDispatch({
                   type: "REMOVE_ITEM_FROM_WISHLIST",
                   payload: product,
-                })
-              }
+                }),
+                  toast("Removed from wishlist", { icon: "❌" });
+              }}
             />
           </span>
         </div>
