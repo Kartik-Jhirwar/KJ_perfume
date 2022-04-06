@@ -56,7 +56,7 @@ const productFilterByRating=(state,productList)=>{
 
 const productSortByBrand=(state,productList)=>{
     const brandList = state.sortByBrand;
-    return brandList.length ===0 ? productList:
+    return brandList.length===0 ? productList:
     productList.filter((item)=>brandList.some((brand)=>brand===item.brand))
 }
 

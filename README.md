@@ -25,7 +25,7 @@
   
 * Filter and Sort
 * Search the Product
-* [Error Page](https://mehak-store.netlify.app/productpag)
+* Error Page()
 
 React JS -
 
@@ -33,19 +33,8 @@ React JS -
 - React Router
 - Search bar with predictive text
 
-## Upcoming feature implementation
- * Authentication
- * Address Management
- * Logout page
-
 ## Live Link
 [Mehak-store](https://mehak-store.netlify.app/)
-
-## Video
-
-https://user-images.githubusercontent.com/77275100/161740763-e1a4b2c6-7512-47fc-982c-6fff2cfd5cfd.mp4
-
-
 
 ## E-Commerce Backend
 
