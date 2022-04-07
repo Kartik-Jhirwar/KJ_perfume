@@ -19,12 +19,14 @@ export const WishListCard = ({ product }) => {
     rating,
     image,
     discountOffer,
+    isSoldOut,
   } = product;
 
   return (
     <div className="card-for-ecommerce pd-1 card-with-shadow">
       <div className="card-image-holder">
         <img src={image} className="card-image" alt={productName} />
+        {isSoldOut && <span className="sold-out-badge">Sold out</span>}
       </div>
 
       <div className="card-body">
@@ -58,12 +60,23 @@ export const WishListCard = ({ product }) => {
           <span>
             <button
               className="btn fontcolor-pink border-round fw-bold"
-              onClick={() => {
-                cartDispatch({ type: "ADD_ITEM_TO_CART", payload: product }),
-                  toast("added to cart", { icon: "✔️" });
-              }}
+              onClick={
+                isSoldOut
+                  ? () => {
+                      toast("Inform you when product back in stock", {
+                        icon: "✔️",
+                      });
+                    }
+                  : () => {
+                      cartDispatch({
+                        type: "ADD_ITEM_TO_CART",
+                        payload: product,
+                      }),
+                        toast("added to cart", { icon: "✔️" });
+                    }
+              }
             >
-              MOVE TO CART
+              {isSoldOut ? "NOTIFY ME" : " MOVE TO CART"}
             </button>
           </span>
           <span className="btn-wishlist">
