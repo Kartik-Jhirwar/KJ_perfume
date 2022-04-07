@@ -13,18 +13,32 @@
 ## Functionalities (for now)
 
 * [Home Page](https://mehak-store.netlify.app/)
+   - A landing page with categories
+   - Top search product container
 * [Product Listing Page](https://mehak-store.netlify.app/productpage)
      * [Products with Men Category](https://mehak-store.netlify.app/productpage?category=Men)
      * [Products with Women Category](https://mehak-store.netlify.app/productpage?category=Women)
+     * All Products listed with filterBar
+     * User can add item to cart and wishlist  
 * [Wishlist page](https://mehak-store.netlify.app/wishlist) 
+   * user can move item to cart from wishlist
+   * user can remove item from wishlist
 * [cart page](https://mehak-store.netlify.app/cart)
+   * user can add item to wishlist from cart
+   * user can remove item from cart
+   * cart summary with total amount and total discount
 * Authentication
   * [User Login](https://mehak-store.netlify.app/login)
   * [User signup](https://mehak-store.netlify.app/signup)
   * [forgot password](https://mehak-store.netlify.app/forgotpassword)
   
 * Filter and Sort
+  * Filter a products By Price range
+  * Filter a products By Brand
+  * Filter a products By Quantity
+  * Filter a Products By Ratings
 * Search the Product
+   * search a product by predictive text
 * [Error Page](https://mehak-store.netlify.app/productpag)
 
 React JS -
