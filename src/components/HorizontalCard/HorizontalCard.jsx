@@ -3,6 +3,7 @@ import { BiMinus, BiPlus } from "react-icons/bi";
 import { FaRupeeSign, FaTrashAlt } from "react-icons/fa";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 export const HorizontalCard = ({ item }) => {
   const {
@@ -35,7 +36,9 @@ export const HorizontalCard = ({ item }) => {
   return (
     <div className="horizontal-card pd-1 border-round">
       <div className="card-image-holder">
-        <img src={image} className="card-image" alt="product-Image" />
+        <Link to={`/product/${item._id}`}>
+          <img src={image} className="card-image" alt="product-Image" />
+        </Link>
       </div>
 
       <div className="card-body">

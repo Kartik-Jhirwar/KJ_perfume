@@ -1,0 +1,26 @@
+.single-product-detail-conatiner {
+  background-color: red;
+  width: 100rem;
+  height: 500px;
+  margin: 10rem 20rem;
+  gap: 1rem;
+}
+.image-conatiner {
+  background-color: blue;
+  width: 50rem;
+  justify-self: flex-start;
+  margin: 0 auto 0 1rem;
+}
+.image-of-product {
+  width: 100%;
+}
+.product-detail-container {
+  background-color: aqua;
+  margin-left: 1rem;
+  width: 50rem;
+  height: 500px;
+}
+.rating-for-single-product {
+  top: 12rem;
+  left: 78rem;
+}
