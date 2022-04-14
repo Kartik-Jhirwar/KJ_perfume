@@ -1,8 +1,8 @@
 .sign-up-page-container {
   min-height: 80vh;
-  height: 700px;
+  height: 600px;
   max-width: 70%;
-  padding: 1.5rem;
+  min-width: 45rem;
   flex-direction: column;
   box-shadow: 2px 2px 5px var(--dark-stone);
   margin: auto;
@@ -41,6 +41,10 @@
   gap: 0.5rem;
   display: none;
   color: brown;
+}
+.err-message {
+  font-size: 1.6rem;
+  color: red;
 }
 @media only screen and (min-width: 250px) and (max-width: 800px) {
   body {

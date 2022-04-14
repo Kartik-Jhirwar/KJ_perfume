@@ -1,0 +1,28 @@
+.add-address-container {
+  height: 600px;
+  max-width: 80%;
+  flex-direction: column;
+  border: 2px solid var(--light-stone);
+  margin: 2rem auto;
+}
+
+.gap {
+  gap: 1rem;
+}
+.mt-1 {
+  margin-top: 1.8rem;
+}
+.address-heading {
+  font-size: 2rem;
+  color: var(--secondary-color);
+}
+
+@media only screen and (min-width: 402px) and (max-width: 800px) {
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  .add-address-container {
+    max-width: 70vw;
+  }
+}
