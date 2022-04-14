@@ -16,8 +16,7 @@ const AuthProvider=({children})=>{
     const [user,setUser]=useState(initialStateValue);
     const navigateTo=useNavigate();
 
-    const signUpHandler=async(signupData)=>{
-        console.log(signupData);
+    const signUpHandler=async(signupData)=>{        
         const {data,status}=await signupService(signupData);        
         if(status===201)
         {
