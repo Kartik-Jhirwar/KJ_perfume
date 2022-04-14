@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 
 export const Productcard = ({ product }) => {
   const {
+    _id,
     image,
     isSoldOut,
     productName,
@@ -29,7 +30,7 @@ export const Productcard = ({ product }) => {
   return (
     <div className="card-for-ecommerce pd-1 card-with-shadow">
       <div className="card-image-holder">
-        <Link to="#">
+        <Link to={`/product/${_id}`}>
           <img src={image} className="card-image" alt="product-image" />
         </Link>
         {isSoldOut && <span className="sold-out-badge">Sold out</span>}

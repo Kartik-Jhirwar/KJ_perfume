@@ -28,7 +28,7 @@ const initialState={
               console.error("can't get data");
           }
         })();
-    })
+    },[])
 
     const [state,dispatch]=useReducer(filterProductReducer,initialState);
     const showProductList = composeFunction (state,functionList)([...productList]);
