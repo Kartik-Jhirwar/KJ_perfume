@@ -8,8 +8,8 @@ import { useAuth } from "../../context/Authentication/auth-context";
 
 export const SignUpPage = () => {
   const [signupData, setSignUpData] = useState(initialSignUpData);
-  const [passVisible, setPassVisible] = useState(true);
-  const [conPassVisible, setConPassVisible] = useState(true);
+  const [showpassword, setShowPassword] = useState(true);
+  const [showConfPassword, setshowConfPassword] = useState(true);
   const [error, setErrMessage] = useState("");
   const { signUpHandler } = useAuth();
   const navigate = useNavigate();
@@ -89,15 +89,15 @@ export const SignUpPage = () => {
               id="password"
               className="input-textbox"
               placeholder="*********"
-              type={passVisible ? "password" : "text"}
+              type={showpassword ? "password" : "text"}
               onChange={signUpChangeHandler}
               required
             />
             <button className="eye-icon eye-icon-signup" type="button">
-              {passVisible ? (
-                <FaEyeSlash onClick={() => setPassVisible(!passVisible)} />
+              {showpassword ? (
+                <FaEyeSlash onClick={() => setShowPassword(!showpassword)} />
               ) : (
-                <FaEye onClick={() => setPassVisible(!passVisible)} />
+                <FaEye onClick={() => setShowPassword(!showpassword)} />
               )}
             </button>
           </span>
@@ -115,17 +115,17 @@ export const SignUpPage = () => {
               id="confirmpassword"
               className="input-textbox"
               placeholder="**********"
-              type={conPassVisible ? "password" : "text"}
+              type={showConfPassword ? "password" : "text"}
               onChange={signUpChangeHandler}
               required
             />
             <button className="eye-icon eye-icon-signup" type="button">
-              {conPassVisible ? (
+              {showConfPassword ? (
                 <FaEyeSlash
-                  onClick={() => setConPassVisible(!conPassVisible)}
+                  onClick={() => setshowConfPassword(!showConfPassword)}
                 />
               ) : (
-                <FaEye onClick={() => setConPassVisible(!conPassVisible)} />
+                <FaEye onClick={() => setshowConfPassword(!showConfPassword)} />
               )}
             </button>
           </span>

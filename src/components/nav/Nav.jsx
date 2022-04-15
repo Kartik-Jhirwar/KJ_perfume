@@ -15,8 +15,10 @@ export const Nav = () => {
   const { cartState, wishListState } = useCartandWishList();
   const { cartItem, cartCount } = cartState;
   const { wishListItem, wishListCount } = wishListState;
-  const { user } = useAuth();
-  const { isloggedIn } = user;
+  const {
+    user: { isloggedIn },
+  } = useAuth();
+
   const navigate = useNavigate();
 
   const getActiveLinkStyle = ({ isActive }) => ({
@@ -63,7 +65,6 @@ export const Nav = () => {
         <ul className="nav-items">
           <li className="nav-item">
             <span className="nav-icon">
-              {console.log(isloggedIn)}
               {isloggedIn ? (
                 <CgProfile
                   className="header-icon"
