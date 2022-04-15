@@ -1,5 +1,4 @@
-const composeFunction=(state,functionList)=>(productList)=>{
-    console.log(productList,state);
+const composeFunction=(state,functionList)=>(productList)=>{    
     return functionList.reduce((acc,currentFunction)=>{
         return currentFunction(state,acc);
     },productList);
@@ -16,8 +15,7 @@ const productSortByPrice=(state,productList)=>{
     }
     else return productList;
 }
-const productSoryByPriceRange=(state,productList)=>{
-    console.log(state.pricerange);
+const productSoryByPriceRange=(state,productList)=>{   
     return state.pricerange === 15000? productList :productList.filter((product)=>product.sellingPrice <= state.pricerange)
 }
 const productSortByStock=(state,productList)=>{
