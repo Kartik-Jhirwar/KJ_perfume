@@ -1,15 +1,12 @@
- export const addItemTocart =(productToadd , cartItem) => {
- if( cartItem.length >= 0)
- {
-     let newProductToadd = cartItem.find((item)=>item._id === productToadd._id)
-     if(newProductToadd)
-     {
-         return cartItem.map((item)=>item._id===newProductToadd._id ? {...item,qty:item.qty + 1} :item)
-     }
-     else
-     {
-    return [...cartItem, {...productToadd , qty:1}]
-     }
- }
-
-}
+export const itemExistInCart=(product,state)=>{
+let isExist =false;
+ state.cartItem.map((item)=>{
+      if(item._id === product._id) {
+          return isExist=true
+       }
+       else{
+           return isExist;
+       }
+    })
+        return isExist;
+  }

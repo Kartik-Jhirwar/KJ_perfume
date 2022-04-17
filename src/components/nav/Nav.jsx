@@ -12,9 +12,9 @@ import { useAuth } from "../../context/Authentication/auth-context";
 
 export const Nav = () => {
   const { state, dispatch } = useProduct();
-  const { cartState, wishListState } = useCartandWishList();
-  const { cartItem, cartCount } = cartState;
-  const { wishListItem, wishListCount } = wishListState;
+  const { cartState, wishListState, getCartItemCount } = useCartandWishList();
+  const { cartItem } = cartState;
+  const { wishListItem } = wishListState;
   const {
     user: { isloggedIn },
   } = useAuth();
@@ -22,7 +22,7 @@ export const Nav = () => {
   const navigate = useNavigate();
 
   const getActiveLinkStyle = ({ isActive }) => ({
-    color: isActive ? "#10b981" : "",
+    color: isActive ? "#10b681" : "",
   });
 
   return (
@@ -94,20 +94,20 @@ export const Nav = () => {
           </li>
         </ul>
       </div>
-      {wishListItem.length === 0 ? (
-        ""
-      ) : (
+      {isloggedIn ? (
         <span className="badge badge-wishlist flex-center text-size-sm text-white">
-          {wishListCount}
+          {wishListItem.length}
         </span>
+      ) : (
+        ""
       )}
 
-      {cartItem.length === 0 ? (
-        " "
-      ) : (
+      {isloggedIn ? (
         <span className="badge badge-cart flex-center text-size-sm text-white">
-          {cartCount}
+          {getCartItemCount(cartItem)}
         </span>
+      ) : (
+        ""
       )}
     </nav>
   );

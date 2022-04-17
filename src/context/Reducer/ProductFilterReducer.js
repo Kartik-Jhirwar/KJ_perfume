@@ -1,5 +1,4 @@
- export const filterProductReducer=(state,action)=>{
-      console.log(state,action,"hjhj")
+ export const filterProductReducer=(state,action)=>{      
       switch (action.type) {
           case "SORT_LOW_TO_HIGH":
                return {...state,sortByPrice:"LOW_TO_HIGH"};
@@ -53,7 +52,7 @@
                               sortByQuantity: null,
                               sortByRatings: null,
                               searchByQuery: ""
-}
+                          }
           case "SEARCH_BY_QUERY":
                return{...state,searchByQuery:action.payload}
 

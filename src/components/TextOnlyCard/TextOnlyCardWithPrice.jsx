@@ -1,9 +1,12 @@
 import React from "react";
 import { BiMinus, BiRupee } from "react-icons/bi";
 import { FaRupeeSign, FaTrashAlt } from "react-icons/fa";
+import { useCartandWishList } from "../../context/CartAndWishlist-context";
 
-export const TextOnlyCardWithPrice = ({ cartState }) => {
+export const TextOnlyCardWithPrice = () => {
+  const { cartState, getCartItemCount } = useCartandWishList();
   const { cartItem } = cartState;
+  const itemsInCart = getCartItemCount(cartItem);
   const DeliveryCharges = 50;
 
   // calculating total original price
@@ -24,11 +27,14 @@ export const TextOnlyCardWithPrice = ({ cartState }) => {
 
   return (
     <div className="text-only-card card-with-shadow">
-      <h2>PAYMENT DETAILS</h2>
+      <h2 className="text-onlycard-heading">PAYMENT DETAILS</h2>
       <div className="card-body">
         <hr />
         <div className="item-price-detail">
-          <p className="card-detail">Bag Total ({cartItem.length} items)</p>
+          <p className="card-detail">
+            Bag Total ({getCartItemCount(cartItem)}
+            {itemsInCart === 1 ? "item" : "items"})
+          </p>
           <span className="discount">
             <FaRupeeSign className="rupees-sign-cart" />
             {totalOriginalPrice}

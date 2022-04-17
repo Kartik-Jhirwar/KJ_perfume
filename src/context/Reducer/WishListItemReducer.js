@@ -1,14 +1,15 @@
-export const WishListItemReducer=(state,action)=>{
-    const {wishListItem,wishListCount}=state;
-    const {payload}=action;
-    
+export const WishListItemReducer=(state,action)=>{      
     switch (action.type) {
+        case "LOAD_WISHLIST_DATA":
+            return {...state,  wishListItem:[...action.payload]
+               };
+
         case "ADD_ITEM_TO_WISHLIST":
-            return {...state,  wishListItem:[...state.wishListItem,action.payload],
-                wishListCount :state.wishListCount +1};
+            return {...state,  wishListItem:[...action.payload],
+                };
 
         case "REMOVE_ITEM_FROM_WISHLIST":
-            return {...state,wishListItem:state.wishListItem.filter((item)=>item._id!==action.payload._id),wishListCount :state.wishListCount -1}    
+            return {...state,wishListItem:[...action.payload],}    
             
     
         default:

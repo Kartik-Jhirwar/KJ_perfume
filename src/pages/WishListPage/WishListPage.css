@@ -41,6 +41,11 @@
 .mt-2 {
   margin-top: 1rem;
 }
+.wishlistcard-button {
+  background: transparent;
+  border: none;
+}
+
 @media only screen and (min-width: 250px) and (max-width: 970px) {
   body {
     height: 100%;
