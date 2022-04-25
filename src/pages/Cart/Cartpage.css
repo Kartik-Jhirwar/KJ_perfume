@@ -16,6 +16,9 @@
   min-width: 20rem;
   cursor: pointer;
 }
+.text-onlycard-heading {
+  margin-left: 1.5rem;
+}
 
 .button-container {
   display: flex;
@@ -49,6 +52,15 @@
 
 .card-qty-flex {
   justify-content: flex-start;
+}
+
+.horizontal-card-button-icon {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  min-width: 1rem;
+  /* margin-left: -5px; */
+  /* background-color: aqua; */
 }
 
 .discount-tag {

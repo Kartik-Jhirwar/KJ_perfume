@@ -1,29 +1,24 @@
 import React from "react";
+import { Address } from "./Address";
 
-export const AddressList = () => {
+export const AddressList = ({
+  addressListData,
+  setAddressListData,
+  deleteDataHandler,
+  editDataHandler,
+}) => {
   return (
     <div>
-      <address className="address-container">
-        <p className="text-size-md">Adrienne Ford</p>
-        <p className="text-size-sm">70, Jal Vihar, Wazirabad, New Delhi-33</p>
-        <p className="text-size-sm">India.</p>
-        <p className="text-size-sm">Phone Number : 9867564509</p>
-        <div className="address-btn-container">
-          <button className="btn btn-secondary border-round">Edit</button>
-          <button className="btn btn-primary border-round">Remove</button>
-        </div>
-      </address>
-
-      <address className="address-container">
-        <p className="text-size-md">Adrienne Ford</p>
-        <p className="text-size-sm">70, Jal Vihar, Wazirabad, New Delhi-33</p>
-        <p className="text-size-sm">India.</p>
-        <p className="text-size-sm">Phone Number : 9867564509</p>
-        <div className="address-btn-container">
-          <button className="btn btn-secondary border-round">Edit</button>
-          <button className="btn btn-primary border-round">Remove</button>
-        </div>
-      </address>
+      {addressListData.map((address, index) => {
+        return (
+          <Address
+            addressData={address}
+            key={index}
+            deleteDataHandler={deleteDataHandler}
+            editDataHandler={editDataHandler}
+          />
+        );
+      })}
     </div>
   );
 };

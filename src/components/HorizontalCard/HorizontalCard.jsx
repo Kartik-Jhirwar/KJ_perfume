@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { FaRupeeSign, FaTrashAlt } from "react-icons/fa";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
@@ -14,9 +14,19 @@ export const HorizontalCard = ({ item }) => {
     discountOffer,
     image,
   } = item;
-  const { cartState, cartDispatch, wishListState, wishListDispatch } =
-    useCartandWishList();
+  const {
+    cartDispatch,
+    wishListState,
+    wishListDispatch,
+    removeProductFromCart,
+    incrementCartQuantity,
+    decrementCartQuantity,
+    addProductToWishlist,
+  } = useCartandWishList();
   const { wishListItem } = wishListState;
+  const [isbtnDisable, setBtnDisabled] = useState(false);
+  const [isPlusDisable, setisPlusBtnDisabled] = useState(false);
+  const [isminusbtnDisable, setMinusBtnDisabled] = useState(false);
 
   //  adding item to wishlist and removing that item from cart
 
@@ -26,10 +36,10 @@ export const HorizontalCard = ({ item }) => {
     );
 
     if (newWishlistItem) {
-      cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: product });
+      removeProductFromCart(product);
     } else {
-      cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: product });
-      wishListDispatch({ type: "ADD_ITEM_TO_WISHLIST", payload: product });
+      removeProductFromCart(product);
+      addProductToWishlist(product, setBtnDisabled);
     }
   };
 
@@ -45,26 +55,34 @@ export const HorizontalCard = ({ item }) => {
         <span className="card-title fw-300">{productName}</span>
         <p className="card-detail card-qty-flex">
           Quantity :
-          {item.qty === 1 ? (
-            <FaTrashAlt
-              onClick={() => {
-                cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: item }),
-                  toast("Removed from cart", { icon: "❌" });
-              }}
-            />
-          ) : (
-            <BiMinus
-              onClick={() =>
-                cartDispatch({ type: "DECREMENT_QUANTITY", payload: item })
-              }
-            />
-          )}
-          <span className="qty">{qty}</span>
-          <BiPlus
-            onClick={() =>
-              cartDispatch({ type: "INCREMENT_QUANTITY", payload: item })
-            }
-          />
+          <span className="flex-center">
+            {item.qty === 1 ? (
+              <button className="horizontal-card-button-icon flex-center ">
+                <FaTrashAlt
+                  onClick={() => {
+                    removeProductFromCart(item),
+                      toast("Removed from cart", { icon: "❌" });
+                  }}
+                />
+              </button>
+            ) : (
+              <button
+                className="horizontal-card-button-icon flex-center"
+                disabled={isminusbtnDisable}
+                onClick={() => decrementCartQuantity(item, setMinusBtnDisabled)}
+              >
+                <BiMinus />
+              </button>
+            )}
+            <span className="qty">{qty}</span>
+            <button
+              className="horizontal-card-button-icon flex-center"
+              disabled={isPlusDisable}
+              onClick={() => incrementCartQuantity(item, setisPlusBtnDisabled)}
+            >
+              <BiPlus />
+            </button>
+          </span>
         </p>
         <span className="price-details">
           <p className="price-cut">
@@ -83,7 +101,7 @@ export const HorizontalCard = ({ item }) => {
             <button
               className="btn button-lg fontcolor-pink border-round"
               onClick={() => {
-                cartDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: item }),
+                removeProductFromCart(item),
                   toast("Removed from cart", { icon: "❌" });
               }}
             >
@@ -93,6 +111,7 @@ export const HorizontalCard = ({ item }) => {
           <span className="button-cart">
             <button
               className="link-btn border-round"
+              disabled={isbtnDisable}
               onClick={() => {
                 addToWishListRemoveFromCart(item),
                   toast("Added to wishList", { icon: "✔️" });

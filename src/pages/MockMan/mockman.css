@@ -12,6 +12,9 @@
   flex-wrap: wrap;
   padding: 5px;
 }
+.response-wrapper {
+  width: 30rem;
+}
 @media only screen and (max-width: 900px) {
   .mockman {
     grid-template-columns: 36rem;

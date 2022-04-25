@@ -1,13 +1,13 @@
 import { createContext,useContext,useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { signupService,logInService,signOutService } from "../../Services/Authservice";
 import toast from "react-hot-toast";
 
 
 const authContext=createContext();
-const token=localStorage.getItem("auth_token");
-const userName=localStorage.getItem("user_name");
-const emailofUser =localStorage.getItem("email_of_user");
+const token=JSON.parse(localStorage.getItem("auth_token"));
+const userName=JSON.parse(localStorage.getItem("user_name"));
+const emailofUser =JSON.parse(localStorage.getItem("email_of_user"));
 
 const initialStateValue={
     isloggedIn:token?true:false,
@@ -19,6 +19,7 @@ const initialStateValue={
 const AuthProvider=({children})=>{
     const [user,setUser]=useState(initialStateValue);
     const navigateTo=useNavigate();
+    const location=useLocation();
 
     const signUpHandler=async(signupData)=>{        
         const {data,status}=await signupService(signupData);        
@@ -40,12 +41,13 @@ const AuthProvider=({children})=>{
             localStorage.setItem("user_name",JSON.stringify(data.foundUser.firstName));  
             localStorage.setItem("email_of_user",JSON.stringify(data.foundUser.email));                  
             setUser({isloggedIn:true,
-                authenticationToken:JSON.stringify(data.encodedToken),
+                authenticationToken:data.encodedToken,
                 email:data.foundUser.email,
                 userName:data.foundUser.firstName
             })
             toast("Successfully loggedIn", { icon:  "✔️"  });
             navigateTo("/productpage")
+            //  navigateTo(location?.state?.from?.pathname);
         }
     }
 

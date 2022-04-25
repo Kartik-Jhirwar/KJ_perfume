@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaStar, FaRupeeSign, FaHeart } from "react-icons/fa";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
 import { CartItemReducer } from "../../context/Reducer/CartItemReducer";
@@ -8,8 +8,16 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 export const WishListCard = ({ product }) => {
-  const { wishListState, wishListDispatch, cartState, cartDispatch } =
-    useCartandWishList();
+  const {
+    wishListState,
+    wishListDispatch,
+    cartState,
+    cartDispatch,
+    removeProductFromWishlist,
+    addproductToCart,
+  } = useCartandWishList();
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [iswishlistBtnDisabled, setWishListBtnDisabled] = useState(false);
   const { wishListItem } = wishListState;
   const {
     productName,
@@ -63,6 +71,7 @@ export const WishListCard = ({ product }) => {
           <span>
             <button
               className="btn fontcolor-pink border-round fw-bold"
+              disabled={isDisabled}
               onClick={
                 isSoldOut
                   ? () => {
@@ -71,27 +80,25 @@ export const WishListCard = ({ product }) => {
                       });
                     }
                   : () => {
-                      cartDispatch({
-                        type: "ADD_ITEM_TO_CART",
-                        payload: product,
-                      }),
+                      addproductToCart(product, setIsDisabled),
                         toast("added to cart", { icon: "✔️" });
                     }
               }
             >
-              {isSoldOut ? "NOTIFY ME" : " MOVE TO CART"}
+              {isSoldOut ? "NOTIFY ME" : " ADD TO CART"}
             </button>
           </span>
-          <span className="btn-wishlist">
-            <FaHeart
+          <span>
+            <button
+              className="btn-wishlist wishlistcard-button"
+              disabled={iswishlistBtnDisabled}
               onClick={() => {
-                wishListDispatch({
-                  type: "REMOVE_ITEM_FROM_WISHLIST",
-                  payload: product,
-                }),
+                removeProductFromWishlist(product, setWishListBtnDisabled),
                   toast("Removed from wishlist", { icon: "❌" });
               }}
-            />
+            >
+              <FaHeart />
+            </button>
           </span>
         </div>
       </div>

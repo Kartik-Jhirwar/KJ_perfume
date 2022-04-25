@@ -9,9 +9,10 @@ import { useCartandWishList } from "../../context/CartAndWishlist-context";
 import "../Cart/Cartpage.css";
 
 export const CartPage = () => {
-  const { cartState, cartDispatch, wishListState, wishListDispatch } =
-    useCartandWishList();
-  const { cartItem, cartCount } = cartState;
+  const { cartState } = useCartandWishList();
+
+  const { cartItem } = cartState;
+
   return (
     <div className="main-content-container">
       <h2 className="heading">My Cart</h2>
@@ -23,16 +24,12 @@ export const CartPage = () => {
         <div className="cart-order-container">
           <div className="product-container">
             {cartItem.map((item) => {
-              return <HorizontalCard item={item} />;
+              return <HorizontalCard item={item} key={item._id} />;
             })}
           </div>
 
           <div className="final-price-container">
-            {cartItem.length === 0 ? (
-              ""
-            ) : (
-              <TextOnlyCardWithPrice cartState={cartState} />
-            )}
+            {cartItem.length === 0 ? "" : <TextOnlyCardWithPrice />}
           </div>
         </div>
       )}

@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import {Home,ProductPage,LogInPage,CartPage,WishListPage,SignUpPage,ForgotpassWord,PageNotFound,SingleProduct,UserProfilepage,MockMan} from "../src/pages/indexpages";
 import { useState } from "react";
 import { Toaster } from 'react-hot-toast';
+import { RequiresAuth } from "./Router/RequiresAuth";
 
 
 
@@ -19,13 +20,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/productpage" element={<ProductPage/>}/>    
-          <Route path="/login" element={<LogInPage/>}/>  
-          <Route path="/wishlist" element={<WishListPage/>} /> 
-          <Route path="/cart" element={<CartPage/>}/>
+          <Route path="/login" element={<LogInPage/>}/>            
           <Route path="/signup" element={<SignUpPage/>}/>
           <Route path="/forgotpassword" element={<ForgotpassWord/>}/>
           <Route path="/product/:productId" element={<SingleProduct/>}/>
           <Route path="/userprofile" element={<UserProfilepage/>}/> 
+          <Route path="/cart" element={<RequiresAuth children={<CartPage/>}></RequiresAuth>}/>
+          <Route path="/wishlist" element={<RequiresAuth children={<WishListPage/>}></RequiresAuth>}/>
           <Route path="*" element={<PageNotFound/>}/>                 
           <Route path="/mockman" element={<MockMan/>}/>
         </Routes>  
