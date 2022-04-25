@@ -3,7 +3,6 @@ import { getCartData,addItemToCartwithInc,addItemToCart, removeItemFromCart,incr
 import { getWishlist,AddItemToWishList,removeItemFromWishList } from "../Services/wishlistservice";
 import { useAuth } from "./Authentication/auth-context";
 import { CartItemReducer } from "./Reducer/CartItemReducer";
-
 import {itemExistInCart} from "../context/utils/cartUtils";
 import { incData,decData } from "../constants/Api-constants";
 
