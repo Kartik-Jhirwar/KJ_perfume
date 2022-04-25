@@ -6,7 +6,7 @@ export const getCartData=async(user)=>{
             headers:{
                 authorization:user.authenticationToken,
             }
-        })        
+        })             
         return data;
     }
     catch{

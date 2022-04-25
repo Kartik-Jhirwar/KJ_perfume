@@ -15,15 +15,13 @@ export const HorizontalCard = ({ item }) => {
     image,
   } = item;
   const {
-    cartDispatch,
-    wishListState,
-    wishListDispatch,
+    cartState,
     removeProductFromCart,
     incrementCartQuantity,
     decrementCartQuantity,
     addProductToWishlist,
   } = useCartandWishList();
-  const { wishListItem } = wishListState;
+  const { wishListItem } = cartState;
   const [isbtnDisable, setBtnDisabled] = useState(false);
   const [isPlusDisable, setisPlusBtnDisabled] = useState(false);
   const [isminusbtnDisable, setMinusBtnDisabled] = useState(false);

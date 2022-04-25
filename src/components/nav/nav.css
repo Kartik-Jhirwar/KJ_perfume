@@ -65,18 +65,31 @@
 .badge.badge-cart {
   right: 2rem;
 }
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  margin-left: 4px;
+  align-self: center;
+}
 
 @media only screen and (min-width: 250px) and (max-width: 600px) {
-  .logo-container {
-    display: none;
-  }
   .navbar {
     width: 100%;
     font-size: 1rem;
   }
-  .Hamburger-icon {
+  .menu-icon {
     display: block;
   }
+  .nav-item {
+    display: none;
+  }
+  .badge {
+    display: none;
+  }
+
+  /* .grid-container {
+    grid-template-columns: 1fr;
+  } */
   /* .serchbox-container {
     position: absolute;
     top: 6rem;

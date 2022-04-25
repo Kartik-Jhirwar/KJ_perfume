@@ -4,17 +4,18 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { SearchBar } from "../Searchbar/searchbar";
 import { FaRegHeart, FaShoppingBag, FaUserAlt } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
-import { FiLogOut } from "react-icons/fi";
 import { Categories } from "../categories/Categories";
 import { useProduct } from "../../context/product-context";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
 import { useAuth } from "../../context/Authentication/auth-context";
+import { Hamburger } from "../Hamburger/Hamburger";
+import { FiMenu } from "react-icons/fi";
+import { GiCancel } from "react-icons/gi";
 
 export const Nav = () => {
   const { state, dispatch } = useProduct();
   const { cartState, wishListState, getCartItemCount } = useCartandWishList();
-  const { cartItem } = cartState;
-  const { wishListItem } = wishListState;
+  const { cartItem, wishListItem } = cartState;
   const {
     user: { isloggedIn },
   } = useAuth();
@@ -24,11 +25,25 @@ export const Nav = () => {
   const getActiveLinkStyle = ({ isActive }) => ({
     color: isActive ? "#10b681" : "",
   });
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="navbar">
       <div className="nav-content-container">
         <ul className="nav-items">
+          <li className="menu-icon">
+            {isOpen ? (
+              <GiCancel
+                className="menu-icon"
+                onClick={() => setIsOpen(!isOpen)}
+              />
+            ) : (
+              <FiMenu
+                className="menu-icon"
+                onClick={() => setIsOpen(!isOpen)}
+              />
+            )}
+          </li>
           <li className="nav-item">
             <NavLink to="/" style={getActiveLinkStyle}>
               Home
@@ -95,20 +110,29 @@ export const Nav = () => {
         </ul>
       </div>
       {isloggedIn ? (
-        <span className="badge badge-wishlist flex-center text-size-sm text-white">
-          {wishListItem.length}
-        </span>
+        wishListItem.length === 0 ? (
+          ""
+        ) : (
+          <span className="badge badge-wishlist flex-center text-size-sm text-white">
+            {wishListItem.length}
+          </span>
+        )
       ) : (
         ""
       )}
 
       {isloggedIn ? (
-        <span className="badge badge-cart flex-center text-size-sm text-white">
-          {getCartItemCount(cartItem)}
-        </span>
+        cartItem.length === 0 ? (
+          ""
+        ) : (
+          <span className="badge badge-cart flex-center text-size-sm text-white">
+            {getCartItemCount(cartItem)}
+          </span>
+        )
       ) : (
         ""
       )}
+      {isOpen && <Hamburger className="hamburger-menu-container" />}
     </nav>
   );
 };

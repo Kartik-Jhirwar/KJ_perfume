@@ -1,40 +1,46 @@
-import { createContext,useContext,useReducer, useEffect  } from "react";
+import { createContext,useContext,useReducer, useEffect,useState   } from "react";
 import { getCartData,addItemToCartwithInc,addItemToCart, removeItemFromCart,incrementQtnService,decrementQtyService } from "../Services/cartservice";
 import { getWishlist,AddItemToWishList,removeItemFromWishList } from "../Services/wishlistservice";
 import { useAuth } from "./Authentication/auth-context";
 import { CartItemReducer } from "./Reducer/CartItemReducer";
-import { WishListItemReducer } from "./Reducer/WishListItemReducer";
+
 import {itemExistInCart} from "../context/utils/cartUtils";
 import { incData,decData } from "../constants/Api-constants";
 
 
+
  const CartAndWishlistContext = createContext();
- const  cartInitialState ={
-     cartItem:[]
- }
- const wishListInitialState = {
-     wishListItem :[]
- }
+ const  cartandWishlistInitialState ={
+     cartItem:[],
+      wishListItem :[]
+ } 
 
  const CartandWishListProvider =({children})=>{
 
-  const [cartState,cartDispatch]=useReducer(CartItemReducer,cartInitialState);
-  const [wishListState,wishListDispatch]=useReducer(WishListItemReducer,wishListInitialState);
+  const [cartState,cartDispatch]=useReducer(CartItemReducer,cartandWishlistInitialState);  
   const {user}=useAuth();
 
-  // GET WISHLIST 
-  useEffect(async()=>{ 
-         const data= await getWishlist(user);         
-         wishListDispatch({type:"LOAD_WISHLIST_DATA",payload:data.wishlist})
-      
+  // GET WISHLIST AND CART DATA 
+  useEffect(async()=>{
+      if(user.isloggedIn)
+      {
+        const wData= await getWishlist(user);  
+        const  cData=await getCartData(user);                      
+        cartDispatch({type:"LOAD_CART_DATA",payload:cData.cart})     
+        cartDispatch({type:"LOAD_WISHLIST_DATA",payload:wData.wishlist}) 
+      }
+      else{
+          throw new Error("colud not complete the request");
+      } 
+               
   },[user]);
 
   // ADD ITEM TO WISHLIST
   const addProductToWishlist =async(product,setBtnDisabled)=>{
       const {data,status}=await AddItemToWishList(product,user,setBtnDisabled);          
       if(status===201)
-      {
-          wishListDispatch({type:"ADD_ITEM_TO_WISHLIST",payload:data.wishlist})
+      {  
+          cartDispatch({type:"ADD_ITEM_TO_WISHLIST",payload:data.wishlist})
       }
       else{
           throw new Error("could not complete the request");
@@ -46,22 +52,13 @@ import { incData,decData } from "../constants/Api-constants";
       const {data,status}=await removeItemFromWishList(product,user,setBtnDisabled);      
       if(status===200)
       {
-          wishListDispatch({type:"REMOVE_ITEM_FROM_WISHLIST",payload:data.wishlist})
+          cartDispatch({type:"REMOVE_ITEM_FROM_WISHLIST",payload:data.wishlist})
       }
        else{
           throw new Error("could not complete the request");
       }
       setBtnDisabled(false)
   }
-  // GET CART DATA
-        useEffect(()=>{
-            (async()=>{
-            const  data=await getCartData(user);            
-            cartDispatch({type:"LOAD_CART_DATA",payload:data.cart})
-            
-        })()
-        },[user]);
-
  // ADD ITEM TO CART
  const addproductToCart =async(product,setIsDisabled)=>{
      const iteminCart=itemExistInCart(product,cartState);     
@@ -111,7 +108,7 @@ import { incData,decData } from "../constants/Api-constants";
   };
 
 
-     return <CartAndWishlistContext.Provider value={{cartState,cartDispatch,wishListState,wishListDispatch,addProductToWishlist,removeProductFromWishlist,addproductToCart,removeProductFromCart,getCartItemCount,incrementCartQuantity,decrementCartQuantity}}>
+     return <CartAndWishlistContext.Provider value={{cartState,cartDispatch,addProductToWishlist,removeProductFromWishlist,addproductToCart,removeProductFromCart,getCartItemCount,incrementCartQuantity,decrementCartQuantity}}>
          {children}</CartAndWishlistContext.Provider>
  }
  const useCartandWishList =()=>useContext(CartAndWishlistContext);

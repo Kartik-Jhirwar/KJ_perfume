@@ -9,8 +9,6 @@ import { Link } from "react-router-dom";
 
 export const WishListCard = ({ product }) => {
   const {
-    wishListState,
-    wishListDispatch,
     cartState,
     cartDispatch,
     removeProductFromWishlist,
@@ -18,7 +16,7 @@ export const WishListCard = ({ product }) => {
   } = useCartandWishList();
   const [isDisabled, setIsDisabled] = useState(false);
   const [iswishlistBtnDisabled, setWishListBtnDisabled] = useState(false);
-  const { wishListItem } = wishListState;
+
   const {
     productName,
     brand,

@@ -22,16 +22,14 @@ export const Productcard = ({ product }) => {
   const {
     cartState,
     cartDispatch,
-    wishListState,
-    wishListDispatch,
     addProductToWishlist,
     addproductToCart,
     removeProductFromWishlist,
   } = useCartandWishList();
   const [isbtnDisable, setBtnDisabled] = useState(false);
 
-  const { cartItem } = cartState;
-  const { wishListItem } = wishListState;
+  const { cartItem, wishListItem } = cartState;
+
   const {
     user: { isloggedIn },
   } = useAuth();
@@ -78,7 +76,7 @@ export const Productcard = ({ product }) => {
           {cartItem.some((item) => item._id === product._id) ? (
             <Link to="/cart">
               <button className="link-btn btn-lg btn-outline border-round cursor-pointer">
-                GO TO CART
+                {isloggedIn ? "GO TO CART" : "ADD TO CART"}
               </button>
             </Link>
           ) : (
@@ -124,7 +122,11 @@ export const Productcard = ({ product }) => {
                     }
                   }}
                 >
-                  <FaHeart className="btn-wishlist" />
+                  {isloggedIn ? (
+                    <FaHeart className="btn-wishlist" />
+                  ) : (
+                    <FaRegHeart className="btn-wishlist" />
+                  )}
                 </button>
               </Link>
             </span>
@@ -143,18 +145,7 @@ export const Productcard = ({ product }) => {
                   }
                 }}
               >
-                <FaRegHeart
-                  className="btn-wishlist"
-                  // onClick={() => {
-                  //   if (isloggedIn) {
-                  //     addProductToWishlist(product, setBtnDisabled),
-                  //       toast("added to wishlist", { icon: "✔️" });
-                  //   } else {
-                  //     toast("please logIn to continue", { icon: "✔️" });
-                  //     navigate("/login");
-                  //   }
-                  // }}
-                />
+                <FaRegHeart className="btn-wishlist" />
               </button>
             </span>
           )}

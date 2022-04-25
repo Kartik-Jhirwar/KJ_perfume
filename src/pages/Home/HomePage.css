@@ -89,3 +89,13 @@
   display: flex;
   justify-content: center;
 }
+
+@media only screen and (min-width: 250px) and (max-width: 600px) {
+  .heading {
+    font-size: 1.7rem;
+    margin-left: -1rem;
+  }
+  .sidebar-container {
+    width: 18rem;
+  }
+}

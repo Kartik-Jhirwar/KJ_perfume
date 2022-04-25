@@ -27,8 +27,10 @@ const AuthProvider=({children})=>{
         {
             localStorage.setItem("auth_token",JSON.stringify(data.encodedToken)); 
             localStorage.setItem("user_name",JSON.stringify(data.createdUser.firstName));  
-            localStorage.setItem("email_of_user",JSON.stringify(data.createdUser.email));                               
-            navigateTo('/login')
+            localStorage.setItem("email_of_user",JSON.stringify(data.createdUser.email));  
+             toast("saving data", { icon:  "✔️"  });                             
+            navigateTo('/login');
+           
         }
 
     }
