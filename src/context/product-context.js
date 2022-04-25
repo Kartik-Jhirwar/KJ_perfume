@@ -17,12 +17,13 @@ const initialState={
 }
  const ProductProvider =({children})=>{
     const [productList,setProductList]=useState([]);
-    const [isloading,setLoading]=useState(true);
+    const [isloading,setLoading]=useState(false);
 
     useEffect(()=>{     
          (async()=>{
           
           try{
+            setLoading(true);
               const {data:{products}} = await axios.get("/api/products");
               setLoading(false);              
               setProductList(products);
