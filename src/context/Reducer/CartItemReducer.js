@@ -1,4 +1,4 @@
-export const CartItemReducer=(state,action)=>{
+export const CartItemReducer=(state,action)=>{   
     
     switch (action.type) {
         case "LOAD_CART_DATA":

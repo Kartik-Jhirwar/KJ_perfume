@@ -1,25 +1,49 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/Authentication/auth-context";
 import "../Hamburger/Hamburger.css";
+
+const humburgerConstant = [
+  { path: "/", name: "Home" },
+  { path: "/productpage", name: "Shop" },
+  { path: "/cart", name: "Cart" },
+  { path: "/wishlist", name: "Wishlist" },
+];
 export const Hamburger = () => {
+  const {
+    user: { isloggedIn },
+    logOutHandler,
+  } = useAuth();
   return (
     <div>
       <ul className="hamburger-menu-container">
-        <Link to="/" className="hamburger-menu-item">
-          Home
-        </Link>
-        <Link to="/productpage" className="hamburger-menu-item">
-          Shop
-        </Link>
-        <Link to="/cart" className="hamburger-menu-item">
-          Cart
-        </Link>
-        <Link to="/wishlist" className="hamburger-menu-item">
-          Wishlist
-        </Link>
-        <Link to="/login" className="hamburger-menu-item">
-          Login
-        </Link>
+        {humburgerConstant.map(({ path, name }) => {
+          return (
+            <Link to={`${path}`} className="hamburger-menu-item">
+              {name}
+            </Link>
+          );
+        })}
+
+        {isloggedIn && (
+          <Link to="/userprofile" className="hamburger-menu-item">
+            Profile
+          </Link>
+        )}
+
+        {isloggedIn ? (
+          <Link
+            to="/login"
+            className="hamburger-menu-item"
+            onClick={logOutHandler}
+          >
+            LogOut
+          </Link>
+        ) : (
+          <Link to="/login" className="hamburger-menu-item">
+            Login
+          </Link>
+        )}
       </ul>
     </div>
   );
