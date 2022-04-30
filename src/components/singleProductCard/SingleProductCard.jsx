@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./SingleProductcard.css";
 import { BiRupee } from "react-icons/bi";
 import { FaTag, FaRegHeart, FaStar, FaHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/Authentication/auth-context";
@@ -36,6 +36,7 @@ export const SingleProductCard = ({ Product }) => {
     description,
     isSoldOut,
   } = Product;
+  const navigate = useNavigate();
 
   const showToast = () => {
     toast("inform you when product back in stock", { icon: "✔️" });
