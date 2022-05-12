@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SingleProductcard.css";
 import { BiRupee } from "react-icons/bi";
 import { FaTag, FaRegHeart, FaStar, FaHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
 import toast from "react-hot-toast";
+import { useAuth } from "../../context/Authentication/auth-context";
 
 export const SingleProductCard = ({ Product }) => {
-  const { cartState, cartDispatch, wishListState, wishListDispatch } =
-    useCartandWishList();
+  const {
+    cartState,
+    cartDispatch,
+    addProductToWishlist,
+    addproductToCart,
+    removeProductFromWishlist,
+  } = useCartandWishList();
 
-  const { cartItem } = cartState;
-  const { wishListItem } = wishListState;
-  console.log(Product, "singlecard");
+  const { cartItem, wishListItem } = cartState;
+
+  const [isbtnDisable, setBtnDisabled] = useState(false);
+  const {
+    user: { isloggedIn },
+  } = useAuth();
   const {
     image,
     productName,
@@ -27,7 +36,7 @@ export const SingleProductCard = ({ Product }) => {
     description,
     isSoldOut,
   } = Product;
-  console.log(image);
+  const navigate = useNavigate();
 
   const showToast = () => {
     toast("inform you when product back in stock", { icon: "✔️" });
@@ -36,10 +45,7 @@ export const SingleProductCard = ({ Product }) => {
   return (
     <div className="product-image-details-container">
       <div className="image-of-product mt-3">
-        {/* <span> */}
-
         <img src={image} className="image-of-product" alt={productName} />
-        {/* </span> */}
       </div>
       <div className="product-details">
         <h2 className="heading heading-of-single-product-page">
@@ -95,12 +101,13 @@ export const SingleProductCard = ({ Product }) => {
           {cartItem.some((item) => item._id === Product._id) ? (
             <Link to="/cart">
               <button className="link-btn btn-lg btn-outline border-round cursor-pointer">
-                GO TO CART
+                {isloggedIn ? "GO TO CART" : "ADD TO CART"}
               </button>
             </Link>
           ) : (
             <span>
               <button
+                disabled={isbtnDisable}
                 className={
                   isSoldOut
                     ? "link-btn btn-lg btn-outline border-round "
@@ -110,11 +117,13 @@ export const SingleProductCard = ({ Product }) => {
                   isSoldOut
                     ? showToast
                     : () => {
-                        cartDispatch({
-                          type: "ADD_ITEM_TO_CART",
-                          payload: Product,
-                        }),
-                          toast("added to cart", { icon: "✔️" });
+                        if (isloggedIn) {
+                          addproductToCart(Product, setBtnDisabled),
+                            toast("added to cart", { icon: "✔️" });
+                        } else {
+                          toast("please logIn to continue", { icon: "✔️" });
+                          navigate("/login");
+                        }
                       }
                 }
               >
@@ -124,22 +133,45 @@ export const SingleProductCard = ({ Product }) => {
           )}
           {wishListItem.some((item) => item._id === Product._id) ? (
             <span>
-              <Link to="/wishList">
-                <FaHeart className="btn-wishlist" />
+              <Link to="">
+                <button
+                  className="productcard-wishlist-icon"
+                  disabled={isbtnDisable}
+                  onClick={() => {
+                    if (isloggedIn) {
+                      removeProductFromWishlist(Product, setBtnDisabled),
+                        toast("remove to wishlist", { icon: "✔️" });
+                    } else {
+                      toast("please logIn to continue", { icon: "✔️" });
+                      navigate("/login");
+                    }
+                  }}
+                >
+                  {isloggedIn ? (
+                    <FaHeart className="btn-wishlist" />
+                  ) : (
+                    <FaRegHeart className="btn-wishlist" />
+                  )}
+                </button>
               </Link>
             </span>
           ) : (
             <span>
-              <FaRegHeart
-                className="btn-wishlist"
+              <button
+                className="productcard-wishlist-icon"
+                disabled={isbtnDisable}
                 onClick={() => {
-                  wishListDispatch({
-                    type: "ADD_ITEM_TO_WISHLIST",
-                    payload: Product,
-                  }),
-                    toast("added to wishlist", { icon: "✔️" });
+                  if (isloggedIn) {
+                    addProductToWishlist(Product, setBtnDisabled),
+                      toast("added to wishlist", { icon: "✔️" });
+                  } else {
+                    toast("please logIn to continue", { icon: "✔️" });
+                    navigate("/login");
+                  }
                 }}
-              />
+              >
+                <FaRegHeart className="btn-wishlist" />
+              </button>
             </span>
           )}
         </div>

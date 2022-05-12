@@ -17,11 +17,15 @@ const initialState={
 }
  const ProductProvider =({children})=>{
     const [productList,setProductList]=useState([]);
+    const [isloading,setLoading]=useState(false);
 
-    useEffect(()=>{
-        (async()=>{
+    useEffect(()=>{     
+         (async()=>{
+          
           try{
-              const {data:{products}} = await axios.get("/api/products")              
+            setLoading(true);
+              const {data:{products}} = await axios.get("/api/products");
+              setLoading(false);              
               setProductList(products);
           }
           catch{
@@ -32,7 +36,7 @@ const initialState={
 
     const [state,dispatch]=useReducer(filterProductReducer,initialState);
     const showProductList = composeFunction (state,functionList)([...productList]);
-    return ( <ProductContext.Provider value={{productList,setProductList,showProductList,state,dispatch}}>
+    return ( <ProductContext.Provider value={{productList,setProductList,showProductList,state,dispatch,isloading}}>
         {children}
     </ProductContext.Provider>)
 }

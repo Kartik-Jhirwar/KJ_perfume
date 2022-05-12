@@ -6,8 +6,7 @@ export const getWishlist=async(user)=>{
             headers:{
                 authorization:user.authenticationToken,
             }
-        });
-        
+        });        
         return data;
     }
     catch{

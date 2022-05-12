@@ -1,5 +1,6 @@
-.error {
+.errorMessage {
   font-size: 4rem;
   text-align: center;
   width: 80rem;
+  color: var(--dark-sky);
 }

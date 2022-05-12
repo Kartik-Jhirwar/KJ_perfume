@@ -10,7 +10,6 @@ import "../Cart/Cartpage.css";
 
 export const CartPage = () => {
   const { cartState } = useCartandWishList();
-
   const { cartItem } = cartState;
 
   return (
@@ -18,7 +17,10 @@ export const CartPage = () => {
       <h2 className="heading">My Cart</h2>
       {cartItem.length === 0 ? (
         <Link to="/productpage">
-          <ErrorMessage message={"your cart is empty"} />
+          <p className="wishlist-msg">
+            Your Cart is Empty...
+            <span className="span-msg">Let's Shop</span>
+          </p>
         </Link>
       ) : (
         <div className="cart-order-container">

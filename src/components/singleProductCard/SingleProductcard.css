@@ -10,8 +10,11 @@
   height: 30rem;
   width: 20rem;
 }
+.image-of-product {
+  margin-top: 5rem;
+}
 .product-details {
-  margin: 0 auto;
+  margin: 5rem auto;
   max-height: auto;
   display: flex;
   flex-direction: column;
@@ -49,6 +52,7 @@
 .heading-of-single-product-page {
   text-align: left;
   margin-left: 0;
+  font-size: 2.1rem;
 }
 .detail-of-product {
   font-size: 1.2rem;
