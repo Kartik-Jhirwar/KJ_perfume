@@ -1,20 +1,22 @@
-import React from 'react'
-import { useProduct } from '../../context/product-context';
+import React from "react";
+import { useProduct } from "../../context/product-context";
+import { reducerTypes } from "../../context/Reducer/reducertype";
 import "../Searchbar/searchbar.css";
-
- export const SearchBar = () => {
-  const {state,dispatch}=useProduct();
-   return (
+export const SearchBar = () => {
+  const { state, dispatch } = useProduct();
+  return (
     <div className="serchbox-container">
-              <input
-                type="text"
-                placeholder="search"
-                className="input-searchbox border-round"
-                onChange={(event)=>dispatch({type:"SEARCH_BY_QUERY",payload:event.target.value})}
-               
-              />
-            </div>
-  )
-}
-
-
+      <input
+        type="text"
+        placeholder="search"
+        className="input-searchbox border-round"
+        onChange={(event) =>
+          dispatch({
+            type: reducerTypes.SERACH_QUERY,
+            payload: event.target.value,
+          })
+        }
+      />
+    </div>
+  );
+};

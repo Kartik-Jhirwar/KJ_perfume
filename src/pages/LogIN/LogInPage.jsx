@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import "../../components/ProductCard/Productcard.css";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { BsExclamationTriangle } from "react-icons/bs";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../LogIN/LogInPage.css";
 import { initialLogInData, guestData } from "../../constants/auth-constants";
 import { useAuth } from "../../context/Authentication/auth-context";
+import { useProduct } from "../../context/product-context";
+import { Loader } from "../../components";
 
 export const LogInPage = () => {
   const [logInData, setLogInData] = useState(initialLogInData);
   const [passVisible, setPassVisible] = useState(true);
   const { logInHandler } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
+  const { isloading } = useProduct();
 
   const logInChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -97,6 +98,7 @@ export const LogInPage = () => {
           </div>
         </div>
       </div>
+      {isloading && <Loader />}
     </div>
   );
 };

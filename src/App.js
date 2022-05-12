@@ -32,7 +32,7 @@ function App() {
         </Routes>  
         <Toaster
         position="top-center"
-        toastOptions={{ className: "toast-display", duration: 2000 }}
+        toastOptions={{ className: "toast-display", duration: 3000 }}
       />     
       </div>
       
