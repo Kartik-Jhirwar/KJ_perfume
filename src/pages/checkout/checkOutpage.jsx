@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react/cjs/react.production.min";
 import { useAuth } from "../../context/Authentication/auth-context";
 import "../checkout/checkout.css";
 
