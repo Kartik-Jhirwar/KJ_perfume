@@ -1,6 +1,7 @@
 import React from "react";
 import { BiMinus, BiRupee } from "react-icons/bi";
 import { FaRupeeSign, FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
 
 export const TextOnlyCardWithPrice = () => {
@@ -79,9 +80,11 @@ export const TextOnlyCardWithPrice = () => {
             {BagDiscount} on this order.
           </p>
           <span>
-            <button className="link-btn border-round btn-proceed">
-              PROCEED
-            </button>
+            <Link to="/checkout">
+              <button className="link-btn border-round btn-proceed">
+                PROCEED
+              </button>
+            </Link>
           </span>
         </div>
       </div>

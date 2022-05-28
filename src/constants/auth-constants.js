@@ -9,6 +9,6 @@ export const initialSignUpData = {
     password: ""
 }
 export const guestData = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshBalika123",
+    email: "mariyasada@gmail.com",
+    password: "mariya123",
   };

@@ -1,0 +1,21 @@
+.checkout-details-container {
+  margin: 20rem 30rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 4rem;
+  width: 50vw;
+}
+.color-pink {
+  color: var(--light-rose);
+  font-size: 3rem;
+}
+.color-teal {
+  color: var(--dark-teal);
+}
+.btn-container {
+  width: 100%;
+  align-self: flex-start;
+}
