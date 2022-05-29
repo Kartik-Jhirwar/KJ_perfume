@@ -69,3 +69,6 @@ input[type="checkbox"] {
   color: var(--white-color);
   font-weight: bold;
 }
+.err-msg {
+  color: red;
+}

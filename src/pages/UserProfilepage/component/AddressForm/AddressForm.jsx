@@ -1,4 +1,6 @@
 import React from "react";
+import toast from "react-hot-toast";
+import { useState } from "react";
 import "./addressForm.css";
 
 export const AddressForm = ({
@@ -12,6 +14,7 @@ export const AddressForm = ({
     const { name, value } = e.target;
     setAddressFormValues((prevData) => ({ ...prevData, [name]: value }));
   };
+  const [errMsg, setErrMsg] = useState("");
 
   return (
     <div className="add-address-container border-round flex-center">
@@ -22,10 +25,29 @@ export const AddressForm = ({
         className="name-container"
         onSubmit={
           addressFormvalues.isEditing
-            ? (e) =>
-                handleEditSubmit(e, addressFormvalues.id, addressFormvalues)
+            ? (e) => {
+                e.preventDefault();
+                if (
+                  addressFormvalues.mobileNo.length < 10 ||
+                  addressFormvalues.mobileNo.length > 10
+                ) {
+                  setErrMsg("Mobile number should be only 10 digis");
+                } else {
+                  setErrMsg("");
+                  handleEditSubmit(e, addressFormvalues.id, addressFormvalues);
+                }
+              }
             : (e) => {
-                submitHandler(e, addressFormvalues);
+                e.preventDefault();
+                if (
+                  addressFormvalues.mobileNo.length < 10 ||
+                  addressFormvalues.mobileNo.length > 10
+                ) {
+                  setErrMsg("Mobile number should be only 10 digis");
+                } else {
+                  setErrMsg("");
+                  submitHandler(e, addressFormvalues);
+                }
               }
         }
       >
@@ -112,7 +134,7 @@ export const AddressForm = ({
           onChange={addressFormOnChangeHandler}
           required
         />
-
+        <p className="err-msg">{errMsg}</p>
         <span className="center flex-center gap mt-1">
           <button className="btn btn-primary border-round mt-3">
             {addressFormvalues.isEditing ? "UPDATE" : "SAVE"}
