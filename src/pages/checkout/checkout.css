@@ -9,7 +9,7 @@
   width: 50vw;
 }
 .color-pink {
-  color: var(--light-rose);
+  color: var(--dark-teal);
   font-size: 3rem;
 }
 .color-teal {
@@ -18,4 +18,13 @@
 .btn-container {
   width: 100%;
   align-self: flex-start;
+}
+.icon-text-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.icon-check {
+  font-size: 2rem;
+  color: var(--dark-teal);
 }

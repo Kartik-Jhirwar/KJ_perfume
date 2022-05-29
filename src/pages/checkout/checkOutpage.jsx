@@ -2,12 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/Authentication/auth-context";
 import "../checkout/checkout.css";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 
 export const CheckOutpage = () => {
   const { logOutHandler } = useAuth();
   return (
     <div className="checkout-details-container border-round">
-      <h1 className="color-pink">Your order successfully Placed.</h1>
+      <div className="icon-text-container">
+        <BsFillCheckCircleFill className="icon-check" />
+        <h1 className="color-pink">Your order successfully Placed.</h1>
+      </div>
       <Link to="/">
         <span className="btn-container">
           <button
