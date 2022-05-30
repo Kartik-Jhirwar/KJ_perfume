@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "../categories/categories.css";
 import { useProduct } from "../../context/product-context";
+import { reducerTypes } from "../../context/Reducer/reducertype";
+const { MEN_CATEGORY, WOMEN_CATEGORY, CLEAR_CATEGORY } = reducerTypes;
 
 export const Categories = () => {
   const { state, dispatch } = useProduct();
@@ -26,8 +28,8 @@ export const Categories = () => {
               to={`/productpage?category=${category.categoryName}`}
               onClick={
                 category.categoryName === "Men"
-                  ? () => dispatch({ type: "SORT_BY_MEN_CATEGORY" })
-                  : () => dispatch({ type: "SORT_BY_WOMEN_CATEGORY" })
+                  ? () => dispatch({ type: MEN_CATEGORY })
+                  : () => dispatch({ type: WOMEN_CATEGORY })
               }
               key={category._id}
             >

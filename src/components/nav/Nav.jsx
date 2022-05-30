@@ -11,6 +11,8 @@ import { useAuth } from "../../context/Authentication/auth-context";
 import { Hamburger } from "../Hamburger/Hamburger";
 import { FiMenu } from "react-icons/fi";
 import { GiCancel } from "react-icons/gi";
+import { reducerTypes } from "../../context/Reducer/reducertype";
+const { CLEAR_CATEGORY } = reducerTypes;
 
 export const Nav = () => {
   const { state, dispatch } = useProduct();
@@ -53,7 +55,7 @@ export const Nav = () => {
           <li className="nav-item">
             <NavLink
               to="/productpage"
-              onClick={() => dispatch({ type: "SORT_CLEAR_CATEGORY" })}
+              onClick={() => dispatch({ type: CLEAR_CATEGORY })}
               style={getActiveLinkStyle}
             >
               Shop

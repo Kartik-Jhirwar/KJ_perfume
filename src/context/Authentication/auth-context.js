@@ -2,6 +2,8 @@ import { createContext,useContext,useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { signupService,logInService,signOutService } from "../../Services/Authservice";
 import toast from "react-hot-toast";
+import { useProduct } from "../product-context";
+
 
 
 const authContext=createContext();
@@ -17,9 +19,10 @@ const initialStateValue={
     
 }
 const AuthProvider=({children})=>{
-    const [user,setUser]=useState(initialStateValue);
+    const [user,setUser]=useState(initialStateValue);    
     const navigateTo=useNavigate();
     const location=useLocation();
+    const {setLoading}=useProduct();
 
     const signUpHandler=async(signupData)=>{        
         const {data,status}=await signupService(signupData);        
@@ -29,8 +32,7 @@ const AuthProvider=({children})=>{
             localStorage.setItem("user_name",JSON.stringify(data.createdUser.firstName));  
             localStorage.setItem("email_of_user",JSON.stringify(data.createdUser.email));  
              toast("saving data", { icon:  "✔️"  });                             
-            navigateTo('/login');
-           
+            navigateTo('/login'); 
         }
 
     }
@@ -50,6 +52,10 @@ const AuthProvider=({children})=>{
             toast("Successfully loggedIn", { icon:  "✔️"  });
             navigateTo("/productpage")
             //  navigateTo(location?.state?.from?.pathname);
+        }
+        else{
+            toast("some error occured",{ icon:  "✔️"  });
+            
         }
     }
 

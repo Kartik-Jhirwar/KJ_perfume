@@ -1,31 +1,22 @@
+import { reducerTypes } from "./reducertype"
+const {CART_DATA,ADD_TO_CART,REMOVE_FROM_CART,INCERMENT,DECREMENT,WISHLIST_DATA,ADD_TO_WISHLIST,REMOVE_FROM_WISHLIST}=reducerTypes
+
+
 export const CartItemReducer=(state,action)=>{   
     
     switch (action.type) {
-        case "LOAD_CART_DATA":
+        case CART_DATA:
+        case ADD_TO_CART : 
+        case REMOVE_FROM_CART:
+        case INCERMENT:
+        case DECREMENT:
                     return {...state, cartItem:action.payload}                 
         
-        case "ADD_ITEM_TO_CART":       
-                    return {...state,cartItem:action.payload}
 
-         case "REMOVE_ITEM_FROM_CART":            
-                    return{...state, cartItem:action.payload}
-        
-
-        case "INCREMENT_QUANTITY":
-                    return{...state, cartItem:action.payload}
-           
-
-         case "DECREMENT_QUANTITY":
-                    return{...state, cartItem:action.payload}  
-                    
-          case "LOAD_WISHLIST_DATA":
-            return {...state,  wishListItem:action.payload};
-
-        case "ADD_ITEM_TO_WISHLIST":
-            return {...state,  wishListItem:action.payload,};
-
-        case "REMOVE_ITEM_FROM_WISHLIST":
-            return {...state,wishListItem:action.payload}             
+        case WISHLIST_DATA:
+        case REMOVE_FROM_WISHLIST:
+        case ADD_TO_WISHLIST:
+                return {...state,wishListItem:action.payload}             
             
             
     

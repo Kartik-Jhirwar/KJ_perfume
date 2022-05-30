@@ -1,48 +1,53 @@
+ import { reducerTypes } from "./reducertype";
+ const {SORT_LTOH, SORT_HTOL,FILTER_BY_PRICE,SORT_BY_STOCK,FAST_DELIVERY,SORT_BY_150ML,SORT_BY_100ML,
+    CLEAR_QUANTITY, SORT_BY_RATING4,SORT_BY_RATING3,SORT_BY_RATING2,SET_BRAND,UNSET_BRAND,CLEAR_FILTER,
+    SERACH_QUERY,MEN_CATEGORY,WOMEN_CATEGORY,CLEAR_CATEGORY,CLEAR_RATING}=reducerTypes;
+
  export const filterProductReducer=(state,action)=>{      
       switch (action.type) {
-          case "SORT_LOW_TO_HIGH":
+          case SORT_LTOH:
                return {...state,sortByPrice:"LOW_TO_HIGH"};
               
-          case "SORT_HIGH_TO_LOW":
+          case SORT_HTOL:
                return {...state,sortByPrice:"HIGH_TO_LOW"};   
                
-           case "FILTER_BY_PRICE_RANGE":
+           case FILTER_BY_PRICE:
                return {...state, pricerange: action.payload};
                
-          case "SORT_BY_STOCK":
+          case SORT_BY_STOCK:
                return {...state,showAllProduct:!state.showAllProduct};
 
-          case "SORT_BY_FAST_DELIVERY":
+          case FAST_DELIVERY:
                return {...state,fastDelivery:!state.fastDelivery};
 
-          case "SORT_BY_150_QUANTITY":
+          case SORT_BY_150ML:
                return {...state,sortByQuantity:"SORT_BY_150"};
 
-          case "SORT_BY_100_QUANTITY":
+          case SORT_BY_100ML:
                return {...state,sortByQuantity:"SORT_BY_100"};
       
-          case "CLEAR_QUANTITY_FILTER":
+          case CLEAR_QUANTITY:
                     return {...state,sortByQuantity:null};
 
-          case "SORT_BY_RATING_4":
+          case SORT_BY_RATING4:
                return {...state,sortByRatings:"FOUR_AND_ABOVE"};
           
-           case "SORT_BY_RATING_3":
+           case SORT_BY_RATING3:
                return {...state,sortByRatings:"THREE_AND_ABOVE"};
 
-           case "SORT_BY_RATING_2":
+           case SORT_BY_RATING2:
                return {...state,sortByRatings:"TWO_AND_ABOVE"};
 
-          case "CLEAR_RATING":
+          case CLEAR_RATING:
                return {...state,sortByRatings:null};
 
-          case "SET_BRAND_NAME":
+          case SET_BRAND:
                return {...state,sortByBrand:[...state.sortByBrand,action.payload]};
 
-           case "REMOVE_BRAND_NAME":
+           case UNSET_BRAND:
                 return{...state,sortByBrand:state.sortByBrand.filter((brand)=>brand !== action.payload)}    
 
-           case "CLEAR_ALL_FILTERS":
+           case CLEAR_FILTER:
                    return {   sortByPrice: null,
                               sortByCategory: null,
                               pricerange: 15000,
@@ -53,16 +58,16 @@
                               sortByRatings: null,
                               searchByQuery: ""
                           }
-          case "SEARCH_BY_QUERY":
+          case SERACH_QUERY:
                return{...state,searchByQuery:action.payload}
 
-           case "SORT_BY_MEN_CATEGORY":
+           case MEN_CATEGORY:
                     return {...state,sortByCategory:"SORT_BY_MEN"}
 
-           case "SORT_BY_WOMEN_CATEGORY":
+           case WOMEN_CATEGORY:
                      return {...state,sortByCategory:"SORT_BY_WOMEN"}
 
-           case "SORT_CLEAR_CATEGORY":
+           case CLEAR_CATEGORY:
                 return {...state,sortByCategory:null}
 
           default:

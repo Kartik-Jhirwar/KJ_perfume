@@ -37,3 +37,10 @@
   padding-right: 1.5rem;
   margin-left: auto;
 }
+.datalist-options {
+  font-size: 13px;
+  justify-content: flex-start;
+}
+.last-option {
+  margin-left: 4rem;
+}
