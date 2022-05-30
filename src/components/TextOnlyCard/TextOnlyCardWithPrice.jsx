@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
 
 export const TextOnlyCardWithPrice = () => {
-  const { cartState, getCartItemCount } = useCartandWishList();
+  const { cartState, getCartItemCount, cartDispatch } = useCartandWishList();
   const { cartItem } = cartState;
   const itemsInCart = getCartItemCount(cartItem);
   const DeliveryCharges = 50;
