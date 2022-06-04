@@ -28,8 +28,8 @@ export const Home = () => {
       <h2 className="heading">EPIC DEALS ON BIG BRANDS</h2>
       <div className="feature-brand-container">
         <div className="discount-images-container">
-          {epicDealItem.map((item) => {
-            return <HomePageCard userItem={item} />;
+          {epicDealItem.map((item, index) => {
+            return <HomePageCard userItem={item} key={index} />;
           })}
         </div>
       </div>

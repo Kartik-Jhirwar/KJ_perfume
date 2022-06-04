@@ -1,5 +1,5 @@
 @import url("https://iqra-ui.netlify.app/stylesheets/main.css");
-@import url("/node_modules/mockman-js/dist/style.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Libre+Baskerville&family=Montserrat:ital,wght@0,400;0,600;1,400&family=Nunito&family=Nunito+Sans:wght@300&family=Oswald&family=Overlock&family=Raleway:wght@400;500&family=Roboto+Condensed:wght@300;400;700&family=Roboto+Mono:wght@300&family=Rubik:wght@300&display=swap");
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -68,4 +68,7 @@ input[type="checkbox"] {
   border: 1px solid var(--light-rose);
   color: var(--white-color);
   font-weight: bold;
+}
+.err-msg {
+  color: red;
 }

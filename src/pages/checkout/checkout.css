@@ -1,0 +1,32 @@
+.checkout-details-container {
+  margin: 20rem 30rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 4rem;
+  width: 50vw;
+}
+.color-pink {
+  color: var(--dark-teal);
+  font-size: 3rem;
+}
+.color-teal {
+  color: var(--dark-teal);
+}
+.btn-container {
+  width: 50%;
+  display: flex;
+  align-self: flex-start;
+  justify-content: center;
+}
+.icon-text-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.icon-check {
+  font-size: 2rem;
+  color: var(--dark-teal);
+}

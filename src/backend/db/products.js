@@ -18,8 +18,9 @@ export const products = [
     discountOffer:"40% off",
     isSoldOut:true,
     fastDelivery:false,
-    image:"./assets/MEN/Acqua-di-Gio-Essenza-Giorgio-Armani_men.jpg",
+    image:"/assets/MEN/Acqua-di-Gio-Essenza-Giorgio-Armani_men.jpg",
     categoryName: "Men",
+    description:"The essence of a classic. Acqua di Gio Essenza, a more intense and sensual interpretation of Acqua di Gio. At its heart is the blend of two new extraordinary eleMalets: Cascalone, with fresh and powerful aquatic accents, and the luminous Paradisone, which brings out each of the fragrance?s subtle notes. All the founding eleMalets are present, reinvented to create a more vibrant, sensual fragrance. Top Notes - Bergamot, Grapefruit and Water Notes. Mid Notes - Jasmine, Basil and Sage. Base Notes - Patchouli, Cedar, Vetiver, Ambrox, Ambergris, Pepper and Clary Sage."
   },
   {
    _id: uuid(),
@@ -33,8 +34,9 @@ export const products = [
     discountOffer:"20% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:"./assets/MEN/Allure-Homme-Sport_chanel-men.jpg",
+    image:"/assets/MEN/Allure-Homme-Sport_chanel-men.jpg",
     categoryName: "Men",
+    description:"A generous citrus freshness is subtly heightened by spicy lovage and elemi notes, and set against a backdrop of cedar and white musk."
   },
   {
     _id: uuid(),
@@ -48,8 +50,9 @@ export const products = [
     discountOffer:"30% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:"./assets/MEN/armani-prive-cuir_men.jpg",
+    image:"/assets/MEN/armani-prive-cuir_men.jpg",
     categoryName: "Men",
+    description:"Cuir Noir was inspired by the art of Arabian tanners.Leather is an art. From Cordoba, Spain to the borders of the Atlas Mountains. With a wine patina, it takes the name of “cordovan”. Tattooed with gold, it is called “maroquin”. The perfume composition consists of Australian Sandalwood, Rose essence, Coriander, Nutmeg (in the top); Leather, Smoky Guaiac and Oud (in the heart); Tahitian Vanilla absolute and Benzoin balm (in the base)."
   },
   {
     _id: uuid(),
@@ -63,8 +66,9 @@ export const products = [
     discountOffer:"15% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:"./assets/MEN/Armani-Royal-Oud_men.jpg",
+    image:"/assets/MEN/Armani-Royal-Oud_men.jpg",
     categoryName: "Men",
+    description:"To preserve their unique characteristics, Armani decided to work with oud oil in a luxury fragrance the same way he would approach a rich gold and silver brocade. “With Oud Royal, I wanted to capture the spirit of Eastern alchemy by elevating oud wood — the precious symbol of the Orient itself. Treating it as a piece of jewellery is the only way to do justice to its magnificent richness."
   },
   {
     _id: uuid(),
@@ -78,8 +82,9 @@ export const products = [
     discountOffer:"50% off",
     isSoldOut:false,
     fastDelivery:false,
-    image:"./assets/MEN/armanisundigioia_men.jpg",
+    image:"/assets/MEN/armanisundigioia_men.jpg",
     categoryName: "Men",
+    description:"Sun di Gioia captures the warmth of the Mediterranean sun. Radiant and feminine, shiny and joyful, the fragrance evokes the scent of salty skin and like a second skin, it is in complete, joyful harmony with the Female who wears it. The scent starts off with solar flowers."
   },
   {
     _id: uuid(),
@@ -93,8 +98,9 @@ export const products = [
     discountOffer:"20% off",
     isSoldOut:true,
     fastDelivery:false,
-    image:"./assets/MEN/chanel-paris-men.jpg",
+    image:"/assets/MEN/chanel-paris-men.jpg",
     categoryName: "Men",
+    description:"A sensual accord of white musk is delicately fashioned with floral notes of bergamot, iris and neroli, woody notes of cedar, powdery accents and a hint of honey. A luminous scent, a statement to the timeless style of CHANEL."
   },
   {
     _id: uuid(),
@@ -108,8 +114,9 @@ export const products = [
     discountOffer:"30% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:"./assets/MEN/chanel-platinum-egoiste_men.jpg",
+    image:"/assets/MEN/chanel-platinum-egoiste_men.jpg",
     categoryName: "Men",
+    description:"Egoiste Platinum by Chanel is a Woody Floral Musk fragrance for men. Egoiste Platinum was launched in 1993. The nose behind this fragrance is Jacques Polge. Top notes are Lavender, Rosemary, Neroli and Petitgrain; middle notes are Geranium, Clary Sage, Galbanum and Jasmine; base notes are Oakmoss, Vetiver, Cedar, Sandalwood and Amber."
   },
   {
     _id: uuid(),
@@ -123,8 +130,9 @@ export const products = [
     discountOffer:"60% off",
     isSoldOut:true,
     fastDelivery:false,
-    image:"./assets/MEN/Gucci-IntenseOud-UseMe_men.png",
+    image:"/assets/MEN/Gucci-IntenseOud-UseMe_men.png",
     categoryName: "Men",
+    description:"Intense Oud has refreshing accords of incense, woody notes, leather, and amber.Intense Oud by Gucci can be worn by both the genders thanks to its universal appeal. The EDP is famous for its scintillating fragrance ever since its inception in 2016. The composition is dreamed and brought into the existence by famous perfumer Aurelien Guichard."
   },
   {
     _id: uuid(),
@@ -138,8 +146,9 @@ export const products = [
     discountOffer:"40% off",
     isSoldOut:false,
     fastDelivery:false,
-    image:"./assets/MEN/gucci-oud_men.jpg",
+    image:"/assets/MEN/gucci-oud_men.jpg",
     categoryName: "Men",
+    description:"The new version of the Gucci by Gucci fragrance from 2007, also known as Gucci Ambre, is following the trend of the oud-orientals and is named Gucci Oud. The perfume comes out in July of 2014 and it is announced as a unisex fragrance that is glamorous, opulent and mysterious. Rich and intense, the composition contains essence of oud from Laos, which is 100% natural.The opening accords include pear, raspberry and saffron. The heart captures essences of Bulgarian rose and orange blossom, followed by the oriental base of oud, patchouli, amber and musk."
   },
   {
     _id: uuid(),
@@ -153,8 +162,9 @@ export const products = [
     discountOffer:"10% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:"./assets/MEN/zara-nuit-men.jpg",
+    image:"/assets/MEN/zara-nuit-men.jpg",
     categoryName: "Men",
+    description:"Eau de parfum. The scent reveals notes of apricot, lily of the valley and vanilla. It’s an elegant, captivating and intense fragrance."
   },
   {
     _id: uuid(),
@@ -168,8 +178,9 @@ export const products = [
     discountOffer:"30% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:"./assets/WOMEN/Armani-Si_women.jpg",
+    image:"/assets/WOMEN/Armani-Si_women.jpg",
     categoryName: "Women",
+    description:"Si by Giorgio Armani is a Chypre Fruity fragrance for women. Si was launched in 2013. The nose behind this fragrance is Christine Nagel. Top note is Cassis; middle notes are May Rose and Freesia; base notes are Vanilla, Patchouli, Ambroxan and Woody Notes."
   },
   {
     _id: uuid(),
@@ -183,8 +194,9 @@ export const products = [
     discountOffer:"20% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:"./assets/WOMEN/ArmaniSIFioriforWomen.jpg",
+    image:"/assets/WOMEN/ArmaniSIFioriforWomen.jpg",
     categoryName: "Women",
+    description:"Si by Giorgio Armani is a Chypre Fruity fragrance for women. Si was launched in 2013. The nose behind this fragrance is Christine Nagel. Top note is Cassis; middle notes are May Rose and Freesia; base notes are Vanilla, Patchouli,lily, Ambroxan and Woody Notes."
   },
   {
     _id: uuid(),
@@ -198,8 +210,9 @@ export const products = [
     discountOffer:"40% off",
     isSoldOut:false,
     fastDelivery:false,
-    image:"./assets/WOMEN/MODERN-MUSE-ESTEE-LAUDER-women.jpg",
+    image:"/assets/WOMEN/MODERN-MUSE-ESTEE-LAUDER-women.jpg",
     categoryName: "Women",
+    description:"Two distinctively different accords—sparkling jasmine accord and sleek woods accord—provide an intriguing dual impression. It's a true innovation in fragrance design, as complex and fascinating as the woman who inspires it."
   },
   {
     _id: uuid(),
@@ -213,8 +226,9 @@ export const products = [
     discountOffer:"40% off",
     isSoldOut:true,
     fastDelivery:true,
-    image:"./assets/WOMEN/Estee-Lauder-Pleasures-For-Women_.jpg",
+    image:"/assets/WOMEN/Estee-Lauder-Pleasures-For-Women_.jpg",
     categoryName: "Women",
+    description:"Sheer, spirited, shimmering. One of life's simple pleasures. Fresh as flowers after a spring rain, this sheer, shimmering floral is a spirited blend of lilies, white peonies and jasmine, all tingling with the rare essence of exotic baie rose. Never sweet, ever fresh, it delights your senses with pleasure after pleasure."
   },
   {
     _id: uuid(),
@@ -228,8 +242,9 @@ export const products = [
     discountOffer:"70% off",
     isSoldOut:true,
     fastDelivery:true,
-    image:"./assets/WOMEN/zara-fruity-women.jpg",
+    image:"/assets/WOMEN/zara-fruity-women.jpg",
     categoryName: "Women",
+    description:"Fruity eau de toilette. The scent reveals notes of tangerine, currant and lily of the valley. It’s a luminous, captivating and comfortable fragrance."
   },
   {
     _id: uuid(),
@@ -243,8 +258,9 @@ export const products = [
     discountOffer:"10% off",
     isSoldOut:false,
     fastDelivery:true,
-    image:"./assets/WOMEN/zara-oriental-women.jpg",
+    image:"/assets/WOMEN/zara-oriental-women.jpg",
     categoryName: "Women",
+    description:"Oriental by Zara is a Amber Floral fragrance for women. Top notes are Freesia, Rose and Bergamot; middle notes are Vanilla and Jasmine; base notes are Caramel, Patchouli and Musk."
   },
   {
     _id: uuid(),
@@ -258,7 +274,8 @@ export const products = [
     discountOffer:"50% off",
     isSoldOut:false,
     fastDelivery:false,
-    image:"./assets/WOMEN/zara-red-vanila-women.jpg",
+    image:"/assets/WOMEN/zara-red-vanila-women.jpg",
     categoryName: "Women",
+    description:"Oriental eau de toilette. The scent reveals notes of blackcurrant, iris and vanilla. It’s a warm, elegant and long-lasting fragrance."
   },
 ];

@@ -1,9 +1,15 @@
 import React from "react";
 import { BiMinus, BiRupee } from "react-icons/bi";
 import { FaRupeeSign, FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useCartandWishList } from "../../context/CartAndWishlist-context";
+import { reducerTypes } from "../../context/Reducer/reducertype";
+const { REMOVE_ALL_ITEMS_IN_CART } = reducerTypes;
 
-export const TextOnlyCardWithPrice = ({ cartState }) => {
+export const TextOnlyCardWithPrice = () => {
+  const { cartState, getCartItemCount, cartDispatch } = useCartandWishList();
   const { cartItem } = cartState;
+  const itemsInCart = getCartItemCount(cartItem);
   const DeliveryCharges = 50;
 
   // calculating total original price
@@ -24,11 +30,14 @@ export const TextOnlyCardWithPrice = ({ cartState }) => {
 
   return (
     <div className="text-only-card card-with-shadow">
-      <h2>PAYMENT DETAILS</h2>
+      <h2 className="text-onlycard-heading">PAYMENT DETAILS</h2>
       <div className="card-body">
         <hr />
         <div className="item-price-detail">
-          <p className="card-detail">Bag Total ({cartItem.length} items)</p>
+          <p className="card-detail">
+            Bag Total ({getCartItemCount(cartItem)}
+            {itemsInCart === 1 ? "item" : "items"})
+          </p>
           <span className="discount">
             <FaRupeeSign className="rupees-sign-cart" />
             {totalOriginalPrice}
@@ -73,9 +82,14 @@ export const TextOnlyCardWithPrice = ({ cartState }) => {
             {BagDiscount} on this order.
           </p>
           <span>
-            <button className="link-btn border-round btn-proceed">
-              PROCEED
-            </button>
+            <Link to="/checkout">
+              <button
+                className="link-btn border-round btn-proceed"
+                onClick={() => cartDispatch({ type: REMOVE_ALL_ITEMS_IN_CART })}
+              >
+                PROCEED
+              </button>
+            </Link>
           </span>
         </div>
       </div>

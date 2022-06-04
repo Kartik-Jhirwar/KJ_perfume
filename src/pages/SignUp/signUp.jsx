@@ -1,75 +1,104 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
-import { FaEyeSlash } from "react-icons/fa";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { BsExclamationTriangle } from "react-icons/bs";
+import { initialSignUpData } from "../../constants/auth-constants";
+import { useAuth } from "../../context/Authentication/auth-context";
 
 export const SignUpPage = () => {
+  const [signupData, setSignUpData] = useState(initialSignUpData);
+  const [showpassword, setShowPassword] = useState(true);
+  const [showConfPassword, setshowConfPassword] = useState(true);
+  const [error, setErrMessage] = useState("");
+  const { signUpHandler } = useAuth();
+  const navigate = useNavigate();
+
+  const signUpChangeHandler = (e) => {
+    const { name, value } = e.target;
+    setSignUpData((prevData) => ({ ...prevData, [name]: value }));
+    setErrMessage("");
+  };
+
+  const passwordMatchHandler = (e, pwd1, pwd2) => {
+    if (pwd1 === pwd2) {
+      setErrMessage("");
+      e.preventDefault();
+      signUpHandler({ signupData });
+    } else {
+      e.preventDefault();
+      setErrMessage("password and confirmpassord doesn't match");
+      navigate("/signup");
+    }
+  };
   return (
     <div className="main-content-container">
       <div className="sign-up-page-container border-round flex-center">
         <h2 className="heading text-size-xl">Sign Up</h2>
-        <div className="name-container">
-          <label for="FirstName" className="required-field">
+        <form className="name-container">
+          <label htmlFor="FirstName" className="required-field">
             First Name
           </label>
           <input
             className="input-textbox input-sm"
-            placeholder="First Name"
+            name="firstName"
+            id="firstName"
+            placeholder="Mariya"
             type="text"
+            onChange={signUpChangeHandler}
             required
           />
           <p className="alert alert-danger alert-with-flex">
             <BsExclamationTriangle /> please enter valid name
           </p>
-          <label for="LastName" className="required-field">
+          <label htmlFor="LastName" className="required-field">
             Last Name
           </label>
           <input
             className="input-textbox input-sm"
-            placeholder="Last Name"
+            name="lastName"
+            id="lastName"
+            placeholder="Sada"
             type="text"
+            onChange={signUpChangeHandler}
             required
           />
           <p className="alert alert-danger alert-with-flex">
             <BsExclamationTriangle /> please enter valid Surname
           </p>
-          <label for="LastName" className="required-field">
+          <label htmlFor="LastName" className="required-field">
             Email
           </label>
           <input
+            name="email"
             className="input-textbox input-sm"
-            placeholder="Email"
+            placeholder="test@gmail.com"
             type="email"
+            onChange={signUpChangeHandler}
             required
           />
           <p className="alert alert-danger alert-with-flex">
             <BsExclamationTriangle /> please enter valid email
           </p>
-          <label for="LastName" className="required-field">
-            User Name
-          </label>
-          <input
-            className="input-textbox input-sm"
-            placeholder="Enter Username"
-            type="text"
-            required
-          />
-          <p className="alert alert-danger alert-with-flex">
-            <BsExclamationTriangle /> please enter valid Username
-          </p>
-          <label for="LastName" className="required-field">
+          <label htmlFor="LastName" className="required-field">
             Password
           </label>
           <span className="input-with-icon-container">
             <input
+              name="password"
+              id="password"
               className="input-textbox"
-              placeholder="Enter your password here"
-              type="password"
+              placeholder="*********"
+              type={showpassword ? "password" : "text"}
+              onChange={signUpChangeHandler}
               required
             />
             <button className="eye-icon eye-icon-signup" type="button">
-              <FaEyeSlash />
+              {showpassword ? (
+                <FaEyeSlash onClick={() => setShowPassword(!showpassword)} />
+              ) : (
+                <FaEye onClick={() => setShowPassword(!showpassword)} />
+              )}
             </button>
           </span>
           <p className="alert alert-danger">
@@ -77,25 +106,43 @@ export const SignUpPage = () => {
             minimum 8 characters(one capital, small letter and number)
           </p>
 
-          <label for="LastName" className="required-field">
+          <label htmlFor="LastName" className="required-field">
             Confirm Password
           </label>
           <span className="input-with-icon-container">
             <input
+              name="confirmpassword"
+              id="confirmpassword"
               className="input-textbox"
-              placeholder="Re-enter your password here"
-              type="password"
+              placeholder="**********"
+              type={showConfPassword ? "password" : "text"}
+              onChange={signUpChangeHandler}
               required
             />
             <button className="eye-icon eye-icon-signup" type="button">
-              <FaEyeSlash />
+              {showConfPassword ? (
+                <FaEyeSlash
+                  onClick={() => setshowConfPassword(!showConfPassword)}
+                />
+              ) : (
+                <FaEye onClick={() => setshowConfPassword(!showConfPassword)} />
+              )}
             </button>
           </span>
-          <p className="alert alert-danger alert-with-flex">
-            <BsExclamationTriangle /> Password does not match
-          </p>
+          <p className="err-message flex-center">{error}</p>
           <span className="center">
-            <button className="link-btn border-round mt-3">REGISTER</button>
+            <button
+              className="link-btn border-round mt-3"
+              onClick={(e) => {
+                passwordMatchHandler(
+                  e,
+                  signupData.password,
+                  signupData.confirmpassword
+                );
+              }}
+            >
+              REGISTER
+            </button>
           </span>
           <span className="New-user-links">
             <p>Have account?</p>
@@ -103,7 +150,7 @@ export const SignUpPage = () => {
               Log-In here
             </Link>
           </span>
-        </div>
+        </form>
       </div>
     </div>
   );

@@ -6,3 +6,7 @@ export {WishListPage} from "../pages/WishListPage/WishListPage";
 export {SignUpPage} from "../pages/SignUp/signUp";
 export {ForgotpassWord} from "../pages/ForgotPassword/Forgotpass";
 export {PageNotFound} from "../pages/NotFoundPage/404-error"
+export {SingleProduct} from "../pages/SingleProductpage/SingleProduct"
+export {UserProfilepage} from "../pages/UserProfilepage/UserProfilepage";
+export {MockMan} from "../pages/MockMan/MockMan"
+export {CheckOutpage} from "../pages/checkout/checkOutpage";

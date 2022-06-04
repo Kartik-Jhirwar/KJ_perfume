@@ -1,0 +1,95 @@
+.profile-container {
+  height: 80vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-profile-details {
+  height: auto;
+  max-width: 60vw;
+  flex-direction: column;
+}
+
+.btn-container {
+  max-width: 60vw;
+  margin: auto;
+  gap: 1rem;
+}
+
+.btn-tabs {
+  min-width: 15rem;
+  background-color: var(--dark-sky);
+  border: none;
+  height: 3rem;
+  color: var(--white-color);
+}
+
+.plus-icon {
+  margin-right: 2rem;
+}
+.btn-tabs:hover {
+  background-color: var(--medium-teal);
+}
+
+.details-container {
+  width: 100%;
+  align-self: center;
+  padding: 4rem;
+  margin: 4rem;
+  height: inherit;
+}
+
+.address-detail,
+.account-settings,
+.user-detail {
+  height: auto;
+  min-width: 50vw;
+  max-width: 80vw;
+  box-shadow: 2px 2px 4px var(--light-stone);
+  margin-top: 2rem;
+  padding: inherit;
+}
+
+.address-container {
+  line-height: 1rem;
+}
+
+.btn {
+  min-width: 15rem;
+  max-width: 20rem;
+}
+.text-center {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.address-btn-container {
+  max-width: 30rem;
+  gap: 0.7rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.btn.btn-warning:hover {
+  background-color: var(--dark-sky);
+  border: none;
+}
+.btn-warning {
+  min-width: 30rem;
+}
+
+@media only screen and (min-width: 250px) and (max-width: 970px) {
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  .address-btn-container {
+    flex-direction: column;
+  }
+  .text-size-sm {
+    line-height: 2rem;
+  }
+}

@@ -3,7 +3,25 @@ import { IoReload } from "react-icons/io5";
 import { FaRegStar } from "react-icons/fa";
 import "../Filterbar/FilterBar.css";
 import { useProduct } from "../../context/product-context";
+import { reducerTypes } from "../../context/Reducer/reducertype";
 
+const {
+  SORT_LTOH,
+  SORT_HTOL,
+  FILTER_BY_PRICE,
+  SORT_BY_STOCK,
+  FAST_DELIVERY,
+  SORT_BY_150ML,
+  SORT_BY_100ML,
+  CLEAR_QUANTITY,
+  SORT_BY_RATING4,
+  SORT_BY_RATING3,
+  SORT_BY_RATING2,
+  SET_BRAND,
+  UNSET_BRAND,
+  CLEAR_FILTER,
+  CLEAR_RATING,
+} = reducerTypes;
 export const FilterBar = () => {
   const { state, dispatch } = useProduct();
   const {
@@ -20,9 +38,9 @@ export const FilterBar = () => {
     let checkedBrand = event.target.checked;
     const brandName = event.target.value;
     if (checkedBrand) {
-      return { type: "SET_BRAND_NAME", payload: brandName };
+      return { type: SET_BRAND, payload: brandName };
     }
-    return { type: "REMOVE_BRAND_NAME", payload: brandName };
+    return { type: UNSET_BRAND, payload: brandName };
   }
 
   return (
@@ -32,7 +50,7 @@ export const FilterBar = () => {
         <span className="filter-icon">
           <IoReload
             type="reset"
-            onClick={() => dispatch({ type: "CLEAR_ALL_FILTERS" })}
+            onClick={() => dispatch({ type: CLEAR_FILTER })}
           />
         </span>
         <h4 className="sidebar-content-item">Sort</h4>
@@ -42,7 +60,7 @@ export const FilterBar = () => {
             value="price low to high"
             name="sort-btn"
             checked={sortByPrice === "LOW_TO_HIGH"}
-            onChange={() => dispatch({ type: "SORT_LOW_TO_HIGH" })}
+            onChange={() => dispatch({ type: SORT_LTOH })}
           />
           Price Low to High
         </li>
@@ -52,7 +70,7 @@ export const FilterBar = () => {
             value="price high to low"
             name="sort-btn"
             checked={sortByPrice === "HIGH_TO_LOW"}
-            onChange={() => dispatch({ type: "SORT_HIGH_TO_LOW" })}
+            onChange={() => dispatch({ type: SORT_HTOL })}
           />
           Price High to Low
         </li>
@@ -67,13 +85,25 @@ export const FilterBar = () => {
               steps={1000}
               value={pricerange}
               checked={pricerange}
+              id="myRange"
+              list="prices"
               onChange={(e) =>
                 dispatch({
-                  type: "FILTER_BY_PRICE_RANGE",
+                  type: FILTER_BY_PRICE,
                   payload: e.target.value,
                 })
               }
             />
+            <datalist id="prices" className="datalist-options flex-center">
+              <option value="500" label="0.5k"></option>
+              <option value="3000" label="3k"></option>
+              <option value="5000" label="5k"></option>
+              <option
+                value="15000"
+                label="15k"
+                className="last-option"
+              ></option>
+            </datalist>
           </li>
         </div>
 
@@ -85,7 +115,7 @@ export const FilterBar = () => {
             value="In-stock"
             name="available-btn"
             checked={showAllProduct}
-            onChange={() => dispatch({ type: "SORT_BY_STOCK" })}
+            onChange={() => dispatch({ type: SORT_BY_STOCK })}
           />
           Include Out-of-Stock
         </li>
@@ -95,7 +125,7 @@ export const FilterBar = () => {
             value="out-ot-stock"
             name="available-btn"
             checked={fastDelivery}
-            onChange={() => dispatch({ type: "SORT_BY_FAST_DELIVERY" })}
+            onChange={() => dispatch({ type: FAST_DELIVERY })}
           />
           Fast Delivery
         </li>
@@ -162,7 +192,7 @@ export const FilterBar = () => {
             value="150 ml"
             name="quantity-btn"
             checked={sortByQuantity === "SORT_BY_150"}
-            onChange={() => dispatch({ type: "SORT_BY_150_QUANTITY" })}
+            onChange={() => dispatch({ type: SORT_BY_150ML })}
           />
           150 ml
         </li>
@@ -172,7 +202,7 @@ export const FilterBar = () => {
             value="100 ml"
             name="quantity-btn"
             checked={sortByQuantity === "SORT_BY_100"}
-            onChange={() => dispatch({ type: "SORT_BY_100_QUANTITY" })}
+            onChange={() => dispatch({ type: SORT_BY_100ML })}
           />
           100 ml
         </li>
@@ -181,7 +211,7 @@ export const FilterBar = () => {
             type="radio"
             value="clear"
             name="quantity-btn"
-            onChange={() => dispatch({ type: "CLEAR_QUANTITY_FILTER" })}
+            onChange={() => dispatch({ type: CLEAR_QUANTITY })}
           />
           Clear Quantity Filter
         </li>
@@ -193,7 +223,7 @@ export const FilterBar = () => {
             value="4Starts"
             name="rating"
             checked={sortByRatings === "FOUR_AND_ABOVE"}
-            onChange={() => dispatch({ type: "SORT_BY_RATING_4" })}
+            onChange={() => dispatch({ type: SORT_BY_RATING4 })}
           />
           4 <FaRegStar /> & above
         </li>
@@ -203,7 +233,7 @@ export const FilterBar = () => {
             value="3Starts"
             name="rating"
             checked={sortByRatings === "THREE_AND_ABOVE"}
-            onChange={() => dispatch({ type: "SORT_BY_RATING_3" })}
+            onChange={() => dispatch({ type: SORT_BY_RATING3 })}
           />
           3 <FaRegStar /> & above
         </li>
@@ -213,7 +243,7 @@ export const FilterBar = () => {
             value="2starts"
             name="rating"
             checked={sortByRatings === "TWO_AND_ABOVE"}
-            onChange={() => dispatch({ type: "SORT_BY_RATING_2" })}
+            onChange={() => dispatch({ type: SORT_BY_RATING2 })}
           />
           2 <FaRegStar /> & above
         </li>
@@ -222,7 +252,7 @@ export const FilterBar = () => {
             type="radio"
             value="1starts"
             name="rating"
-            onChange={() => dispatch({ type: "CLEAR_RATING" })}
+            onChange={() => dispatch({ type: CLEAR_RATING })}
           />
           Clear Rating Filter
         </li>
