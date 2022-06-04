@@ -15,7 +15,7 @@ export const LogOut = () => {
             e.preventDefault(), logOutHandler();
           }}
         >
-          Log Out
+          Logout
         </button>
       </Link>
     </>

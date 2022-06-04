@@ -3,6 +3,8 @@ import { BiMinus, BiRupee } from "react-icons/bi";
 import { FaRupeeSign, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
+import { reducerTypes } from "../../context/Reducer/reducertype";
+const { REMOVE_ALL_ITEMS_IN_CART } = reducerTypes;
 
 export const TextOnlyCardWithPrice = () => {
   const { cartState, getCartItemCount, cartDispatch } = useCartandWishList();
@@ -81,7 +83,10 @@ export const TextOnlyCardWithPrice = () => {
           </p>
           <span>
             <Link to="/checkout">
-              <button className="link-btn border-round btn-proceed">
+              <button
+                className="link-btn border-round btn-proceed"
+                onClick={() => cartDispatch({ type: REMOVE_ALL_ITEMS_IN_CART })}
+              >
                 PROCEED
               </button>
             </Link>

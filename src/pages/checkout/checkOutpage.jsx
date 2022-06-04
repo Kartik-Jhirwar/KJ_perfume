@@ -12,8 +12,8 @@ export const CheckOutpage = () => {
         <BsFillCheckCircleFill className="icon-check" />
         <h1 className="color-pink">Your order successfully Placed.</h1>
       </div>
-      <Link to="/">
-        <span className="btn-container">
+      <span className="btn-container">
+        <Link to="/">
           <button
             className="btn btn-danger border-round mt-3"
             onClick={(e) => {
@@ -22,8 +22,13 @@ export const CheckOutpage = () => {
           >
             Logout
           </button>
-        </span>
-      </Link>
+        </Link>
+        <Link to="/productpage">
+          <button className="btn btn-success border-round mt-3">
+            Continue Shopping
+          </button>
+        </Link>
+      </span>
     </div>
   );
 };

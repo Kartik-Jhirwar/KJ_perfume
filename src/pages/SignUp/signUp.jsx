@@ -43,7 +43,7 @@ export const SignUpPage = () => {
             className="input-textbox input-sm"
             name="firstName"
             id="firstName"
-            placeholder="Adarsh"
+            placeholder="Mariya"
             type="text"
             onChange={signUpChangeHandler}
             required
@@ -58,7 +58,7 @@ export const SignUpPage = () => {
             className="input-textbox input-sm"
             name="lastName"
             id="lastName"
-            placeholder="Balika"
+            placeholder="Sada"
             type="text"
             onChange={signUpChangeHandler}
             required

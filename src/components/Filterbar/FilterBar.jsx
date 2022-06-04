@@ -94,7 +94,7 @@ export const FilterBar = () => {
                 })
               }
             />
-            <dataList id="prices" className="datalist-options flex-center">
+            <datalist id="prices" className="datalist-options flex-center">
               <option value="500" label="0.5k"></option>
               <option value="3000" label="3k"></option>
               <option value="5000" label="5k"></option>
@@ -103,7 +103,7 @@ export const FilterBar = () => {
                 label="15k"
                 className="last-option"
               ></option>
-            </dataList>
+            </datalist>
           </li>
         </div>
 

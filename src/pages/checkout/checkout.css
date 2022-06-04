@@ -16,8 +16,10 @@
   color: var(--dark-teal);
 }
 .btn-container {
-  width: 100%;
+  width: 50%;
+  display: flex;
   align-self: flex-start;
+  justify-content: center;
 }
 .icon-text-container {
   display: flex;
