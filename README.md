@@ -40,6 +40,9 @@
 * Search the Product
    * search a product by predictive text
 * [Error Page](https://mehak-store.netlify.app/productpag)
+* payment integaration
+* checkout page
+* order summary
 
 React JS -
 
