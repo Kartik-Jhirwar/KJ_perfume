@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 export const Address = ({
   addressData,
@@ -6,6 +7,7 @@ export const Address = ({
   editDataHandler,
 }) => {
   const { id, fullName, address, mobileNo, pincode, state, city } = addressData;
+  const { pathname } = useLocation();
 
   return (
     <address className="address-container" key={id}>
@@ -15,20 +17,22 @@ export const Address = ({
       <p className="text-size-sm">
         {city}, {state}-{pincode}
       </p>
-      <div className="address-btn-container">
-        <button
-          className="btn btn-secondary border-round"
-          onClick={(e) => editDataHandler(e, id)}
-        >
-          Edit
-        </button>
-        <button
-          className="btn btn-primary border-round"
-          onClick={(e) => deleteDataHandler(e, id)}
-        >
-          Remove
-        </button>
-      </div>
+      {pathname === "/userprofile" && (
+        <div className="address-btn-container">
+          <button
+            className="btn btn-secondary border-round"
+            onClick={(e) => editDataHandler(e, id)}
+          >
+            Edit
+          </button>
+          <button
+            className="btn btn-primary border-round"
+            onClick={(e) => deleteDataHandler(e, id)}
+          >
+            Remove
+          </button>
+        </div>
+      )}
     </address>
   );
 };

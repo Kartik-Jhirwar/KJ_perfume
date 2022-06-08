@@ -26,6 +26,9 @@ a {
   align-items: center;
   justify-content: center;
 }
+.flex-direction-column {
+  flex-direction: column;
+}
 input[type="checkbox"] {
   cursor: pointer;
 }
@@ -33,7 +36,18 @@ input[type="checkbox"] {
   min-width: 15rem;
   max-width: 20rem;
 }
-
+.loader {
+  z-index: 30;
+  position: fixed;
+  top: 10%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+}
+.loader.homepage {
+  top: 10%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+}
 /* colors*/
 :root {
   --primary-color: #750634;
@@ -42,6 +56,7 @@ input[type="checkbox"] {
   --secondary-color-dark: #752949;
   --primary-color-light: #c20a56;
   --light-rose: #f43f5e;
+  --light-pink-payment: #f05e76;
   --light-green: #7ef246;
   --dark-green: #40a60f;
   --red-color: red;

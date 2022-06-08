@@ -55,24 +55,31 @@ export const FilterBar = () => {
         </span>
         <h4 className="sidebar-content-item">Sort</h4>
         <li className="sidebar-list">
-          <input
-            type="radio"
-            value="price low to high"
-            name="sort-btn"
-            checked={sortByPrice === "LOW_TO_HIGH"}
-            onChange={() => dispatch({ type: SORT_LTOH })}
-          />
-          Price Low to High
+          <label htmlFor="lowtohigh" className="sidebar">
+            <input
+              type="radio"
+              value="price low to high"
+              name="sort-btn"
+              id="lowtohigh"
+              checked={sortByPrice === "LOW_TO_HIGH"}
+              onChange={() => dispatch({ type: SORT_LTOH })}
+            />
+            Price Low to High
+          </label>
         </li>
+
         <li className="sidebar-list">
-          <input
-            type="radio"
-            value="price high to low"
-            name="sort-btn"
-            checked={sortByPrice === "HIGH_TO_LOW"}
-            onChange={() => dispatch({ type: SORT_HTOL })}
-          />
-          Price High to Low
+          <label htmlFor="hightolow" className="sidebar">
+            <input
+              type="radio"
+              value="price high to low"
+              name="sort-btn"
+              id="hightolow"
+              checked={sortByPrice === "HIGH_TO_LOW"}
+              onChange={() => dispatch({ type: SORT_HTOL })}
+            />
+            Price High to Low
+          </label>
         </li>
         {/* -----------price range------- */}
         <h4 className="sidebar-content-item">PRICE RANGE</h4>
@@ -110,151 +117,193 @@ export const FilterBar = () => {
         {/* <!-- -------------------Availability-------------- --> */}
         <h4 className="sidebar-content-item">Availability</h4>
         <li className="sidebar-list">
-          <input
-            type="checkbox"
-            value="In-stock"
-            name="available-btn"
-            checked={showAllProduct}
-            onChange={() => dispatch({ type: SORT_BY_STOCK })}
-          />
-          Include Out-of-Stock
+          <label htmlFor="instock" className="flex-center sidebar">
+            <input
+              type="checkbox"
+              value="In-stock"
+              name="available-btn"
+              id="instock"
+              checked={showAllProduct}
+              onChange={() => dispatch({ type: SORT_BY_STOCK })}
+            />
+            Include Out-of-Stock
+          </label>
         </li>
         <li className="sidebar-list">
-          <input
-            type="checkbox"
-            value="out-ot-stock"
-            name="available-btn"
-            checked={fastDelivery}
-            onChange={() => dispatch({ type: FAST_DELIVERY })}
-          />
-          Fast Delivery
+          <label htmlFor="fastdelivery" className="flex-center sidebar">
+            <input
+              type="checkbox"
+              value="out-ot-stock"
+              name="available-btn"
+              id="fastdelivery"
+              checked={fastDelivery}
+              onChange={() => dispatch({ type: FAST_DELIVERY })}
+            />
+            Fast Delivery
+          </label>
         </li>
 
         {/* <!-- -------------------Brand-------------- --> */}
         <h4 className="sidebar-content-item">Brand</h4>
         <li className="sidebar-list">
-          <input
-            type="checkbox"
-            value="Armani"
-            name="available-btn"
-            checked={sortByBrand.includes("Armani")}
-            onChange={() => dispatch(BrandClickHandler(event))}
-          />
-          Armani
+          <label htmlFor="armani" className="flex-center sidebar">
+            <input
+              type="checkbox"
+              value="Armani"
+              name="available-btn"
+              id="armani"
+              checked={sortByBrand.includes("Armani")}
+              onChange={() => dispatch(BrandClickHandler(event))}
+            />
+            Armani
+          </label>
         </li>
         <li className="sidebar-list">
-          <input
-            type="checkbox"
-            value="Chanel"
-            name="available-btn"
-            checked={sortByBrand.includes("Chanel")}
-            onChange={(event) => dispatch(BrandClickHandler(event))}
-          />
-          Chanel
+          <label htmlFor="chanel" className="flex-center sidebar">
+            <input
+              type="checkbox"
+              value="Chanel"
+              name="available-btn"
+              id="chanel"
+              checked={sortByBrand.includes("Chanel")}
+              onChange={(event) => dispatch(BrandClickHandler(event))}
+            />
+            Chanel
+          </label>
         </li>
         <li className="sidebar-list">
-          <input
-            type="checkbox"
-            value="Gucci"
-            name="available-btn"
-            checked={sortByBrand.includes("Gucci")}
-            onChange={(event) => dispatch(BrandClickHandler(event))}
-          />
-          Gucci
+          <label htmlFor="gucci" className="flex-center sidebar">
+            <input
+              type="checkbox"
+              value="Gucci"
+              name="available-btn"
+              id="gucci"
+              checked={sortByBrand.includes("Gucci")}
+              onChange={(event) => dispatch(BrandClickHandler(event))}
+            />
+            Gucci
+          </label>
         </li>
         <li className="sidebar-list">
-          <input
-            type="checkbox"
-            value="Zara"
-            name="available-btn"
-            checked={sortByBrand.includes("Zara")}
-            onChange={(event) => dispatch(BrandClickHandler(event))}
-          />
-          Zara
+          <label htmlFor="zara" className="flex-center sidebar">
+            <input
+              type="checkbox"
+              value="Zara"
+              name="available-btn"
+              id="zara"
+              checked={sortByBrand.includes("Zara")}
+              onChange={(event) => dispatch(BrandClickHandler(event))}
+            />
+            Zara
+          </label>
         </li>
         <li className="sidebar-list">
-          <input
-            type="checkbox"
-            value="Estee Lauder"
-            name="available-btn"
-            checked={sortByBrand.includes("Estee Lauder")}
-            onChange={(event) => dispatch(BrandClickHandler(event))}
-          />
-          Estee Lauder
+          <label htmlFor="estee" className="flex-center sidebar">
+            <input
+              type="checkbox"
+              value="Estee Lauder"
+              name="available-btn"
+              id="estee"
+              checked={sortByBrand.includes("Estee Lauder")}
+              onChange={(event) => dispatch(BrandClickHandler(event))}
+            />
+            Estee Lauder
+          </label>
         </li>
 
         {/* <!-- ------------------Quantity----------- --> */}
 
         <h4 className="sidebar-content-item">Quantity</h4>
         <li className="sidebar-list">
-          <input
-            type="radio"
-            value="150 ml"
-            name="quantity-btn"
-            checked={sortByQuantity === "SORT_BY_150"}
-            onChange={() => dispatch({ type: SORT_BY_150ML })}
-          />
-          150 ml
+          <label htmlFor="150ml" className="sidebar">
+            <input
+              type="radio"
+              value="150 ml"
+              name="quantity-btn"
+              id="150ml"
+              checked={sortByQuantity === "SORT_BY_150"}
+              onChange={() => dispatch({ type: SORT_BY_150ML })}
+            />
+            150 ml
+          </label>
         </li>
         <li className="sidebar-list">
-          <input
-            type="radio"
-            value="100 ml"
-            name="quantity-btn"
-            checked={sortByQuantity === "SORT_BY_100"}
-            onChange={() => dispatch({ type: SORT_BY_100ML })}
-          />
-          100 ml
+          <label htmlFor="100ml" className="sidebar">
+            <input
+              type="radio"
+              value="100 ml"
+              id="100ml"
+              name="quantity-btn"
+              checked={sortByQuantity === "SORT_BY_100"}
+              onChange={() => dispatch({ type: SORT_BY_100ML })}
+            />
+            100 ml
+          </label>
         </li>
         <li className="sidebar-list">
-          <input
-            type="radio"
-            value="clear"
-            name="quantity-btn"
-            onChange={() => dispatch({ type: CLEAR_QUANTITY })}
-          />
-          Clear Quantity Filter
+          <label htmlFor="clearquantity" className="sidebar">
+            <input
+              type="radio"
+              value="clear"
+              id="clearquantity"
+              name="quantity-btn"
+              onChange={() => dispatch({ type: CLEAR_QUANTITY })}
+            />
+            Clear Quantity Filter
+          </label>
         </li>
         {/* <!-- ---ratings----- --> */}
         <h4 className="sidebar-content-item">Ratings</h4>
         <li className="sidebar-list">
-          <input
-            type="radio"
-            value="4Starts"
-            name="rating"
-            checked={sortByRatings === "FOUR_AND_ABOVE"}
-            onChange={() => dispatch({ type: SORT_BY_RATING4 })}
-          />
-          4 <FaRegStar /> & above
+          <label htmlFor="4star" className="sidebar">
+            <input
+              type="radio"
+              value="4Starts"
+              name="rating"
+              id="4star"
+              checked={sortByRatings === "FOUR_AND_ABOVE"}
+              onChange={() => dispatch({ type: SORT_BY_RATING4 })}
+            />
+            4 <FaRegStar /> & above
+          </label>
         </li>
         <li className="sidebar-list">
-          <input
-            type="radio"
-            value="3Starts"
-            name="rating"
-            checked={sortByRatings === "THREE_AND_ABOVE"}
-            onChange={() => dispatch({ type: SORT_BY_RATING3 })}
-          />
-          3 <FaRegStar /> & above
+          <label htmlFor="3star" className="sidebar">
+            <input
+              type="radio"
+              value="3Starts"
+              name="rating"
+              id="3star"
+              checked={sortByRatings === "THREE_AND_ABOVE"}
+              onChange={() => dispatch({ type: SORT_BY_RATING3 })}
+            />
+            3 <FaRegStar /> & above
+          </label>
         </li>
         <li className="sidebar-list">
-          <input
-            type="radio"
-            value="2starts"
-            name="rating"
-            checked={sortByRatings === "TWO_AND_ABOVE"}
-            onChange={() => dispatch({ type: SORT_BY_RATING2 })}
-          />
-          2 <FaRegStar /> & above
+          <label htmlFor="2star" className="sidebar">
+            <input
+              type="radio"
+              value="2starts"
+              id="2star"
+              name="rating"
+              checked={sortByRatings === "TWO_AND_ABOVE"}
+              onChange={() => dispatch({ type: SORT_BY_RATING2 })}
+            />
+            2 <FaRegStar /> & above
+          </label>
         </li>
         <li className="sidebar-list">
-          <input
-            type="radio"
-            value="1starts"
-            name="rating"
-            onChange={() => dispatch({ type: CLEAR_RATING })}
-          />
-          Clear Rating Filter
+          <label htmlFor="clearrating" className="sidebar">
+            <input
+              type="radio"
+              value="1starts"
+              name="rating"
+              id="clearrating"
+              onChange={() => dispatch({ type: CLEAR_RATING })}
+            />
+            Clear Rating Filter
+          </label>
         </li>
       </ul>
     </form>

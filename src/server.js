@@ -8,6 +8,7 @@ import {
   getCartItemsHandler,
   removeItemFromCartHandler,
   updateCartItemHandler,
+  clearCartHandler
 } from "./backend/controllers/CartController";
 import {
   getAllCategoriesHandler,
@@ -22,6 +23,10 @@ import {
   getWishlistItemsHandler,
   removeItemFromWishlistHandler,
 } from "./backend/controllers/WishlistController";
+import {
+  getOrdersHandler,
+  addItemToOrdersHandler,
+} from "./backend/controllers/OrdersController";
 import { categories } from "./backend/db/categories";
 import { products } from "./backend/db/products";
 import { users } from "./backend/db/users";
@@ -38,6 +43,7 @@ export function makeServer({ environment = "development" } = {}) {
       user: Model,
       cart: Model,
       wishlist: Model,
+      orders: Model,
     },
 
     // Runs on the start of the server
@@ -49,7 +55,7 @@ export function makeServer({ environment = "development" } = {}) {
       });
 
       users.forEach((item) =>
-        server.create("user", { ...item, cart: [], wishlist: [] })
+        server.create("user", { ...item, cart: [], wishlist: [],orders:[] })
       );
 
       categories.forEach((item) => server.create("category", { ...item }));
@@ -77,6 +83,9 @@ export function makeServer({ environment = "development" } = {}) {
         "/user/cart/:productId",
         removeItemFromCartHandler.bind(this)
       );
+      // adding clear cart controller
+      this.delete("/user/cart/all",clearCartHandler.bind(this));
+      
 
       // wishlist routes (private)
       this.get("/user/wishlist", getWishlistItemsHandler.bind(this));
@@ -85,6 +94,14 @@ export function makeServer({ environment = "development" } = {}) {
         "/user/wishlist/:productId",
         removeItemFromWishlistHandler.bind(this)
       );
+      //  ORDERS ROUTE
+
+      this.get("/user/orders", getOrdersHandler.bind(this));
+      this.post("/user/orders", addItemToOrdersHandler.bind(this));
+      
+      this.passthrough((request) => {
+        return request.url.includes("razorpay");
+      });
     },
   });
 }

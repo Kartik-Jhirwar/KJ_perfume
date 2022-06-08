@@ -17,6 +17,7 @@ export const tempAddressValues={
     state:"New-Delhi",
     city:"Wazirabad",
     pincode:345678,
-    isEditing:false 
+    isEditing:false,
+    isSelected:true, 
 }
 

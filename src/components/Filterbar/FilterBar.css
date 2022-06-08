@@ -36,6 +36,11 @@
   padding: 0.24rem;
   padding-right: 1.5rem;
   margin-left: auto;
+  cursor: pointer;
+}
+.sidebar {
+  justify-content: flex-start;
+  cursor: pointer;
 }
 .datalist-options {
   font-size: 13px;
@@ -43,4 +48,16 @@
 }
 .last-option {
   margin-left: 4rem;
+}
+@media only screen and (min-width: 250px) and (max-width: 900px) {
+  .sidebar-container {
+    width: 15rem;
+    margin-left: -24px;
+  }
+  .sidebar-content-item {
+    font-size: 1.3rem;
+  }
+  .sidebar-list {
+    font-size: 1rem;
+  }
 }

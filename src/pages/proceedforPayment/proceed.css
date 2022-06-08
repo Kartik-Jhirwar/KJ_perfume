@@ -1,0 +1,29 @@
+.proceed-page-container {
+  /* box-shadow: 2px 2px 3px var(--light-stone); */
+  margin: 15rem 0 0 12rem;
+  width: 70vw;
+  height: 80vh;
+  justify-content: flex-start;
+  gap: 20rem;
+}
+.addressList-container {
+  align-self: flex-start;
+  margin: 3rem;
+}
+.address-style {
+  gap: 1rem;
+  justify-content: flex-start;
+}
+.input-address {
+  align-self: flex-start;
+  margin-top: 2rem;
+}
+.order-payment-detail {
+  align-self: flex-start;
+  margin-top: 3rem;
+}
+.heading-address {
+  font-size: 2.5rem;
+  margin-left: 2rem;
+  color: var(--light-rose);
+}

@@ -1,5 +1,5 @@
 import { reducerTypes } from "./reducertype"
-const {CART_DATA,ADD_TO_CART,REMOVE_FROM_CART,INCERMENT,DECREMENT,WISHLIST_DATA,ADD_TO_WISHLIST,REMOVE_FROM_WISHLIST,REMOVE_ALL_ITEMS_IN_CART}=reducerTypes
+const {CART_DATA,ADD_TO_CART,REMOVE_FROM_CART,INCERMENT,DECREMENT,WISHLIST_DATA,ADD_TO_WISHLIST,REMOVE_FROM_WISHLIST,REMOVE_ALL_ITEMS_IN_CART,ADD_ORDERS,LOAD_ORDERS}=reducerTypes
 
 
 export const CartItemReducer=(state,action)=>{   
@@ -21,6 +21,10 @@ export const CartItemReducer=(state,action)=>{
             
         case REMOVE_ALL_ITEMS_IN_CART:
             return {...state,cartItem:[]};
+
+        case ADD_ORDERS:
+        case LOAD_ORDERS:    
+            return{...state,orders:action.payload}    
         
             default:
            return state;

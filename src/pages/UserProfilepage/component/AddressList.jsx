@@ -1,22 +1,42 @@
 import React from "react";
+import toast from "react-hot-toast";
+import { useLocation } from "react-router-dom";
+import { useAuth } from "../../../context/Authentication/auth-context";
 import { Address } from "./Address";
 
-export const AddressList = ({
-  addressListData,
-  setAddressListData,
-  deleteDataHandler,
-  editDataHandler,
-}) => {
+export const AddressList = ({ deleteDataHandler, editDataHandler }) => {
+  const { pathname } = useLocation();
+  const { addressList, setAddressList, selectedAddress, setSelectedAddress } =
+    useAuth();
+  const selectedAddressHandler = (address) => {
+    setSelectedAddress(address);
+    toast("address selected", { icon: "✔" });
+  };
   return (
     <div>
-      {addressListData.map((address, index) => {
+      {addressList.map((address, index) => {
         return (
-          <Address
-            addressData={address}
+          <div
+            className={
+              pathname === "/payment" ? "flex-center address-style" : ""
+            }
             key={index}
-            deleteDataHandler={deleteDataHandler}
-            editDataHandler={editDataHandler}
-          />
+          >
+            {pathname === "/payment" && (
+              <input
+                type="radio"
+                name="grp1"
+                className="flex-center input-address"
+                onChange={() => selectedAddressHandler(address)}
+              />
+            )}
+            <Address
+              addressData={address}
+              key={index}
+              deleteDataHandler={deleteDataHandler}
+              editDataHandler={editDataHandler}
+            />
+          </div>
         );
       })}
     </div>

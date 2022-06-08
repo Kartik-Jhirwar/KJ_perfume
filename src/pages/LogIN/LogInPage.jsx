@@ -13,7 +13,7 @@ export const LogInPage = () => {
   const [logInData, setLogInData] = useState(initialLogInData);
   const [passVisible, setPassVisible] = useState(true);
   const { logInHandler } = useAuth();
-  const { isloading } = useProduct();
+  const { isloading, setLoading } = useProduct();
 
   const logInChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -71,8 +71,7 @@ export const LogInPage = () => {
               <button
                 className="link-btn border-round fluid-btn"
                 onClick={(e) => {
-                  e.preventDefault, logInHandler(logInData);
-                  // navigate(location?.state?.from?.pathname);
+                  e.preventDefault(), logInHandler(logInData);
                 }}
               >
                 LOGIN
@@ -98,7 +97,11 @@ export const LogInPage = () => {
           </div>
         </div>
       </div>
-      {isloading && <Loader />}
+      {isloading && (
+        <div className="loader homepage">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };
