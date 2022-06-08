@@ -47,13 +47,8 @@
   color: red;
 }
 @media only screen and (min-width: 250px) and (max-width: 800px) {
-  body {
-    height: 100%;
-    width: 100%;
-  }
-
   .link-btn.fluid-btn {
-    min-width: 80vw;
+    min-width: 70vw;
   }
   .input-with-icon-container {
     min-width: 100%;
@@ -66,8 +61,10 @@
     left: 13rem;
   }
   .sign-up-page-container {
-    padding: 1rem;
-    max-width: 90vw;
+    padding: 0;
+    width: 70vw;
+    margin-left: -8rem;
+    /* background-color: red; */
   }
   .remember-me-and-link-container {
     display: flex;

@@ -77,6 +77,9 @@
     width: 100%;
     font-size: 1rem;
   }
+  .logo-container {
+    margin-left: -10px;
+  }
   .menu-icon {
     display: block;
   }
@@ -86,17 +89,33 @@
   .badge {
     display: none;
   }
+  .cart,
+  .wishlist {
+    display: block;
+    margin-left: 2rem;
+  }
+  .wishlist {
+    margin-right: 3rem;
+  }
 
-  /* .grid-container {
+  .grid-container {
     grid-template-columns: 1fr;
-  } */
-  /* .serchbox-container {
+  }
+  .searchbox-container {
+    display: block;
     position: absolute;
-    top: 6rem;
+    top: 4.7rem;
     left: 0;
     right: 0;
-    margin-left: 35rem;
-    margin-top: 1.2rem;
-    min-width: 100%;
-  } */
+    width: 100vw;
+  }
+  .badge {
+    top: 1.2rem;
+    right: 0rem;
+    background-color: red;
+  }
+  .badge .badge-cart {
+    right: 1rem;
+    background-color: red;
+  }
 }

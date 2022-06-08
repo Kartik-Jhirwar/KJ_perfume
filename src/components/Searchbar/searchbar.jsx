@@ -1,7 +1,6 @@
 import React from "react";
 import { useProduct } from "../../context/product-context";
 import { reducerTypes } from "../../context/Reducer/reducertype";
-import "../Searchbar/searchbar.css";
 export const SearchBar = () => {
   const { state, dispatch } = useProduct();
   return (

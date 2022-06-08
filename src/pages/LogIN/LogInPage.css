@@ -8,8 +8,11 @@
 
 .login-page-container {
   padding-top: 1rem;
+  justify-content: flex-start;
+  height: inherit;
   flex-direction: column;
   margin: 0 auto;
+  /* background-color: blue; */
 }
 .input-and-buttons-container {
   display: flex;
@@ -108,26 +111,28 @@ button {
   color: var(--dark-cyan);
   font-weight: bold;
 }
-@media only screen and (min-width: 250px) and (max-width: 800px) {
-  body {
-    height: 100%;
-    width: 100%;
-  }
-  .serchbox-container {
-    width: 6rem;
-  }
+@media only screen and (min-width: 250px) and (max-width: 600px) {
   .btn-login {
     min-width: 14rem;
+    margin-left: 2rem;
+    align-self: center;
+  }
+  .LogIn-content-container {
+    width: 100vw;
+    justify-self: flex-end;
+    margin-top: 16rem;
+    margin-right: -3rem;
   }
   .login-page-container {
-    width: 90vw;
+    width: 80vw;
+    height: 60vh;
     padding: 2rem;
   }
   .link-btn.fluid-btn {
     min-width: 80vw;
   }
   .input-with-icon-container {
-    min-width: 100%;
+    min-width: 80%;
     display: flex;
   }
   .input-textbox {
