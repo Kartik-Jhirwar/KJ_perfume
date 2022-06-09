@@ -17,6 +17,10 @@
 .input-address {
   align-self: flex-start;
   margin-top: 2rem;
+  cursor: pointer;
+}
+.input-with-address {
+  gap: 6px;
 }
 .order-payment-detail {
   align-self: flex-start;

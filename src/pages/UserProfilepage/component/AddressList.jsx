@@ -22,20 +22,29 @@ export const AddressList = ({ deleteDataHandler, editDataHandler }) => {
             }
             key={index}
           >
-            {pathname === "/payment" && (
-              <input
-                type="radio"
-                name="grp1"
-                className="flex-center input-address"
-                onChange={() => selectedAddressHandler(address)}
+            <label
+              htmlFor="address"
+              className={
+                pathname === "/payment" ? "flex-center input-with-address" : ""
+              }
+            >
+              {pathname === "/payment" && (
+                <input
+                  type="radio"
+                  name="grp1"
+                  className="flex-center input-address"
+                  id="address"
+                  onChange={() => selectedAddressHandler(address)}
+                />
+              )}
+
+              <Address
+                addressData={address}
+                key={index}
+                deleteDataHandler={deleteDataHandler}
+                editDataHandler={editDataHandler}
               />
-            )}
-            <Address
-              addressData={address}
-              key={index}
-              deleteDataHandler={deleteDataHandler}
-              editDataHandler={editDataHandler}
-            />
+            </label>
           </div>
         );
       })}
