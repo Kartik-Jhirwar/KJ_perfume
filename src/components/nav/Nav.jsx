@@ -64,7 +64,7 @@ export const Nav = () => {
           <li className="nav-item">
             <Categories />
           </li>
-          <li className="nav-item">
+          <li className="nav-item searchbox-container">
             <SearchBar />
           </li>
         </ul>
@@ -94,7 +94,7 @@ export const Nav = () => {
             </span>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item cart">
             <NavLink to="/wishlist">
               <span className="nav-icon">
                 <FaRegHeart title="WishList" />
@@ -102,7 +102,7 @@ export const Nav = () => {
             </NavLink>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item wishlist">
             <NavLink to="/cart">
               <span className="nav-icon">
                 <FaShoppingBag title="Cart" />

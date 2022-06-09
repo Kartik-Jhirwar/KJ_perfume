@@ -120,15 +120,14 @@ hr {
   margin-left: 2rem;
 }
 @media only screen and (min-width: 350px) and (max-width: 600px) {
-  body {
-    height: 100%;
-    width: 100%;
-  }
   .horizontal-card .card-image {
-    min-width: 70vw;
+    min-width: 28vw;
+  }
+  .horizontal-card {
+    width: fit-content;
   }
   .cart-order-container {
     grid-template-columns: 1fr;
-    margin-left: -18rem;
+    margin-left: -10rem;
   }
 }

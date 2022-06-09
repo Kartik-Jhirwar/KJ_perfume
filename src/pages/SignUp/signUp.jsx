@@ -5,6 +5,7 @@ import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { BsExclamationTriangle } from "react-icons/bs";
 import { initialSignUpData } from "../../constants/auth-constants";
 import { useAuth } from "../../context/Authentication/auth-context";
+import { useProduct } from "../../context/product-context";
 
 export const SignUpPage = () => {
   const [signupData, setSignUpData] = useState(initialSignUpData);
@@ -13,6 +14,7 @@ export const SignUpPage = () => {
   const [error, setErrMessage] = useState("");
   const { signUpHandler } = useAuth();
   const navigate = useNavigate();
+  const { isloading } = useProduct();
 
   const signUpChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -152,6 +154,11 @@ export const SignUpPage = () => {
           </span>
         </form>
       </div>
+      {isloading && (
+        <div className="loader homepage">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };

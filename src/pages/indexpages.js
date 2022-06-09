@@ -10,3 +10,5 @@ export {SingleProduct} from "../pages/SingleProductpage/SingleProduct"
 export {UserProfilepage} from "../pages/UserProfilepage/UserProfilepage";
 export {MockMan} from "../pages/MockMan/MockMan"
 export {CheckOutpage} from "../pages/checkout/checkOutpage";
+export {ProceedForPayment} from "../pages/proceedforPayment/Proceed";
+export {OrderSummary} from "../pages/OrderSummary/orderSummary";

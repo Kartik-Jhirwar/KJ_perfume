@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { signupService,logInService,signOutService } from "../../Services/Authservice";
 import toast from "react-hot-toast";
 import { useProduct } from "../product-context";
+import {tempAddressValues} from "../../constants/address-constants";
 
 
 
@@ -20,25 +21,36 @@ const initialStateValue={
 }
 const AuthProvider=({children})=>{
     const [user,setUser]=useState(initialStateValue);    
+    const [addressList, setAddressList] = useState([tempAddressValues]);
+    const[selectedAddress,setSelectedAddress]=useState("");
     const navigateTo=useNavigate();
     const location=useLocation();
-    const {setLoading}=useProduct();
+    const {isloading,setLoading}=useProduct();
 
-    const signUpHandler=async(signupData)=>{        
-        const {data,status}=await signupService(signupData);        
+    const signUpHandler=async(signupData)=>{ 
+        setLoading(true);       
+        const {data,status}=await signupService(signupData);    
+        setLoading(false);    
         if(status===201)
         {
             localStorage.setItem("auth_token",JSON.stringify(data.encodedToken)); 
             localStorage.setItem("user_name",JSON.stringify(data.createdUser.firstName));  
-            localStorage.setItem("email_of_user",JSON.stringify(data.createdUser.email));  
+            localStorage.setItem("email_of_user",JSON.stringify(data.createdUser.email)); 
+            setUser({isloggedIn:true,
+                authenticationToken:data.encodedToken,
+                email:data.createdUser.email,
+                userName:data.createdUser.firstName
+            }) 
              toast("saving data", { icon:  "✔️"  });                             
-            navigateTo('/login'); 
+             navigateTo('/productpage'); 
         }
 
     }
 
     const logInHandler=async(logInData)=>{
+        setLoading(true);
         const {data,status}=await logInService(logInData);
+        setLoading(false);
         if(status===200)
         {
             localStorage.setItem("auth_token",JSON.stringify(data.encodedToken));  
@@ -66,7 +78,7 @@ const AuthProvider=({children})=>{
             navigateTo("/");  
     }
 
-    return <authContext.Provider value={{user,setUser,signUpHandler,logInHandler,logOutHandler}}>{children}</authContext.Provider>
+    return <authContext.Provider value={{user,setUser,signUpHandler,logInHandler,logOutHandler,addressList, setAddressList,selectedAddress,setSelectedAddress}}>{children}</authContext.Provider>
 }
 const useAuth=()=>useContext(authContext);
 export {useAuth,AuthProvider};

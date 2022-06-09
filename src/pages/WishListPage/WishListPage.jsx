@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Productcard, WishListCard } from "../../components/index";
+import { Productcard, WishListCard, Loader } from "../../components/index";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
+import { useProduct } from "../../context/product-context";
 
 export const WishListPage = () => {
   const { cartState } = useCartandWishList();
   const { wishListItem } = cartState;
+  const { isloading } = useProduct();
   return (
     <div className="main-content-container">
       <h2 className="heading">My WishList</h2>
@@ -23,6 +25,11 @@ export const WishListPage = () => {
           })
         )}
       </div>
+      {isloading && (
+        <div className="loader homepage">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };

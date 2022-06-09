@@ -18,7 +18,7 @@ export const Categories = () => {
         console.error("something went wrong");
       }
     })();
-  });
+  }, []);
   return (
     <div className="category-options">
       {categories.map((category) => {

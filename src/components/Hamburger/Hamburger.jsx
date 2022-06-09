@@ -19,7 +19,7 @@ export const Hamburger = () => {
       <ul className="hamburger-menu-container">
         {humburgerConstant.map(({ path, name }) => {
           return (
-            <Link to={`${path}`} className="hamburger-menu-item">
+            <Link to={`${path}`} className="hamburger-menu-item" key={name}>
               {name}
             </Link>
           );

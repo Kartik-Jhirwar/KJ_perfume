@@ -2,10 +2,12 @@ import "./App.css";
 import {Nav} from "./components/nav/Nav";
 import {Routes,Route} from "react-router";
 import { useLocation } from "react-router-dom";
-import {Home,ProductPage,LogInPage,CartPage,WishListPage,SignUpPage,CheckOutpage,ForgotpassWord,PageNotFound,SingleProduct,UserProfilepage,MockMan} from "../src/pages/indexpages";
-import { useState } from "react";
+import {Home,ProductPage,LogInPage,CartPage,WishListPage,SignUpPage,CheckOutpage,ForgotpassWord,PageNotFound,SingleProduct,UserProfilepage,MockMan,ProceedForPayment,OrderSummary} from "../src/pages/indexpages";
+import { useState,  useEffect  } from "react";
 import { Toaster } from 'react-hot-toast';
 import { RequiresAuth } from "./Router/RequiresAuth";
+import { useCartandWishList } from "./context/CartAndWishlist-context";
+
 
 
 
@@ -13,6 +15,12 @@ function App() {
 
   const {pathname}=useLocation();
   const [isNavVisible,setIsNavVisible]=useState(true);
+  const path=pathname.slice(1);
+  const {orders}=useCartandWishList();
+
+  useEffect(()=>{
+    document.title=`${path} || Mehak Shop`
+  },[pathname]);
   return (  
        <div className="grid-container">   
           {pathname==="/checkout" || pathname==="*" ? null: <Nav/> } 
@@ -27,7 +35,9 @@ function App() {
           <Route path="/userprofile" element={<UserProfilepage/>}/> 
           <Route path="/cart" element={<RequiresAuth children={<CartPage/>}></RequiresAuth>}/>
           <Route path="/wishlist" element={<RequiresAuth children={<WishListPage/>}></RequiresAuth>}/>
-          <Route path="/checkout" element={<CheckOutpage/>}/>
+         <Route path="/checkout" element={<RequiresAuth children={<CheckOutpage/>}></RequiresAuth>}/>
+          <Route path="/payment" element={<ProceedForPayment/>}/>
+          <Route path="/orders" element={<OrderSummary/>}/>
           <Route path="*" element={<PageNotFound/>}/>                 
           <Route path="/mockman" element={<MockMan/>}/>
         </Routes>  

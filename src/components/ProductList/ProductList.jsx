@@ -9,7 +9,9 @@ export const ProductList = () => {
   return (
     <div className="product-content-container">
       {isloading ? (
-        <Loader />
+        <div className="loader homepage">
+          <Loader />
+        </div>
       ) : (
         <div className="grid-3-column-layout">
           {showProductList.length === 0 ? (

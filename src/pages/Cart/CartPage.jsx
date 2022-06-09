@@ -4,13 +4,16 @@ import {
   ErrorMessage,
   HorizontalCard,
   TextOnlyCardWithPrice,
+  Loader,
 } from "../../components/index";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
+import { useProduct } from "../../context/product-context";
 import "../Cart/Cartpage.css";
 
 export const CartPage = () => {
   const { cartState } = useCartandWishList();
   const { cartItem } = cartState;
+  const { isloading } = useProduct();
 
   return (
     <div className="main-content-container">
@@ -33,6 +36,11 @@ export const CartPage = () => {
           <div className="final-price-container">
             {cartItem.length === 0 ? "" : <TextOnlyCardWithPrice />}
           </div>
+        </div>
+      )}
+      {isloading && (
+        <div className="loader homepage">
+          <Loader />
         </div>
       )}
     </div>

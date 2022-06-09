@@ -4,7 +4,8 @@ import {CartandWishListProvider} from "./CartAndWishlist-context";
 import { AuthProvider } from "./Authentication/auth-context";
 
 export const CombineProvider=({children})=>{
-   return(<ProductProvider>
+   return(
+   <ProductProvider>
        <AuthProvider>
            <CartandWishListProvider>
                {children}

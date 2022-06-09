@@ -1,16 +1,28 @@
 import React from "react";
 import { BiMinus, BiRupee } from "react-icons/bi";
 import { FaRupeeSign, FaTrashAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCartandWishList } from "../../context/CartAndWishlist-context";
-import { reducerTypes } from "../../context/Reducer/reducertype";
-const { REMOVE_ALL_ITEMS_IN_CART } = reducerTypes;
+import { useAuth } from "../../context/Authentication/auth-context";
+import toast from "react-hot-toast";
 
 export const TextOnlyCardWithPrice = () => {
-  const { cartState, getCartItemCount, cartDispatch } = useCartandWishList();
+  const {
+    cartState,
+    getCartItemCount,
+    cartDispatch,
+    clearCartHandler,
+    addToOrderHandler,
+  } = useCartandWishList();
   const { cartItem } = cartState;
   const itemsInCart = getCartItemCount(cartItem);
   const DeliveryCharges = 50;
+  const { pathname } = useLocation();
+  const {
+    user: { email, userName, authenticationToken },
+    selectedAddress,
+  } = useAuth();
+  const navigate = useNavigate();
 
   // calculating total original price
   const totalOriginalPrice = cartItem.reduce(
@@ -27,6 +39,60 @@ export const TextOnlyCardWithPrice = () => {
 
   //  billing
   const GrandTotal = totalSellingPrice + DeliveryCharges;
+
+  const paymentSuccessFul = async (razorpayresponse) => {
+    let responseData = await addToOrderHandler(authenticationToken, {
+      products: cartItem,
+      amount: totalSellingPrice,
+      paymentId: razorpayresponse.razorpay_payment_id,
+      deliveryAddress: selectedAddress,
+    });
+    return responseData;
+  };
+
+  const displayRazorpay = (amount) => {
+    const options = {
+      key: process.env.REACT_APP_RAZORPAY_KEYID,
+      amount: amount * 100,
+      currency: "INR",
+      name: "Mehak Store",
+      description: "Thank you for shopping with us",
+      image:
+        "https://ik.imagekit.io/qrhnvir8bf0/Mehak_m4Ibmiz65.png?ik-sdk-version=javascript-1.4.3&updatedAt=1654498717422",
+      handler: function (response) {
+        paymentSuccessFul(response);
+        clearCartHandler();
+        navigate("/checkout");
+      },
+      modal: {
+        ondismiss: function () {
+          toast("payment cancelled", { icon: "❌" });
+        },
+      },
+      prefill: {
+        name: userName,
+        email: email,
+        contact: "9876543201",
+      },
+      theme: {
+        color: "#f05e76",
+      },
+    };
+    const razorpayEmbed = new window.Razorpay(options);
+    razorpayEmbed.open();
+    razorpayEmbed.on("payment.failed", function (response) {
+      console.error("payment failed");
+      toast("payment failed", { icon: "❌" });
+    });
+  };
+
+  const checkoutHandler = () => {
+    if (selectedAddress === "" || selectedAddress === undefined) {
+      toast("please select an address", { icon: "✔" });
+    } else {
+      displayRazorpay(GrandTotal);
+    }
+  };
 
   return (
     <div className="text-only-card card-with-shadow">
@@ -82,14 +148,20 @@ export const TextOnlyCardWithPrice = () => {
             {BagDiscount} on this order.
           </p>
           <span>
-            <Link to="/checkout">
+            {pathname === "/payment" ? (
               <button
                 className="link-btn border-round btn-proceed"
-                onClick={() => cartDispatch({ type: REMOVE_ALL_ITEMS_IN_CART })}
+                onClick={checkoutHandler}
               >
-                PROCEED
+                Checkout
               </button>
-            </Link>
+            ) : (
+              <Link to="/payment">
+                <button className="link-btn border-round btn-proceed">
+                  PROCEED
+                </button>
+              </Link>
+            )}
           </span>
         </div>
       </div>
