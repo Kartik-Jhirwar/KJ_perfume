@@ -6,6 +6,10 @@
   display: none;
   font-size: 2rem;
 }
+.logo-container {
+  position: absolute;
+  right: 36rem;
+}
 
 .navbar {
   height: 8rem;
@@ -35,7 +39,7 @@
 }
 
 .input-searchbox {
-  min-width: 28rem;
+  min-width: 32rem;
   padding: 1rem;
 }
 

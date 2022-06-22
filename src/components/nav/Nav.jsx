@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../nav/nav.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { SearchBar } from "../Searchbar/searchbar";
 import { FaRegHeart, FaShoppingBag, FaUserAlt } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
@@ -28,6 +28,7 @@ export const Nav = () => {
     color: isActive ? "#10b681" : "",
   });
   const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
 
   return (
     <nav className="navbar">
@@ -64,9 +65,12 @@ export const Nav = () => {
           <li className="nav-item">
             <Categories />
           </li>
-          <li className="nav-item searchbox-container">
-            <SearchBar />
-          </li>
+
+          {pathname === "/productpage" && (
+            <li className="nav-item searchbox-container">
+              <SearchBar />
+            </li>
+          )}
         </ul>
       </div>
       <div className="logo-container">

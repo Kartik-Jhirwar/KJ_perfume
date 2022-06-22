@@ -112,7 +112,7 @@ export const TextOnlyCardWithPrice = () => {
 
         <div className="item-price-detail">
           <p className="card-detail"> Bag Discount</p>
-          <span className="discount">
+          <span className="discount flex-center">
             <BiMinus />
             <FaRupeeSign className="rupees-sign-cart" />
             {BagDiscount}
