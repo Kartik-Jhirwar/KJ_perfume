@@ -1,7 +1,7 @@
  import { reducerTypes } from "./reducertype";
  const {SORT_LTOH, SORT_HTOL,FILTER_BY_PRICE,SORT_BY_STOCK,FAST_DELIVERY,SORT_BY_150ML,SORT_BY_100ML,
     CLEAR_QUANTITY, SORT_BY_RATING4,SORT_BY_RATING3,SORT_BY_RATING2,SET_BRAND,UNSET_BRAND,CLEAR_FILTER,
-    SERACH_QUERY,MEN_CATEGORY,WOMEN_CATEGORY,CLEAR_CATEGORY,CLEAR_RATING}=reducerTypes;
+    SERACH_QUERY,MEN_CATEGORY,WOMEN_CATEGORY,CLEAR_CATEGORY,CLEAR_RATING,CLEAR_SEARCH}=reducerTypes;
 
  export const filterProductReducer=(state,action)=>{      
       switch (action.type) {
@@ -69,6 +69,9 @@
 
            case CLEAR_CATEGORY:
                 return {...state,sortByCategory:null}
+
+           case CLEAR_SEARCH:
+               return {searchByQuery:""}     
 
           default:
             return  state;

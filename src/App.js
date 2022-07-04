@@ -24,7 +24,7 @@ function App() {
 
   useEffect(()=>{
     document.title=`${path} || Mehak Shop`;
-    return ()=>(dispatch({type:reducerTypes.CLEAR_FILTER}));
+    return ()=>(dispatch({type:reducerTypes.CLEAR_SEARCH}));
 
   },[pathname]);
   return (  
