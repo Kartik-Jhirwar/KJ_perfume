@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../nav/nav.css";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate,Link } from "react-router-dom";
 import { SearchBar } from "../Searchbar/searchbar";
 import { FaRegHeart, FaShoppingBag, FaUserAlt } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
@@ -66,11 +66,11 @@ export const Nav = () => {
             <Categories />
           </li>
 
-          {pathname === "/productpage" && (
+          <NavLink to="/productpage">
             <li className="nav-item searchbox-container">
               <SearchBar />
             </li>
-          )}
+          </NavLink>
         </ul>
       </div>
       <div className="logo-container">

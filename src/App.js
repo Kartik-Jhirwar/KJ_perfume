@@ -7,6 +7,9 @@ import { useState,  useEffect  } from "react";
 import { Toaster } from 'react-hot-toast';
 import { RequiresAuth } from "./Router/RequiresAuth";
 import { useCartandWishList } from "./context/CartAndWishlist-context";
+import { reducerTypes } from "./context/Reducer/reducertype";
+import { useProduct } from "./context/product-context";
+
 
 
 
@@ -17,9 +20,12 @@ function App() {
   const [isNavVisible,setIsNavVisible]=useState(true);
   const path=pathname.slice(1);
   const {orders}=useCartandWishList();
+  const {state,dispatch}=useProduct();
 
   useEffect(()=>{
-    document.title=`${path} || Mehak Shop`
+    document.title=`${path} || Mehak Shop`;
+    return ()=>(dispatch({type:reducerTypes.CLEAR_FILTER}));
+
   },[pathname]);
   return (  
        <div className="grid-container">   

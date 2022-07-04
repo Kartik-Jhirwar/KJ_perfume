@@ -8,6 +8,7 @@ export const SearchBar = () => {
       <input
         type="text"
         placeholder="search"
+        value={state.searchByQuery}
         className="input-searchbox border-round"
         onChange={(event) =>
           dispatch({
