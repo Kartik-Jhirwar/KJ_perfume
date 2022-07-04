@@ -71,7 +71,7 @@
                 return {...state,sortByCategory:null}
 
            case CLEAR_SEARCH:
-               return {searchByQuery:""}     
+               return {...state,searchByQuery:""}     
 
           default:
             return  state;

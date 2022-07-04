@@ -152,6 +152,7 @@ export const TextOnlyCardWithPrice = () => {
               <button
                 className="link-btn border-round btn-proceed"
                 onClick={checkoutHandler}
+                style={{ display: !selectedAddress && "none" }}
               >
                 Checkout
               </button>

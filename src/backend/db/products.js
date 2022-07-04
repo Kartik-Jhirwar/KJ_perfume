@@ -8,6 +8,38 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
+    productName:"Armani-sundigioia- 150ml (MEN)",
+    quantity:"150 ml",
+    brand:"Armani",
+    rating:"4.5",
+    isRatingGood:true,
+    originalPrice:15000,
+    sellingPrice:12000,
+    discountOffer:"20% off",
+    isSoldOut:false,
+    fastDelivery:false,
+    image:"/assets/MEN/armanisundigioia_men.jpg",
+    categoryName: "Men",
+    description:"Sun di Gioia captures the warmth of the Mediterranean sun. Radiant and feminine, shiny and joyful, the fragrance evokes the scent of salty skin and like a second skin, it is in complete, joyful harmony with the Female who wears it. The scent starts off with solar flowers."
+  },
+  {
+    _id: uuid(),
+    productName:"Chanel-paris-1957-150ml (MEN)",
+    qunatity:"150 ml",
+    brand:"Chanel",
+    rating:"4.6",
+    isRatingGood:true,
+    originalPrice:13000,
+    sellingPrice:10400,
+    discountOffer:"20% off",
+    isSoldOut:true,
+    fastDelivery:false,
+    image:"/assets/MEN/chanel-paris-men.jpg",
+    categoryName: "Men",
+    description:"A sensual accord of white musk is delicately fashioned with floral notes of bergamot, iris and neroli, woody notes of cedar, powdery accents and a hint of honey. A luminous scent, a statement to the timeless style of CHANEL."
+  },
+  {
+    _id: uuid(),
     productName:"Acqua-di-Gio-Essenza- 150ml (MEN)",
     quantity:"150 ml",
     brand:"Armani",
@@ -70,38 +102,7 @@ export const products = [
     categoryName: "Men",
     description:"To preserve their unique characteristics, Armani decided to work with oud oil in a luxury fragrance the same way he would approach a rich gold and silver brocade. “With Oud Royal, I wanted to capture the spirit of Eastern alchemy by elevating oud wood — the precious symbol of the Orient itself. Treating it as a piece of jewellery is the only way to do justice to its magnificent richness."
   },
-  {
-    _id: uuid(),
-    productName:"Armani-sundigioia- 150ml (MEN)",
-    quantity:"150 ml",
-    brand:"Armani",
-    rating:"4.5",
-    isRatingGood:true,
-    originalPrice:4000,
-    sellingPrice:2000,
-    discountOffer:"50% off",
-    isSoldOut:false,
-    fastDelivery:false,
-    image:"/assets/MEN/armanisundigioia_men.jpg",
-    categoryName: "Men",
-    description:"Sun di Gioia captures the warmth of the Mediterranean sun. Radiant and feminine, shiny and joyful, the fragrance evokes the scent of salty skin and like a second skin, it is in complete, joyful harmony with the Female who wears it. The scent starts off with solar flowers."
-  },
-  {
-    _id: uuid(),
-    productName:"Chanel-paris-1957-150ml (MEN)",
-    qunatity:"150 ml",
-    brand:"Chanel",
-    rating:"4.6",
-    isRatingGood:true,
-    originalPrice:13000,
-    sellingPrice:10400,
-    discountOffer:"20% off",
-    isSoldOut:true,
-    fastDelivery:false,
-    image:"/assets/MEN/chanel-paris-men.jpg",
-    categoryName: "Men",
-    description:"A sensual accord of white musk is delicately fashioned with floral notes of bergamot, iris and neroli, woody notes of cedar, powdery accents and a hint of honey. A luminous scent, a statement to the timeless style of CHANEL."
-  },
+  
   {
     _id: uuid(),
     productName:"Chanel-platinum-egoiste- 150ml (MEN)",

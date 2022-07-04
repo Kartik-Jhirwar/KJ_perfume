@@ -7,7 +7,7 @@ const ProductContext =createContext();
 const initialState={  
   sortByPrice: null,
   sortByCategory: null,
-  pricerange: 15000,
+  pricerange: 12000,
   showAllProduct: true,
   fastDelivery: false,
   sortByBrand: [],

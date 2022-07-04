@@ -87,7 +87,7 @@ export const FilterBar = () => {
           <li>
             <input
               type="range"
-              max={15000}
+              max={12000}
               min={50}
               steps={1000}
               value={pricerange}
@@ -106,8 +106,8 @@ export const FilterBar = () => {
               <option value="3000" label="3k"></option>
               <option value="5000" label="5k"></option>
               <option
-                value="15000"
-                label="15k"
+                value="12000"
+                label="12k"
                 className="last-option"
               ></option>
             </datalist>
@@ -240,18 +240,6 @@ export const FilterBar = () => {
             100 ml
           </label>
         </li>
-        <li className="sidebar-list">
-          <label htmlFor="clearquantity" className="sidebar">
-            <input
-              type="radio"
-              value="clear"
-              id="clearquantity"
-              name="quantity-btn"
-              onChange={() => dispatch({ type: CLEAR_QUANTITY })}
-            />
-            Clear Quantity Filter
-          </label>
-        </li>
         {/* <!-- ---ratings----- --> */}
         <h4 className="sidebar-content-item">Ratings</h4>
         <li className="sidebar-list">
@@ -291,18 +279,6 @@ export const FilterBar = () => {
               onChange={() => dispatch({ type: SORT_BY_RATING2 })}
             />
             2 <FaRegStar /> & above
-          </label>
-        </li>
-        <li className="sidebar-list">
-          <label htmlFor="clearrating" className="sidebar">
-            <input
-              type="radio"
-              value="1starts"
-              name="rating"
-              id="clearrating"
-              onChange={() => dispatch({ type: CLEAR_RATING })}
-            />
-            Clear Rating Filter
           </label>
         </li>
       </ul>

@@ -6,6 +6,7 @@ import { BsExclamationTriangle } from "react-icons/bs";
 import { initialSignUpData } from "../../constants/auth-constants";
 import { useAuth } from "../../context/Authentication/auth-context";
 import { useProduct } from "../../context/product-context";
+import { Loader } from "../../components";
 
 export const SignUpPage = () => {
   const [signupData, setSignUpData] = useState(initialSignUpData);
