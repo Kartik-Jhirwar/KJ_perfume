@@ -5,7 +5,7 @@ import "../Footer/Footer.css";
 export const Footer = () => {
   return (
     <div className="footer">
-      <div className="footer-heading">Made by Mariya Sada | © | 2022</div>
+      <div className="footer-heading">Made by KJ | © | 2024</div>
       <ul className="nav-items">
         <li className="nav-item">
           <a href="https://github.com/mariyasada" target="_blank">
