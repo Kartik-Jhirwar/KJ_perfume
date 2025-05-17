@@ -8,7 +8,7 @@ export const Footer = () => {
       <div className="footer-heading">Made by KJ | © | 2024</div>
       <ul className="nav-items">
         <li className="nav-item">
-          <a href="https://github.com/mariyasada" target="_blank">
+          <a href="/" target="_blank">
             <span className="nav-icon">
               <BsGithub title="Github" />
             </span>
@@ -16,7 +16,7 @@ export const Footer = () => {
         </li>
 
         <li className="nav-item">
-          <a href="https://twitter.com/sada_mariya" target="_blank">
+          <a href="/" target="_blank">
             <span className="nav-icon">
               <BsTwitter title="Twitter" />
             </span>
@@ -25,7 +25,7 @@ export const Footer = () => {
 
         <li className="nav-item">
           <a
-            href="https://www.linkedin.com/in/mariya-sada-1b6443139"
+            href="/"
             target="_blank"
           >
             <span className="nav-icon">
